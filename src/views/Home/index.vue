@@ -4,22 +4,23 @@
       <div class="home-subscribe">
         <div class="home-subscribe-left">
           <h1>Unleashing True Web3Games!</h1>
-          <p>skjdlksjgasjdlkgjlskdjgksjdgsdgsdgdsgsdfsdfhgfgegfdgdgf</p>
-          <div class="subscribeToBtn" @click="subscribeTo">订阅</div>
+          <p>{{ $t("home.homeBanner") }}</p>
+          <div class="home-subscribe-left-btn">
+            <div @click="subscribeTo">{{ $t("home.homeSubscribeBtn") }}</div>
+            <div class="home-subscribe-left-docs">{{ $t("home.homeDocs") }}</div>
+          </div>
         </div>
-        <div class="home-subscribe-right">
+        <!-- <div class="home-subscribe-right">
           <div class="rig-img">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-        </div>
+        </div> -->
       </div>
-      <!--  -->
-      <PublicTitle class="home-title" title="Trusted By" />
-      <div class="home-trusted"></div>
-      <PublicTitle class="home-title" title="支持去中心化的Web3游戏" />
+      <div class="home-trusted">{{ $t('home.homeTrusted') }}</div>
+      <PublicTitle class="home-title" :title="$t('home.homeCenoTit')" />
       <div class="home-content">
         <p>
-          {{$t(`home.homeTitle`)}}
+          {{ $t(`home.homeTitle`) }}
           Cenozoic是一个新的协议，旨在开放、透明、公平地支持Web3游戏的发展，
           让新时代的游戏实现完全地去中心化，没有上帝视角、没有中心化服务器控制。
         </p>
@@ -37,11 +38,11 @@
           <div class="home-tokens-logo">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
+          <div class="home-tokens-title">{{ $t('home.homeGame') }}</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
+            <p>{{ $t('home.homeGameContent1') }}</p>
             <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
+              {{ $t('home.homeGameContent2') }}
             </p>
           </div>
         </li>
@@ -49,85 +50,70 @@
           <div class="home-tokens-logo">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
+          <div class="home-tokens-title">{{$t('home.homeGovernance')}}</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
+            <p></p>
             <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
+              {{$t('home.homeGovernanceContent')}}
             </p>
           </div>
         </li>
       </div>
-      <PublicTitle class="home-title" title="veZOIC" />
+      <PublicTitle class="home-title" :title="$t('home.homeVeZOIC')" />
       <div class="home-veZoic">
-        <div class="home-veZoic-title">您将左右每一个决策</div>
-        <div class="home-veZoic-tit">全方位的Vote-escrowed系统</div>
+        <div class="home-veZoic-title">{{$t('home.homeVeZOICTit1')}}</div>
+        <div class="home-veZoic-tit">{{$t('home.homeVeZOICTit2')}}</div>
         <div class="home-veZoic-content">
           <p>
-            Cenozoic的治理哟来于投票托管的ZOIC,也称为veZOIC,它可以实现更高程度的去中心化。
+            {{$t('home.homeVeZOICContent')}}
           </p>
         </div>
-        <el-button @click="expect">敬请期待</el-button>
+        <el-button @click="expect">{{$t('home.homeVeZOICBtn')}}</el-button>
       </div>
-      <PublicTitle class="home-title" title="How it Works" />
+      <PublicTitle class="home-title" :title="$t('home.homeHowTit')" />
       <div class="home-how">
         <li>
           <div class="home-tokens-logo">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
+          <div class="home-tokens-title">{{$t('home.homeDepositsTit')}}</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
-            <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
-            </p>
+            <p>{{$t('home.homeDepositsContent')}}</p>
           </div>
         </li>
         <li>
           <div class="home-tokens-logo">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
+          <div class="home-tokens-title">{{$t('home.homeEarnTit')}}</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
-            <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
-            </p>
+            <p>{{$t('home.homeEarnContent')}}</p>
           </div>
         </li>
         <li>
           <div class="home-tokens-logo">
             <img src="./../../assets/logo.png" alt="" />
           </div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
+          <div class="home-tokens-title">{{$t('home.homeReceiveTit')}}</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
-            <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
-            </p>
+            <p>{{$t('home.homeReceiveContent')}}</p>
           </div>
         </li>
       </div>
-      <PublicTitle class="home-title" title="好处" />
+      <PublicTitle class="home-title" :title="$t('home.homeAdvantageTit')" />
       <div class="home-benefit">
         <li>
           <div class="home-tokens-logo">玩家</div>
           <div class="home-tokens-title">游戏稳定币：CEON</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
-            <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
-            </p>
+            <p>{{$t('home.homeAdvantageLift1')}}</p>
+            <p>{{$t('home.homeAdvantageLift2')}}</p>
           </div>
         </li>
         <li>
           <div class="home-tokens-logo">玩家</div>
-          <div class="home-tokens-title">游戏稳定币：CEON</div>
           <div class="home-tokens-content">
-            <p>100CENO≈1USDT</p>
-            <p>
-              CENO是一种资产担保型加密货币，被用于游戏内的资产定价、支付、结算。用户需要质押USDT或USDC来铸造对应1:100的CENO,质押是可赎回的。
-            </p>
+            <p>{{$t('home.homeAdvantageRight1')}}</p>
           </div>
         </li>
       </div>
@@ -156,10 +142,7 @@
               },
             ]"
           >
-            <el-input
-              placeholder="Enter E-mail"
-              v-model="submitForm.email"
-            />
+            <el-input placeholder="Enter E-mail" v-model="submitForm.email" />
           </el-form-item>
         </el-form>
       </div>
@@ -186,10 +169,7 @@
 // @ is an alias to /src
 import PublicTitle from "@/components/publicTitle.vue";
 import Bottom from "@/components/bottom/index.vue";
-import {
-  getWalletAddress,
-  isWalletConnected,
-} from "./../../white/index.js";
+import { getWalletAddress, isWalletConnected } from "./../../white/index.js";
 
 export default {
   name: "Home",
@@ -245,8 +225,8 @@ export default {
                 });
               };
               run();
-              this.EmailDialogVisible = false
-              this.submitForm.email = ''
+              this.EmailDialogVisible = false;
+              this.submitForm.email = "";
             } else {
               alert("请先链接钱包");
               ethereum.request({ method: "eth_requestAccounts" });
@@ -275,7 +255,7 @@ export default {
 <style lang="less" scoped>
 .home {
   padding-top: 60px;
-  background: #151d29;
+  background: #070707;
   color: #fff;
   text-align: left;
   .home-conent {
@@ -284,7 +264,8 @@ export default {
     .home-subscribe {
       background: #232835;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
+      // justify-content: center;
       margin-bottom: 40px;
       .home-subscribe-left {
         display: flex;
@@ -293,39 +274,52 @@ export default {
         height: 400px;
         padding: 20px;
         line-height: 1.5;
+        text-align: center;
+        width: 50%;
         h1 {
           font-size: 36px;
         }
-        .subscribeToBtn {
-          width: 100px;
-          height: 35px;
-          line-height: 35px;
-          background: #dfff00;
-          color: #000;
-          border-radius: 5px;
-          text-align: center;
+        p {
+          color: #a6a6a6;
         }
-      }
-      .home-subscribe-right {
-        width: 30%;
-        display: flex;
-        justify-content: flex-end;
-        .rig-img {
-          width: 300px;
-          img {
-            width: 100%;
-            height: 100%;
+        .home-subscribe-left-btn {
+          margin: 0 auto;
+          display: flex;
+          div {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            background: linear-gradient(to bottom, #d6f9a3, #98ebc7);
+            color: #000;
+            border-radius: 5px;
+          }
+          .home-subscribe-left-docs {
+            margin-left: 20px;
           }
         }
       }
+      // .home-subscribe-right {
+      //   width: 30%;
+      //   display: flex;
+      //   justify-content: flex-end;
+      //   .rig-img {
+      //     width: 300px;
+      //     img {
+      //       width: 100%;
+      //       height: 100%;
+      //     }
+      //   }
+      // }
+    }
+    .home-trusted {
+      height: 120px;
+      color: #838788;
+      background: #121315;
+      padding-top: 20px;
+      text-align: center;
     }
     .home-title {
       margin: 20px 0;
-    }
-    .home-trusted {
-      height: 200px;
-      background: #232835;
-      margin: 40px 0;
     }
     .home-content {
       line-height: 1.5;

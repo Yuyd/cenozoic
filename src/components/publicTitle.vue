@@ -1,7 +1,6 @@
 <template>
   <div class="public-title">
-      <h1>{{ title }}</h1>
-      <hr>
+      <p>{{ title }}</p>
   </div>
 </template>
 <script>
@@ -14,5 +13,9 @@ export default {
 
 <style lang="less" scoped>
 .public-title {
+  font-size: 32px;
+  background: linear-gradient(to bottom, #d6f9a3, #98ebc7);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 </style>

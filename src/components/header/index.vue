@@ -3,7 +3,6 @@
     <div class="header-content">
       <div class="header-left">
         <div class="left">Solar Protocol</div>
-        {{ $t('home.homeAddress') }}
         <div class="header-table">
           <div v-for="(item, index) in headerList" :key="index">
             <li
@@ -44,7 +43,8 @@
             <div>
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                  {{$t('zh')}}<i class="el-icon-arrow-down el-icon--right"></i>
+                  {{ getLang(language)
+                  }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item :disabled="language === 'zh'" command="zh">
@@ -59,9 +59,9 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
-            <div v-if="!myAddress" @click="toWhite">
-              {{ $t("home.homeTitle") }}
-            </div>
+          </li>
+          <li class="connect-white">
+            <div v-if="!myAddress" @click="toWhite">Connect</div>
             <div class="header-address" v-else>
               <span>{{ myAddress.slice(0, -9) }}</span>
               <span>{{ myAddress.slice(-7) }}</span>
@@ -118,6 +118,7 @@
 
 <script>
 import axios from "axios";
+import getLang from "./../../lang/language.json";
 // import { getWalletAddress } from "../../wallet";
 // import upWallet from "./../../util/unipasswallet/unipasswallet.js";
 // import LoginDialog from "./../login/index.vue";
@@ -164,6 +165,10 @@ export default {
       this.language = value;
       this.$i18n.locale = value;
       window.sessionStorage.setItem("lang", this.language);
+    },
+    // 语言选择
+    getLang(language) {
+      return getLang[language];
     },
     getWalletAddress1() {
       this.myAddress = localStorage.getItem("address");
@@ -354,7 +359,7 @@ export default {
   z-index: 999;
 
   .header-content {
-    width: 1080px;
+    // width: 1080px;
     height: 60px;
     margin: 0 auto;
     display: flex;
@@ -366,7 +371,7 @@ export default {
       align-items: center;
       height: 100%;
       .left {
-        color: #9500b2;
+        // color: #9500b2;
         font-weight: 700;
         font-size: 28px;
       }
@@ -445,19 +450,26 @@ export default {
           padding: 0 10px;
           // width: 100px;
           border-radius: 5px;
-          background: #e09800;
+
           font-size: 14px;
           cursor: pointer;
-          .header-address {
-            width: 120px;
-            span {
-              display: inline-block;
-              width: 50%;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
+          .el-dropdown {
+            color: #fff;
           }
+          // .header-address {
+          //   width: 120px;
+          //   span {
+          //     display: inline-block;
+          //     width: 50%;
+          //     overflow: hidden;
+          //     text-overflow: ellipsis;
+          //     white-space: nowrap;
+          //   }
+          // }
+        }
+        .connect-white {
+          color: #a3b88c;
+          border: 1px solid #a3b88c;
         }
         .portrait {
           width: 15px;

@@ -1,6 +1,6 @@
 <template>
   <div class="bottom">
-    <div class="bottom-left">关于我们</div>
+    <div class="bottom-left">{{ $t('bottom.btmFollow') }}</div>
     <div class="bottom-right">
       <li v-for="(item, index) in outerChainList" :key="index">
         <div class="outer-img">
