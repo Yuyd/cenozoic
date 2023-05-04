@@ -1,21 +1,24 @@
 <template>
   <div class="public-title">
-      <p>{{ title }}</p>
+    <span>{{ title }}</span>
   </div>
 </template>
 <script>
 export default {
   props: {
-    title: String
+    title: String,
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
 .public-title {
-  font-size: 32px;
-  background: linear-gradient(to bottom, #d6f9a3, #98ebc7);
-  -webkit-background-clip: text;
-  color: transparent;
+  span {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(to right, #3cfdce, #e0f871);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 </style>

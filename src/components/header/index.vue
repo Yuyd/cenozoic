@@ -2,8 +2,11 @@
   <div class="header">
     <div class="header-content">
       <div class="header-left">
-        <div class="left">Solar Protocol</div>
-        <div class="header-table">
+        <div class="left">
+          <div class="logo"><img src="./../../assets/logo.png" alt="" /></div>
+          <div class="name">Cenozoic</div>
+        </div>
+        <!-- <div class="header-table">
           <div v-for="(item, index) in headerList" :key="index">
             <li
               v-if="index !== 3"
@@ -35,7 +38,7 @@
               </div>
             </li>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="header-right">
         <div>
@@ -43,7 +46,7 @@
             <div>
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                  {{ getLang(language)
+                  {{ getLang(language) || "中文"
                   }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -53,8 +56,20 @@
                   <el-dropdown-item :disabled="language === 'en'" command="en">
                     English
                   </el-dropdown-item>
+                  <el-dropdown-item :disabled="language === 'da'" command="da">
+                    Dansk
+                  </el-dropdown-item>
+                  <el-dropdown-item :disabled="language === 'es'" command="es">
+                    Español
+                  </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'ja'" command="ja">
-                    日语
+                    日本語
+                  </el-dropdown-item>
+                  <el-dropdown-item :disabled="language === 'ko'" command="ko">
+                    한국어
+                  </el-dropdown-item>
+                  <el-dropdown-item :disabled="language === 'pt'" command="pt">
+                    Português
                   </el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
@@ -371,13 +386,28 @@ export default {
       align-items: center;
       height: 100%;
       .left {
-        // color: #9500b2;
+        display: flex;
+        align-items: center;
         font-weight: 700;
-        font-size: 28px;
+        .logo {
+          width: 40px;
+          height: 40px;
+          padding-left: 10px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .name {
+          font-size: 18px;
+          background: linear-gradient(to right, #41fcca, #e2f96d);
+          -webkit-background-clip: text;
+          color: transparent;
+        }
       }
       div {
-        display: flex;
-        padding: 0 20px;
+        
+        // padding: 0 20px;
       }
       .header-logo {
       }
