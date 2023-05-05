@@ -368,7 +368,7 @@ export default {
 <style scoped lang="less">
 .header {
   width: 100%;
-  background: #151d29;
+  background: #01090b;
   color: #fff;
   position: fixed;
   z-index: 999;

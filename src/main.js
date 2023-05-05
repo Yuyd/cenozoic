@@ -39,10 +39,23 @@ import Web3Utils from "web3-utils";
 Vue.use(new Web3)
 Vue.use(Web3Utils)
 
+import AOS from 'aos/dist/aos.js'
+import 'aos/dist/aos.css'
+Vue.use(AOS)
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   i18n,
-  render: h => h(App)
+  render: h => h(App),
+  mounted() {
+    AOS.init({
+      offset: 100,   
+      duration: 600,   
+      easing: 'ease-in-sine',   
+      delay: 100,
+      // disable: 'mobile'
+   });
+  },
 }).$mount('#app')

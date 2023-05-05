@@ -3,10 +3,16 @@
     <div class="home-subscribe">
       <div class="home-conent">
         <div class="home-subscribe-left">
-          <h1>{{ $t("home.homeTitle") }}</h1>
-          <p>{{ $t("home.homeBanner") }}</p>
-          <div class="home-subscribe-left-btn">
-            <div @click="subscribeTo">{{ $t("home.homeSubscribeBtn") }}</div>
+          <h1 data-aos="fade">{{ $t("home.homeTitle") }}</h1>
+          <p data-aos="zoom-in">{{ $t("home.homeBanner") }}</p>
+          <div
+            class="home-subscribe-left-btn"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            <div class="subscribeTo" @click="subscribeTo">
+              {{ $t("home.homeSubscribeBtn") }}
+            </div>
             <div class="home-subscribe-left-docs">
               <span>
                 {{ $t("home.homeDocs") }}
@@ -24,9 +30,12 @@
     <div class="home-introduce">
       <div class="home-conent">
         <div class="home-introduce-left">
-          <div class="home-introduce-left1">
+          <div
+            class="home-introduce-left1 home-introduce-bg"
+            data-aos="fade-right"
+          >
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/10.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeSupporting") }}
@@ -35,18 +44,24 @@
               {{ $t("home.homeSupportingContent") }}
             </div>
           </div>
-          <div class="home-introduce-left2">
+          <div
+            class="home-introduce-left2 home-introduce-bg"
+            data-aos="fade-right"
+          >
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/12.png" alt="" />
             </div>
             <div class="home-common-title">{{ $t("home.homeCoMpos") }}</div>
             <div class="home-common-content">
               {{ $t("home.homeCoMposContent") }}
             </div>
           </div>
-          <div class="home-introduce-left3">
+          <div
+            class="home-introduce-left3 home-introduce-bg"
+            data-aos="fade-right"
+          >
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/14.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeBuilding") }}
@@ -57,9 +72,12 @@
           </div>
         </div>
         <div class="home-introduce-right">
-          <div class="home-introduce-right1">
+          <div
+            class="home-introduce-right1 home-introduce-bg"
+            data-aos="fade-left"
+          >
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/11.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeInteroper") }}
@@ -68,9 +86,12 @@
               {{ $t("home.homeInteroperContent") }}
             </div>
           </div>
-          <div class="home-introduce-right2">
+          <div
+            class="home-introduce-right2 home-introduce-bg"
+            data-aos="fade-left"
+          >
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/13.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeTranspraent") }}
@@ -84,11 +105,15 @@
     </div>
     <div class="home-content">
       <div class="home-conent">
-        <PublicTitle class="home-title" :title="$t('home.homeCenoTit')" />
+        <PublicTitle
+          data-aos="zoom-in-up"
+          class="home-title"
+          :title="$t('home.homeCenoTit')"
+        />
         <ul>
-          <li>
+          <li data-aos="zoom-out-up">
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/15.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeGame") }}
@@ -100,9 +125,9 @@
               {{ $t("home.homeGameContent2") }}
             </div>
           </li>
-          <li>
+          <li data-aos="zoom-out-up">
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/16.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeGovernance") }}
@@ -118,30 +143,53 @@
     <div class="home-veZoic">
       <div class="home-conent">
         <li>
-          <div class="home-veZoicTitle">{{ $t("home.homeVeZOIC") }}</div>
-          <div class="home-veZoic-title">{{ $t("home.homeVeZOICTit1") }}</div>
-          <div class="home-veZoic-tit">{{ $t("home.homeVeZOICTit2") }}</div>
+          <div class="home-veZoicTitle" data-aos="zoom-in-up">
+            {{ $t("home.homeVeZOIC") }}
+          </div>
+          <div class="home-veZoic-title" data-aos="zoom-in">
+            {{ $t("home.homeVeZOICTit1") }}
+          </div>
+          <div class="home-veZoic-tit" data-aos="zoom-in">
+            {{ $t("home.homeVeZOICTit2") }}
+          </div>
           <div class="home-veZoic-content">
             <p>
               {{ $t("home.homeVeZOICContent") }}
             </p>
           </div>
-          <el-button @click="expect">{{ $t("home.homeVeZOICBtn") }}</el-button>
+          <el-button
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            @click="expect"
+            >{{ $t("home.homeVeZOICBtn") }}</el-button
+          >
         </li>
-        <li>
+        <li
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
           <div class="home-veZoic-img">
-            <img src="./../../assets/logo.png" alt="" />
+            <img src="./../../assets/docs/17.png" alt="" />
           </div>
         </li>
       </div>
     </div>
     <div class="home-how">
-      <PublicTitle class="home-title" :title="$t('home.homeHowTit')" />
+      <PublicTitle
+        data-aos="zoom-in-up"
+        class="home-title"
+        :title="$t('home.homeHowTit')"
+      />
       <div class="home-conent">
-        <li>
+        <li
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
           <div class="upward">
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/19.png" alt="" />
             </div>
             <div class="home-common-title">
               {{ $t("home.homeDepositsTit") }}
@@ -151,10 +199,14 @@
             </div>
           </div>
         </li>
-        <li>
+        <li
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
           <div class="upward">
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/20.png" alt="" />
             </div>
             <div class="home-common-title">{{ $t("home.homeEarnTit") }}</div>
             <div class="home-common-content">
@@ -162,10 +214,14 @@
             </div>
           </div>
         </li>
-        <li>
+        <li
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
           <div class="upward">
             <div class="home-common-icon">
-              <img src="./../../assets/logo.png" alt="" />
+              <img src="./../../assets/docs/21.png" alt="" />
             </div>
             <div class="home-common-title">{{ $t("home.homeReceiveTit") }}</div>
             <div class="home-common-content">
@@ -176,11 +232,18 @@
       </div>
     </div>
     <div class="home-benefit">
-      <PublicTitle class="home-title" :title="$t('home.homeAdvantageTit')" />
+      <PublicTitle
+        data-aos="zoom-in-up"
+        class="home-title"
+        :title="$t('home.homeAdvantageTit')"
+      />
       <div class="home-conent">
-        <li>
+        <li data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
-            <div class="home-tokens-logo">{{ $t("home.homeAdvantageLift3") }}</div>
+            <div class="home-tokens-logo">
+              {{ $t("home.homeAdvantageLift3") }}
+            </div>
             <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
             <div class="home-tokens-content">
               <p>{{ $t("home.homeAdvantageLift1") }}</p>
@@ -188,9 +251,12 @@
             </div>
           </div>
         </li>
-        <li>
+        <li data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
-            <div class="home-tokens-logo">{{ $t("home.homeAdvantageRight2") }}</div>
+            <div class="home-tokens-logo">
+              {{ $t("home.homeAdvantageRight2") }}
+            </div>
             <div class="home-tokens-content">
               <p>{{ $t("home.homeAdvantageRight1") }}</p>
             </div>
@@ -203,9 +269,6 @@
         <Bottom />
       </div>
     </div>
-
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-
     <el-dialog
       title="Leave your email to know about our latest progress"
       :visible.sync="EmailDialogVisible"
@@ -347,8 +410,8 @@ export default {
     width: 1080px;
     margin: 0 auto;
     .home-common-icon {
-      width: 50px;
-      height: 50px;
+      width: 57px;
+      height: 42px;
       margin: 0 auto;
       img {
         width: 100%;
@@ -356,15 +419,16 @@ export default {
       }
     }
     .home-common-title {
-      margin: 20px 0;
+      margin: 10px 0;
     }
   }
 
   .home-subscribe {
     background: #232835;
-
     // justify-content: center;
-    margin-bottom: 40px;
+    background: url("./../../assets/docs/03.jpg") no-repeat;
+    background-size: 100% 100%;
+    padding-top: 40px;
     .home-conent {
       display: flex;
       justify-content: space-around;
@@ -372,6 +436,7 @@ export default {
         // display: flex;
         // justify-content: inherit;
         // flex-direction: column;
+        margin-top: 60px;
         height: 400px;
         padding: 20px;
         line-height: 1.5;
@@ -395,6 +460,9 @@ export default {
             background: linear-gradient(to right, #3dfccb, #e1f86e);
             color: #000;
             border-radius: 5px;
+          }
+          .subscribeTo {
+            cursor: pointer;
           }
           .home-subscribe-left-docs {
             margin-left: 20px;
@@ -429,48 +497,55 @@ export default {
     }
   }
   .home-introduce {
+    background: url("./../../assets/docs/05.jpg") no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    padding: 40px 0;
     .home-conent {
       display: flex;
       justify-content: space-around;
       text-align: center;
-
+      .home-introduce-bg {
+        background: rgba(255, 255, 255, 0.075);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        line-height: 1.2;
+      }
       .home-introduce-left {
-        width: 60%;
+        width: 55%;
         > div {
           padding: 20px;
         }
         .home-introduce-left1 {
           height: 180px;
           width: 80%;
-          background: pink;
+          // background: url('./../../assets/docs/27.png') no-repeat;
+          // background-size: 100%;
         }
         .home-introduce-left2 {
           height: 200px;
           width: 80%;
-          background: #3dfccb;
           margin: 30px 0 30px 15%;
         }
         .home-introduce-left3 {
           height: 200px;
           width: 100%;
-          background: #dfff00;
         }
       }
       .home-introduce-right {
         width: 35%;
         > div {
           padding: 20px;
+          margin-top: 40px;
         }
         .home-introduce-right1 {
           width: 90%;
-          height: 260px;
-          background: #3dfccb;
+          height: 240px;
         }
         .home-introduce-right2 {
           width: 90%;
-          height: 260px;
+          height: 240px;
           margin-left: 10%;
-          background: #dfff00;
         }
       }
     }
@@ -478,16 +553,17 @@ export default {
   .home-trusted {
     height: 120px;
     color: #838788;
-    background: #121315;
+    // background: url('./../../assets/docs/06.jpg') no-repeat;
+    // background-size: 100%;
     padding-top: 20px;
     text-align: center;
   }
-  .home-title {
-    margin: 20px 0;
-  }
   .home-content {
+    background: url("./../../assets/docs/06.jpg") no-repeat;
+    background-size: 100% 100%;
+    padding: 40px 0;
     .home-title {
-      margin: 40px auto;
+      padding: 40px 0;
       text-align: center;
     }
     ul {
@@ -502,9 +578,13 @@ export default {
         font-size: 14px;
         box-sizing: border-box;
         border-radius: 5px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         box-shadow: 0px 0px 10px 0px #e0f86f;
         line-height: 1.5;
+        .home-common-icon {
+          width: 68px;
+          height: 68px;
+        }
         .home-common-title {
           font-size: 18px;
           font-weight: 600;
@@ -522,6 +602,7 @@ export default {
   .home-tokens {
     display: flex;
     justify-content: space-around;
+    padding: 40px 0;
     li {
       width: 40%;
       padding: 40px;
@@ -550,11 +631,15 @@ export default {
   }
   .home-veZoic {
     line-height: 1.5;
-    padding: 40px;
+    padding: 40px 0;
+    background: url("./../../assets/docs/07.jpg") no-repeat;
+    background-size: 100% 100%;
     .home-conent {
       display: flex;
+      justify-content: space-between;
       li {
         font-size: 14px;
+        width: 48%;
         .home-veZoicTitle {
           width: 125px;
           font-size: 36px;
@@ -565,6 +650,7 @@ export default {
         }
         .home-veZoic-img {
           width: 400px;
+          margin: 0 auto;
           img {
             width: 100%;
             height: 100%;
@@ -588,13 +674,17 @@ export default {
     }
   }
   .home-how {
+    background: url("./../../assets/docs/08.jpg") no-repeat;
+    background-size: 100% 100%;
     .home-title {
+      padding: 40px 0;
       text-align: center;
     }
     .home-conent {
       display: flex;
       justify-content: space-around;
       li {
+        margin-top: 20px;
         position: relative;
         width: 30%;
         height: 360px;
@@ -610,12 +700,13 @@ export default {
         border-radius: 5px;
         .upward {
           position: absolute;
-          top: -25px;
+          top: -34px;
           left: 50%;
           transform: translateX(-50%);
           width: 80%;
           .home-common-icon {
-            // z-index: 9999;
+            width: 68px;
+            height: 68px;
           }
           .home-common-title {
             font-size: 18px;
@@ -630,10 +721,12 @@ export default {
   }
   .home-benefit {
     height: 100%;
-    margin-bottom: 50px;
+    padding: 40px 0;
+    background: url("./../../assets/docs/09.jpg") no-repeat;
+    background-size: 100% 100%;
     .home-title {
+      margin: 40px auto;
       text-align: center;
-      margin: 50px 0;
     }
     .home-conent {
       display: flex;
@@ -643,20 +736,22 @@ export default {
         height: 260px;
         border-radius: 10px;
         font-size: 14px;
+        background: url("./../../assets/docs/27.png") no-repeat;
+        background-size: 100% 100%;
         .borderRadius {
           height: 100%;
           padding: 40px;
-        box-sizing: border-box;
+          box-sizing: border-box;
 
-          background: #232835;
-          border: 1px solid #2ffdd4;
-          border-image: linear-gradient(
-              to right bottom,
-              #2ffdd4,
-              rgba(0, 0, 0, 0),
-              #d2f97a
-            )
-            8 10;
+          // background: #232835;
+          // border: 1px solid #2ffdd4;
+          // border-image: linear-gradient(
+          //     to right bottom,
+          //     #2ffdd4,
+          //     rgba(0, 0, 0, 0),
+          //     #d2f97a
+          //   )
+          //   8 10;
         }
         .home-tokens-logo {
           font-size: 18px;
@@ -672,7 +767,7 @@ export default {
     }
   }
   .home-bottom {
-    background: #121315;
+    background: #111314;
   }
   /deep/.el-dialog__wrapper {
     color: #fff;

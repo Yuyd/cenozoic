@@ -62,16 +62,13 @@ export default {
       ],
       outerChainList: [
         {
-          imgSrc: require('./../../assets/bottom/Twitter.png'),
+          imgSrc: require('./../../assets/bottom/24.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/Discord.png'),
+          imgSrc: require('./../../assets/bottom/25.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/Instagram.png'),
-        },
-        {
-          imgSrc: require('./../../assets/bottom/23.png'),
+          imgSrc: require('./../../assets/bottom/26.png'),
         },
       ],
     };
