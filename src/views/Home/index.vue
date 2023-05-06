@@ -426,7 +426,6 @@ export default {
       margin: 10px 0;
     }
   }
-
   .home-subscribe {
     background: #232835;
     // justify-content: center;
