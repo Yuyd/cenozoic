@@ -53,7 +53,7 @@ const en = {
     homeAdvantageLift2: 'Increases game earnings for players: in addition to in-game CENO gaming profits, players can also earn ZOIC profits and gain governance voting rights in the protocol.',
     homeAdvantageLift3: 'For players:',
     homeAdvantageRight1: 'Developers can guide game rewards towards games they have developed by obtaining veZOIC voting rights, to attract more players to their games.',
-    homeAdvantageRight2: 'Footer: Follow Us',
+    homeAdvantageRight2: 'For games:',
   },
   menu: {
     homeDialog: 'en'

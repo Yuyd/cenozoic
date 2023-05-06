@@ -18,8 +18,14 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {
+  font-family: BRLNSDB;
+  font-weight: 400;
+  font-style: normal;
+  src: url('./compon/BRLNSR.TTF') format('truetype');
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: BRLNSDB;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

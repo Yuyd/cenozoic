@@ -20,11 +20,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="home-subscribe-right">
-          <div class="rig-img">
-            <img src="./../../assets/logo.png" alt="" />
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="home-introduce">
@@ -238,27 +233,31 @@
         :title="$t('home.homeAdvantageTit')"
       />
       <div class="home-conent">
-        <li data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom">
+        <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
             <div class="home-tokens-logo">
-              {{ $t("home.homeAdvantageLift3") }}
+              <img src="./../../assets/docs/22.png" alt="">
             </div>
             <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
             <div class="home-tokens-content">
               <p>{{ $t("home.homeAdvantageLift1") }}</p>
               <p>{{ $t("home.homeAdvantageLift2") }}</p>
             </div>
+            <div>
+              {{ $t("home.homeAdvantageLift3") }}
+            </div>
           </div>
         </li>
-        <li data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom">
+        <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
             <div class="home-tokens-logo">
-              {{ $t("home.homeAdvantageRight2") }}
+              <img src="./../../assets/docs/22.png" alt="">
             </div>
             <div class="home-tokens-content">
               <p>{{ $t("home.homeAdvantageRight1") }}</p>
+            </div>
+            <div>
+              {{ $t("home.homeAdvantageRight2") }}
             </div>
           </div>
         </li>
@@ -281,7 +280,11 @@
           <el-form-item
             prop="email"
             :rules="[
-              { required: true, message: this.$t('homeDialog.dialogRules1'), trigger: 'blur' },
+              {
+                required: true,
+                message: this.$t('homeDialog.dialogRules1'),
+                trigger: 'blur',
+              },
               {
                 type: 'email',
                 message: this.$t('homeDialog.dialogRules2'),
@@ -289,14 +292,17 @@
               },
             ]"
           >
-            <el-input :placeholder="$t('homeDialog.dialogInput')" v-model="submitForm.email" />
+            <el-input
+              :placeholder="$t('homeDialog.dialogInput')"
+              v-model="submitForm.email"
+            />
           </el-form-item>
         </el-form>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button class="determine" @click="clickSubmitForm('submitForm')"
-          >{{ $t('homeDialog.dialogConfirm') }}</el-button
-        >
+        <el-button class="determine" @click="clickSubmitForm('submitForm')">{{
+          $t("homeDialog.dialogConfirm")
+        }}</el-button>
         <!-- <el-button class="pc" @click="loginClick('loginForm')"
           >Sign inpc</el-button
         >
@@ -304,9 +310,9 @@
         <div class="Register" @click="toRegister">
           <p><span>Register</span></p>
         </div> -->
-        <el-button class="cancel" @click="EmailDialogVisible = false"
-          >{{ $t('homeDialog.dialogCancel') }}</el-button
-        >
+        <el-button class="cancel" @click="EmailDialogVisible = false">{{
+          $t("homeDialog.dialogCancel")
+        }}</el-button>
       </span>
     </el-dialog>
   </div>
@@ -335,8 +341,8 @@ export default {
   },
   watch: {
     diaMessage1(val) {
-      console.log(val)
-    }
+      console.log(val);
+    },
   },
   methods: {
     subscribeTo() {
@@ -397,7 +403,7 @@ export default {
     },
     // 敬请期待
     expect() {
-      alert(this.$t('home.homeVeZOICBtn'));
+      alert(this.$t("home.homeVeZOICBtn"));
     },
   },
 };
@@ -431,6 +437,8 @@ export default {
     // justify-content: center;
     background: url("./../../assets/docs/03.jpg") no-repeat;
     background-size: 100% 100%;
+    height: 600px;
+    box-sizing: border-box;
     padding-top: 40px;
     .home-conent {
       display: flex;
@@ -444,7 +452,7 @@ export default {
         padding: 20px;
         line-height: 1.5;
         text-align: center;
-        width: 50%;
+        width: 60%;
         h1 {
           font-size: 36px;
         }
@@ -485,18 +493,6 @@ export default {
           }
         }
       }
-      // .home-subscribe-right {
-      //   width: 30%;
-      //   display: flex;
-      //   justify-content: flex-end;
-      //   .rig-img {
-      //     width: 300px;
-      //     img {
-      //       width: 100%;
-      //       height: 100%;
-      //     }
-      //   }
-      // }
     }
   }
   .home-introduce {

@@ -43,7 +43,7 @@ const zh = {
     homeVeZOICBtn: '即将推出...',
     homeHowTit: '工作原理',
     homeDepositsTit: '存款铸造CENO',
-    homeDepositsContent: '存入您的资产获得游戏稳定币CENO，可以随时随地用于游戏，CENO的金库是公开的，一切透明',
+    homeDepositsContent: '存入您的资产获得游戏稳定币CENO，可以随时随地用于游戏，CENO的金库是公开的，一切透明。',
     homeEarnTit: '获得游戏奖励并赎回资产',
     homeEarnContent: '当结束游戏时，燃烧NFT可以将游戏中CENO提取到钱包中，并获得相应游戏工作量的奖励ZOIC。用户可以在协议中按比例燃烧CENO和ZOIC即可赎回金库中的资产。',
     homeReceiveTit: '获得veZOIC提高游戏奖励',

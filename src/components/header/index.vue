@@ -76,10 +76,15 @@
             </div>
           </li>
           <li class="connect-white">
-            <div v-if="!myAddress" @click="toWhite">{{ $t('header.connect') }}</div>
-            <div class="header-address" v-else>
-              <span>{{ myAddress.slice(0, -9) }}</span>
-              <span>{{ myAddress.slice(-7) }}</span>
+            <div
+              v-if="myAddress == '' || myAddress == 'undefined'"
+              @click="toWhite"
+            >
+              {{ $t("header.connect") }}
+            </div>
+            <div v-else class="header-address">
+              <span>{{ myAddress.slice(0, 9) }}</span>
+              <span>{{ myAddress.slice(-6) }}</span>
             </div>
             <!-- <span>{{ myAddress }}</span> -->
           </li>
@@ -134,7 +139,7 @@
 <script>
 import axios from "axios";
 import getLang from "./../../lang/language.json";
-// import { getWalletAddress } from "../../wallet";
+import { getWalletAddress } from "./../../white/index.js";
 // import upWallet from "./../../util/unipasswallet/unipasswallet.js";
 // import LoginDialog from "./../login/index.vue";
 export default {
@@ -162,11 +167,8 @@ export default {
       language: sessionStorage.getItem("lang"),
     };
   },
-  watch: {
-   
-  },
-  created() {
-  },
+  watch: {},
+  created() {},
   mounted() {
     this.isTokenTable();
     this.$nextTick(() => {});
@@ -182,8 +184,9 @@ export default {
     getLang(language) {
       return getLang[language];
     },
-    getWalletAddress1() {
-      this.myAddress = localStorage.getItem("address");
+    async getWalletAddress1() {
+      this.myAddress = await getWalletAddress();
+      localStorage.setItem("address", this.myAddress);
     },
     goNext(index) {
       this.cur = index;
@@ -216,16 +219,11 @@ export default {
     },
     // 链接钱包
     toWhite() {
-      // let routeUrl = this.$router.resolve({
-      //   path: "/home",
-      // })
-      // window.open(routeUrl.hred,'_blank')
-      // this.$router.push({
-      //   name: "donate",
-      // })
       const ethereum = window.ethereum;
       ethereum.request({ method: "eth_requestAccounts" });
-      // this.isTokenTable();
+      setTimeout(() => {
+        this.getWalletAddress1();
+      }, 2000);
     },
     toLogin() {
       this.loginDialogVisible = true;
@@ -403,7 +401,6 @@ export default {
         }
       }
       div {
-        
         // padding: 0 20px;
       }
       .header-logo {
@@ -483,16 +480,16 @@ export default {
           .el-dropdown {
             color: #fff;
           }
-          // .header-address {
-          //   width: 120px;
-          //   span {
-          //     display: inline-block;
-          //     width: 50%;
-          //     overflow: hidden;
-          //     text-overflow: ellipsis;
-          //     white-space: nowrap;
-          //   }
-          // }
+          .header-address {
+            width: 100px;
+            span {
+              display: inline-block;
+              width: 50%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
         }
         .connect-white {
           color: #a3b88c;
