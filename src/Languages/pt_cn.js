@@ -1,5 +1,11 @@
 const pt = {
   menu: {
+    header: 'zh'
+  },
+  header: {
+    connect: 'Conectar',
+  },
+  menu: {
     bottom: 'zh'
   },
   bottom: {
@@ -11,8 +17,8 @@ const pt = {
   home: {
     homeTitle: 'Desencadeando verdadeiros jogos Web3',
     homeBanner: 'Advogando por uma plataforma de jogos imersivos descentralizada que emprega criptografia nativa e uma abordagem totalmente on-chain, livre de autoridade central.',
-    homeSubscribeBtn: '订阅',
-    homeDocs: 'Docs',
+    homeSubscribeBtn: 'Inscrever-se',
+    homeDocs: 'Documentos',
     homeTrusted: 'Trusted by',
     homeSupporting: 'Apoiar jogos Web3 descentralizados:',
     homeSupportingContent: 'Cenozoic é um novo protocolo que visa apoiar o desenvolvimento de jogos Web3 de forma aberta, transparente e justa, permitindo que os jogos da nova era sejam completamente descentralizados, sem perspectiva de deus, sem controle centralizado de servidor.',
@@ -34,21 +40,32 @@ const pt = {
     homeVeZOICTit1: 'Você decide tudo | Sistema de voto com escrow completo | Direção da comunidade de governança, ativos, protocolo e jogos | Ou venda seu direito de voto no mercado secundário',
     homeVeZOICTit2: '',
     homeVeZOICContent: 'A governança do Cenozoic depende do ZOIC com voto em garantia, também conhecido como veZOIC, para alcançar maior descentralização. Usando o veZOIC, os detentores de ZOIC podem ter acesso a uma série de funções que aumentam a utilidade do token. O veZOIC também pode reduzir a oferta circulante de ZOIC, aumentando a estabilidade do token e a robustez do sistema econômico geral do protocolo.',
-    homeVeZOICBtn: 'Please Look forword to',
-    homeHowTit: 'How It Works',
+    homeVeZOICBtn: 'Em breve...',
+    homeHowTit: 'Como funciona',
     homeDepositsTit: 'Depósito para criar CENO:',
     homeDepositsContent: 'Deposite seus ativos para receber a moeda estável do jogo, CENO, que pode ser usado a qualquer momento e em qualquer lugar no jogo. O tesouro do CENO é público e transparente.',
     homeEarnTit: 'Obter recompensas no jogo e resgatar ativos:',
     homeEarnContent: 'Ao finalizar o jogo, você pode queimar o NFT para extrair CENO do jogo para sua carteira e receber recompensas em ZOIC de acordo com a quantidade de trabalho no jogo. Os usuários podem resgatar ativos no tesouro queimando CENO e ZOIC proporcionalmente no protocolo.',
     homeReceiveTit: 'Aumentar as recompensas no jogo com veZOIC:',
     homeReceiveContent: 'Os jogadores podem bloquear seus ZOIC para obter veZOIC, o que aumenta as recompensas em ZOIC no jogo de acordo com a quantidade de veZOIC detida pelos jogadores. A recompensa pode ser aumentada em até 254%.',
-    homeAdvantageTit: 'Advantage',
+    homeAdvantageTit: 'Vantagem',
     homeAdvantageLift1: 'Redução do risco financeiro dos jogadores nos jogos Web3: a moeda do jogo é uma moeda estável e os NFTs são resgatáveis.',
     homeAdvantageLift2: 'Aumento do lucro dos jogadores nos jogos: além das receitas do jogo CENO, os jogadores podem obter receitas em ZOIC e o direito de voto no governo do protocolo.',
     homeAdvantageLift3: 'Para os jogadores:',
     homeAdvantageRight1: 'Os desenvolvedores podem obter o direito de voto veZOIC para orientar as recompensas em ZOIC do jogo em sua direção e atrair mais jogadores para seus jogos.',
     homeAdvantageRight2: 'Para o jogo:',
-  }
+  },
+  menu: {
+    homeDialog: 'zh'
+  },
+  homeDialog: {
+    dialogTitlte: 'Receba nossa newsletter',
+    dialogInput: 'Digite seu email',
+    dialogRules1: 'Por favor, preencha este campo.',
+    dialogRules2: 'Por favor, preencha este campo.',
+    dialogConfirm: 'Confirmar',
+    dialogCancel: 'Cancelar',
+  },
 }
 
 export default pt

@@ -270,7 +270,7 @@
       </div>
     </div>
     <el-dialog
-      title="Leave your email to know about our latest progress"
+      :title="$t('homeDialog.dialogTitlte')"
       :visible.sync="EmailDialogVisible"
       width="500px"
       :close-on-click-modal="false"
@@ -281,21 +281,21 @@
           <el-form-item
             prop="email"
             :rules="[
-              { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+              { required: true, message: this.$t('homeDialog.dialogRules1'), trigger: 'blur' },
               {
                 type: 'email',
-                message: '请输入正确的邮箱地址',
+                message: this.$t('homeDialog.dialogRules2'),
                 trigger: ['blur', 'change'],
               },
             ]"
           >
-            <el-input placeholder="Enter E-mail" v-model="submitForm.email" />
+            <el-input :placeholder="$t('homeDialog.dialogInput')" v-model="submitForm.email" />
           </el-form-item>
         </el-form>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button class="determine" @click="clickSubmitForm('submitForm')"
-          >确定</el-button
+          >{{ $t('homeDialog.dialogConfirm') }}</el-button
         >
         <!-- <el-button class="pc" @click="loginClick('loginForm')"
           >Sign inpc</el-button
@@ -305,7 +305,7 @@
           <p><span>Register</span></p>
         </div> -->
         <el-button class="cancel" @click="EmailDialogVisible = false"
-          >取消</el-button
+          >{{ $t('homeDialog.dialogCancel') }}</el-button
         >
       </span>
     </el-dialog>
@@ -333,10 +333,14 @@ export default {
       },
     };
   },
+  watch: {
+    diaMessage1(val) {
+      console.log(val)
+    }
+  },
   methods: {
     subscribeTo() {
       this.EmailDialogVisible = true;
-      console.log("弹窗");
     },
     handleClose() {
       this.EmailDialogVisible = false;
@@ -393,7 +397,7 @@ export default {
     },
     // 敬请期待
     expect() {
-      alert("敬请期待");
+      alert(this.$t('home.homeVeZOICBtn'));
     },
   },
 };

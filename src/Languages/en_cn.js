@@ -1,5 +1,11 @@
 const en = {
   menu: {
+    header: 'zh'
+  },
+  header: {
+    connect: 'Connect',
+  },
+  menu: {
     bottom: 'zh'
   },
   bottom: {
@@ -34,7 +40,7 @@ const en = {
     homeVeZOICTit1: 'You Control Every Decision | Vote-escrowed System',
     homeVeZOICTit2: 'Decide the Direction of the Decision-making Community, Assets, Protocol & Games | Or Sell Your Voting Power in Secondary Markets',
     homeVeZOICContent: "Cenozoic's governance relies on vote-escrowed ZOIC, also known as veZOIC, which can achieve a higher degree of decentralization. By using veZOIC, ZOIC holders can gain a range of features that increase token utility. veZOIC can also reduce the circulating supply of ZOIC to increase token stability and the overall economic system of the protocol.",
-    homeVeZOICBtn: 'Please Look forword to',
+    homeVeZOICBtn: 'Coming Soon...',
     homeHowTit: 'How It Works',
     homeDepositsTit: 'Deposit and Mint CENO:',
     homeDepositsContent: 'Deposit your assets to receive game stablecoin CENO, which can be used for games anytime, anywhere. The CENO treasury is public, and everything is transparent.',
@@ -48,7 +54,18 @@ const en = {
     homeAdvantageLift3: 'For players:',
     homeAdvantageRight1: 'Developers can guide game rewards towards games they have developed by obtaining veZOIC voting rights, to attract more players to their games.',
     homeAdvantageRight2: 'Footer: Follow Us',
-  }
+  },
+  menu: {
+    homeDialog: 'en'
+  },
+  homeDialog: {
+    dialogTitlte: 'Get our newsletter',
+    dialogInput: 'Enter your email',
+    dialogRules1: 'Enter your email',
+    dialogRules2: 'Please fill out this field.',
+    dialogConfirm: 'Confirm',
+    dialogCancel: 'Cancel',
+  },
 }
 
 

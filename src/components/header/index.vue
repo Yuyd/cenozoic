@@ -46,15 +46,15 @@
             <div>
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                  {{ getLang(language) || "中文"
+                  {{ getLang(language) || "English"
                   }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item :disabled="language === 'zh'" command="zh">
-                    中文
-                  </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'en'" command="en">
                     English
+                  </el-dropdown-item>
+                  <el-dropdown-item :disabled="language === 'zh'" command="zh">
+                    简体中文
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'da'" command="da">
                     Dansk
@@ -76,7 +76,7 @@
             </div>
           </li>
           <li class="connect-white">
-            <div v-if="!myAddress" @click="toWhite">Connect</div>
+            <div v-if="!myAddress" @click="toWhite">{{ $t('header.connect') }}</div>
             <div class="header-address" v-else>
               <span>{{ myAddress.slice(0, -9) }}</span>
               <span>{{ myAddress.slice(-7) }}</span>
@@ -163,12 +163,10 @@ export default {
     };
   },
   watch: {
-    // myAddress(val) {
-    // console.info(val)
-    // this.getWalletAddress1()
-    // }
+   
   },
-  created() {},
+  created() {
+  },
   mounted() {
     this.isTokenTable();
     this.$nextTick(() => {});
@@ -176,7 +174,6 @@ export default {
   methods: {
     // 多语言切换
     handleCommand(value) {
-      console.log(value);
       this.language = value;
       this.$i18n.locale = value;
       window.sessionStorage.setItem("lang", this.language);
@@ -228,7 +225,7 @@ export default {
       // })
       const ethereum = window.ethereum;
       ethereum.request({ method: "eth_requestAccounts" });
-      this.isTokenTable();
+      // this.isTokenTable();
     },
     toLogin() {
       this.loginDialogVisible = true;

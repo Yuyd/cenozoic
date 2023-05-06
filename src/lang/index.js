@@ -15,9 +15,8 @@ import elementEsLocale from 'element-ui/lib/locale/lang/es'
 import elementKoLocale from 'element-ui/lib/locale/lang/ko'
 import elementPtLocale from 'element-ui/lib/locale/lang/pt'
 Vue.use(VueI18n)
-console.log(zhLocale.home)
 const i18n = new VueI18n({
-  locale: sessionStorage.getItem("lang") || 'zh',
+  locale: sessionStorage.getItem("lang") || 'en',
   messages: {
     zh: {
       ...zhLocale,
