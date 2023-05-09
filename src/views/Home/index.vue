@@ -126,7 +126,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <div class="home-introduce-left home-introduce-bg">
                 <div class="home-common-icon">
                   <img src="./../../assets/docs/14.png" alt="" />
@@ -138,7 +138,7 @@
                   {{ $t('home.homeBuildingContent') }}
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="swiper-slide">
               <div class="home-introduce-left home-introduce-bg">
                 <div class="home-common-icon">
@@ -1174,7 +1174,7 @@ export default {
       }
       .home-conent-swiper1 {
         display: block;
-        height: 5rem;
+        min-height: 5rem;
         width: 100%;
         margin: 0 auto;
         position: relative;
