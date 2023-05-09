@@ -1,21 +1,23 @@
 <template>
   <div class="home">
-    <div class="home-subscribe">
+    <div class="home-subscribe" ref="subHeight">
       <div class="home-conent">
         <div class="home-subscribe-left">
-          <h1 data-aos="fade">{{ $t("home.homeTitle") }}</h1>
-          <p data-aos="zoom-in">{{ $t("home.homeBanner") }}</p>
+          <h1 data-aos="fade">{{ $t('home.homeTitle') }}</h1>
+          <p data-aos="zoom-in">{{ $t('home.homeBanner') }}</p>
           <div
             class="home-subscribe-left-btn"
             data-aos="fade-up"
             data-aos-anchor-placement="bottom-bottom"
           >
             <div class="subscribeTo" @click="subscribeTo">
-              {{ $t("home.homeSubscribeBtn") }}
+              {{ $t('home.homeSubscribeBtn') }}
             </div>
+            <!-- <div @click="obtain">获取</div>
+            <div @click="subm">发邮件</div> -->
             <div class="home-subscribe-left-docs">
               <span>
-                {{ $t("home.homeDocs") }}
+                {{ $t('home.homeDocs') }}
               </span>
             </div>
           </div>
@@ -33,10 +35,10 @@
               <img src="./../../assets/docs/10.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeSupporting") }}
+              {{ $t('home.homeSupporting') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeSupportingContent") }}
+              {{ $t('home.homeSupportingContent') }}
             </div>
           </div>
           <div
@@ -46,12 +48,12 @@
             <div class="home-common-icon">
               <img src="./../../assets/docs/12.png" alt="" />
             </div>
-            <div class="home-common-title">{{ $t("home.homeCoMpos") }}</div>
+            <div class="home-common-title">{{ $t('home.homeCoMpos') }}</div>
             <div class="home-common-content">
-              {{ $t("home.homeCoMposContent") }}
+              {{ $t('home.homeCoMposContent') }}
             </div>
           </div>
-          <div
+          <!-- <div
             class="home-introduce-left3 home-introduce-bg"
             data-aos="fade-right"
           >
@@ -59,12 +61,12 @@
               <img src="./../../assets/docs/14.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeBuilding") }}
+              {{ $t('home.homeBuilding') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeBuildingContent") }}
+              {{ $t('home.homeBuildingContent') }}
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="home-introduce-right">
           <div
@@ -75,10 +77,10 @@
               <img src="./../../assets/docs/11.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeInteroper") }}
+              {{ $t('home.homeInteroper') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeInteroperContent") }}
+              {{ $t('home.homeInteroperContent') }}
             </div>
           </div>
           <div
@@ -89,12 +91,83 @@
               <img src="./../../assets/docs/13.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeTranspraent") }}
+              {{ $t('home.homeTranspraent') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeTranspraentContent") }}
+              {{ $t('home.homeTranspraentContent') }}
             </div>
           </div>
+        </div>
+      </div>
+      <div class="home-conent-swiper1">
+        <div class="seiper-container" ref="mySwiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="home-introduce-left home-introduce-bg">
+                <div class="home-common-icon">
+                  <img src="./../../assets/docs/10.png" alt="" />
+                </div>
+                <div class="home-common-title">
+                  {{ $t('home.homeSupporting') }}
+                </div>
+                <div class="home-common-content">
+                  {{ $t('home.homeSupportingContent') }}
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="home-introduce-left home-introduce-bg">
+                <div class="home-common-icon">
+                  <img src="./../../assets/docs/12.png" alt="" />
+                </div>
+                <div class="home-common-title">{{ $t('home.homeCoMpos') }}</div>
+                <div class="home-common-content">
+                  {{ $t('home.homeCoMposContent') }}
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="home-introduce-left home-introduce-bg">
+                <div class="home-common-icon">
+                  <img src="./../../assets/docs/14.png" alt="" />
+                </div>
+                <div class="home-common-title">
+                  {{ $t('home.homeBuilding') }}
+                </div>
+                <div class="home-common-content">
+                  {{ $t('home.homeBuildingContent') }}
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="home-introduce-left home-introduce-bg">
+                <div class="home-common-icon">
+                  <img src="./../../assets/docs/11.png" alt="" />
+                </div>
+                <div class="home-common-title">
+                  {{ $t('home.homeInteroper') }}
+                </div>
+                <div class="home-common-content">
+                  {{ $t('home.homeInteroperContent') }}
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="home-introduce-left home-introduce-bg">
+                <div class="home-common-icon">
+                  <img src="./../../assets/docs/13.png" alt="" />
+                </div>
+                <div class="home-common-title">
+                  {{ $t('home.homeTranspraent') }}
+                </div>
+                <div class="home-common-content">
+                  {{ $t('home.homeTranspraentContent') }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </div>
@@ -111,13 +184,13 @@
               <img src="./../../assets/docs/15.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeGame") }}
+              {{ $t('home.homeGame') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeGameContent1") }}
+              {{ $t('home.homeGameContent1') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeGameContent2") }}
+              {{ $t('home.homeGameContent2') }}
             </div>
           </li>
           <li data-aos="zoom-out-up">
@@ -125,13 +198,50 @@
               <img src="./../../assets/docs/16.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeGovernance") }}
+              {{ $t('home.homeGovernance') }}
             </div>
             <div class="home-common-content">
-              {{ $t("home.homeGovernanceContent") }}
+              {{ $t('home.homeGovernanceContent') }}
             </div>
           </li>
         </ul>
+        <div class="mobile">
+          <div class="seiper-container" ref="mySwiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <li data-aos="zoom-out-up">
+                  <div class="home-common-icon">
+                    <img src="./../../assets/docs/15.png" alt="" />
+                  </div>
+                  <div class="home-common-title">
+                    {{ $t('home.homeGame') }}
+                  </div>
+                  <div class="home-common-content">
+                    {{ $t('home.homeGameContent1') }}
+                  </div>
+                  <div class="home-common-content">
+                    {{ $t('home.homeGameContent2') }}
+                  </div>
+                </li>
+              </div>
+              <div class="swiper-slide">
+                <li data-aos="zoom-out-up">
+                  <div class="home-common-icon">
+                    <img src="./../../assets/docs/16.png" alt="" />
+                  </div>
+                  <div class="home-common-title">
+                    {{ $t('home.homeGovernance') }}
+                  </div>
+                  <div class="home-common-content">
+                    {{ $t('home.homeGovernanceContent') }}
+                  </div>
+                </li>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -139,25 +249,25 @@
       <div class="home-conent">
         <li>
           <div class="home-veZoicTitle" data-aos="zoom-in-up">
-            {{ $t("home.homeVeZOIC") }}
+            {{ $t('home.homeVeZOIC') }}
           </div>
-          <div class="home-veZoic-title" data-aos="zoom-in">
-            {{ $t("home.homeVeZOICTit1") }}
+          <div class="home-veZoic-img">
+            <img src="./../../assets/docs/17.png" alt="" />
           </div>
-          <div class="home-veZoic-tit" data-aos="zoom-in">
-            {{ $t("home.homeVeZOICTit2") }}
+          <div class="home-veZoic-title">
+            {{ $t('home.homeVeZOICTit1') }}
           </div>
+          <!-- <div class="home-veZoic-tit">
+            {{ $t('home.homeVeZOICTit2') }}
+          </div> -->
           <div class="home-veZoic-content">
             <p>
-              {{ $t("home.homeVeZOICContent") }}
+              {{ $t('home.homeVeZOICContent') }}
             </p>
           </div>
-          <el-button
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-            @click="expect"
-            >{{ $t("home.homeVeZOICBtn") }}</el-button
-          >
+          <el-button @click="expect">
+            {{ $t('home.homeVeZOICBtn') }}
+          </el-button>
         </li>
         <li
           data-aos="fade-down"
@@ -187,10 +297,10 @@
               <img src="./../../assets/docs/19.png" alt="" />
             </div>
             <div class="home-common-title">
-              {{ $t("home.homeDepositsTit") }}
+              {{ $t('home.homeDepositsTit') }}
             </div>
             <div class="home-common-content">
-              <p>{{ $t("home.homeDepositsContent") }}</p>
+              <p>{{ $t('home.homeDepositsContent') }}</p>
             </div>
           </div>
         </li>
@@ -203,9 +313,9 @@
             <div class="home-common-icon">
               <img src="./../../assets/docs/20.png" alt="" />
             </div>
-            <div class="home-common-title">{{ $t("home.homeEarnTit") }}</div>
+            <div class="home-common-title">{{ $t('home.homeEarnTit') }}</div>
             <div class="home-common-content">
-              <p>{{ $t("home.homeEarnContent") }}</p>
+              <p>{{ $t('home.homeEarnContent') }}</p>
             </div>
           </div>
         </li>
@@ -218,12 +328,65 @@
             <div class="home-common-icon">
               <img src="./../../assets/docs/21.png" alt="" />
             </div>
-            <div class="home-common-title">{{ $t("home.homeReceiveTit") }}</div>
+            <div class="home-common-title">{{ $t('home.homeReceiveTit') }}</div>
             <div class="home-common-content">
-              <p>{{ $t("home.homeReceiveContent") }}</p>
+              <p>{{ $t('home.homeReceiveContent') }}</p>
             </div>
           </div>
         </li>
+      </div>
+      <div class="mobile">
+        <div class="seiper-container" ref="mySwiper3">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <li>
+                <div class="upward">
+                  <div class="home-common-icon">
+                    <img src="./../../assets/docs/19.png" alt="" />
+                  </div>
+                  <div class="home-common-title">
+                    {{ $t('home.homeDepositsTit') }}
+                  </div>
+                  <div class="home-common-content">
+                    <p>{{ $t('home.homeDepositsContent') }}</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li>
+                <div class="upward">
+                  <div class="home-common-icon">
+                    <img src="./../../assets/docs/20.png" alt="" />
+                  </div>
+                  <div class="home-common-title">
+                    {{ $t('home.homeEarnTit') }}
+                  </div>
+                  <div class="home-common-content">
+                    <p>{{ $t('home.homeEarnContent') }}</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li>
+                <div class="upward">
+                  <div class="home-common-icon">
+                    <img src="./../../assets/docs/21.png" alt="" />
+                  </div>
+                  <div class="home-common-title">
+                    {{ $t('home.homeReceiveTit') }}
+                  </div>
+                  <div class="home-common-content">
+                    <p>{{ $t('home.homeReceiveContent') }}</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
       </div>
     </div>
     <div class="home-benefit">
@@ -236,31 +399,71 @@
         <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
             <div class="home-tokens-logo">
-              <img src="./../../assets/docs/22.png" alt="">
+              <img src="./../../assets/docs/22.png" alt="" />
             </div>
             <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
-            <div class="home-tokens-content">
-              <p>{{ $t("home.homeAdvantageLift1") }}</p>
-              <p>{{ $t("home.homeAdvantageLift2") }}</p>
+            <div class="home-tokens-title">
+              {{ $t('home.homeAdvantageLift3') }}
             </div>
-            <div>
-              {{ $t("home.homeAdvantageLift3") }}
+            <div class="home-tokens-content">
+              <p>{{ $t('home.homeAdvantageLift1') }}</p>
+              <p>{{ $t('home.homeAdvantageLift2') }}</p>
             </div>
           </div>
         </li>
         <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
             <div class="home-tokens-logo">
-              <img src="./../../assets/docs/22.png" alt="">
+              <img src="./../../assets/docs/22.png" alt="" />
+            </div>
+            <div class="home-tokens-title">
+              {{ $t('home.homeAdvantageRight2') }}
             </div>
             <div class="home-tokens-content">
-              <p>{{ $t("home.homeAdvantageRight1") }}</p>
-            </div>
-            <div>
-              {{ $t("home.homeAdvantageRight2") }}
+              <p>{{ $t('home.homeAdvantageRight1') }}</p>
             </div>
           </div>
         </li>
+      </div>
+      <div class="mobile">
+        <div class="seiper-container" ref="mySwiper4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <li>
+                <div class="borderRadius">
+                  <div class="home-tokens-logo">
+                    <img src="./../../assets/docs/22.png" alt="" />
+                  </div>
+                  <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
+                  <div class="home-tokens-title">
+                    {{ $t('home.homeAdvantageLift3') }}
+                  </div>
+                  <div class="home-tokens-content">
+                    <p>{{ $t('home.homeAdvantageLift1') }}</p>
+                    <p>{{ $t('home.homeAdvantageLift2') }}</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+            <div class="swiper-slide">
+              <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <div class="borderRadius">
+                  <div class="home-tokens-logo">
+                    <img src="./../../assets/docs/22.png" alt="" />
+                  </div>
+                  <div class="home-tokens-title">
+                    {{ $t('home.homeAdvantageRight2') }}
+                  </div>
+                  <div class="home-tokens-content">
+                    <p>{{ $t('home.homeAdvantageRight1') }}</p>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
       </div>
     </div>
     <div class="home-bottom">
@@ -300,9 +503,9 @@
         </el-form>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button class="determine" @click="clickSubmitForm('submitForm')">{{
-          $t("homeDialog.dialogConfirm")
-        }}</el-button>
+        <el-button class="determine" @click="clickSubmitForm('submitForm')">
+          {{ $t('homeDialog.dialogConfirm') }}
+        </el-button>
         <!-- <el-button class="pc" @click="loginClick('loginForm')"
           >Sign inpc</el-button
         >
@@ -310,9 +513,9 @@
         <div class="Register" @click="toRegister">
           <p><span>Register</span></p>
         </div> -->
-        <el-button class="cancel" @click="EmailDialogVisible = false">{{
-          $t("homeDialog.dialogCancel")
-        }}</el-button>
+        <el-button class="cancel" @click="EmailDialogVisible = false">
+          {{ $t('homeDialog.dialogCancel') }}
+        </el-button>
       </span>
     </el-dialog>
   </div>
@@ -320,12 +523,13 @@
 
 <script>
 // @ is an alias to /src
-import PublicTitle from "@/components/publicTitle.vue";
-import Bottom from "@/components/bottom/index.vue";
-import { getWalletAddress, isWalletConnected } from "./../../white/index.js";
+import PublicTitle from '@/components/publicTitle.vue'
+import Bottom from '@/components/bottom/index.vue'
+import { getWalletAddress, isWalletConnected } from './../../white/index.js'
+import { Swiper } from 'vue-awesome-swiper'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     PublicTitle,
     Bottom,
@@ -335,28 +539,42 @@ export default {
     return {
       EmailDialogVisible: false,
       submitForm: {
-        email: "",
+        email: '',
       },
-    };
+      getInnerWidth: 0,
+    }
   },
   watch: {
     diaMessage1(val) {
-      console.log(val);
+      console.log(val)
     },
+  },
+  created() {},
+  mounted() {
+    // 设置首屏高度
+    this.getInnerWidth = window.innerHeight
+    let headerHeight = document.querySelector('.header').scrollHeight
+    this.$refs.subHeight.style.height = this.getInnerWidth - headerHeight + 'px'
+    this.$nextTick(() => {
+      this.swiper1()
+      this.swiper2()
+      this.swiper3()
+      this.swiper4()
+    })
   },
   methods: {
     subscribeTo() {
-      this.EmailDialogVisible = true;
+      this.EmailDialogVisible = true
     },
     handleClose() {
-      this.EmailDialogVisible = false;
+      this.EmailDialogVisible = false
     },
     // 确认提交
     clickSubmitForm(submitForm) {
       this.$refs[submitForm].validate(async (valid) => {
         // 1.邮箱是否正确
         if (valid) {
-          let binance = window.ethereum;
+          let binance = window.ethereum
           // 是否安装了钱包
           if (binance) {
             // 是否链接了钱包
@@ -372,26 +590,26 @@ export default {
               // }
               // alert('链接钱包')
               // 订阅邮件
-              const mailchimpClient =
-                require("@mailchimp/mailchimp_transactional")(
-                  "md-zMAjDVGmRLYoDko8zza6HQ"
-                );
+              const mailchimpClient = require('@mailchimp/mailchimp_transactional')(
+                'md-zMAjDVGmRLYoDko8zza6HQ',
+              )
               const run = async () => {
                 const response = await mailchimpClient.allowlists.add({
                   email: this.submitForm.email,
-                });
-              };
-              run();
-              this.EmailDialogVisible = false;
-              this.submitForm.email = "";
+                })
+                console.log(response, '----')
+              }
+              run()
+              this.EmailDialogVisible = false
+              this.submitForm.email = ''
             } else {
-              alert("请先链接钱包");
-              ethereum.request({ method: "eth_requestAccounts" });
+              alert('请先链接钱包')
+              ethereum.request({ method: 'eth_requestAccounts' })
             }
           } else {
-            alert("请先安装钱包");
+            alert('请先安装钱包')
           }
-          return;
+          return
           // let isWhite = await ethereum.request({ method: "eth_requestAccounts" });
           // console.log(isWhite,'23456')
           //   alert("submit!");
@@ -399,14 +617,128 @@ export default {
           //   console.log("error submit!!");
           //   return false;
         }
-      });
+      })
+    },
+    // 获取添加白名单列表
+    obtain() {
+      const mailchimpClient = require('@mailchimp/mailchimp_transactional')(
+        'md-zMAjDVGmRLYoDko8zza6HQ',
+      )
+
+      const run = async () => {
+        const response = await mailchimpClient.allowlists.list()
+        console.log(response)
+      }
+
+      run()
+
+      // const client = require("@mailchimp/mailchimp_marketing");
+      // client.setConfig({
+      //   apiKey: "YOUR_API_KEY",
+      //   server: "YOUR_SERVER_PREFIX",
+      // });
+
+      // const run = async () => {
+      //   const response = await client.automations.getWorkflowEmailSubscriber(
+      //     "workflow_id",
+      //     "Asha_Barton@yahoo.com",
+      //     "subscriber_hash"
+      //   );
+      //   console.log(response);
+      // };
+
+      // run();
+    },
+    // 发送邮件
+    subm() {
+      const mailchimpClient = require('@mailchimp/mailchimp_transactional')(
+        'md-zMAjDVGmRLYoDko8zza6HQ',
+      )
+
+      const run = async () => {
+        const response = await mailchimpClient.messages.send({
+          message: { text: 'ghhj' },
+        })
+        console.log(response)
+      }
+
+      run()
     },
     // 敬请期待
     expect() {
-      alert(this.$t("home.homeVeZOICBtn"));
+      alert(this.$t('home.homeVeZOICBtn'))
+    },
+    // 轮播图
+    swiper1() {
+      new Swiper(this.$refs.mySwiper1, {
+        slidesPerView: 'auto',
+        // autoplay: true,
+        // speed: 500,
+        // delay: 1000,
+        // delay: 35,
+        // slidesPerGroup: 1,
+        loop: true,
+        zoom: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    },
+    swiper2() {
+      new Swiper(this.$refs.mySwiper2, {
+        slidesPerView: 'auto',
+        // autoplay: true,
+        // speed: 500,
+        // delay: 1000,
+        // delay: 35,
+        slidesPerGroup: 1,
+        loop: true,
+        zoom: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    },
+    swiper3() {
+      new Swiper(this.$refs.mySwiper3, {
+        slidesPerView: 'auto',
+        // autoplay: true,
+        // speed: 500,
+        // delay: 1000,
+        // delay: 35,
+        slidesPerGroup: 1,
+        loop: true,
+        zoom: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    },
+    swiper4() {
+      new Swiper(this.$refs.mySwiper4, {
+        slidesPerView: 'auto',
+        // autoplay: true,
+        // speed: 500,
+        // delay: 1000,
+        // delay: 35,
+        slidesPerGroup: 1,
+        loop: true,
+        zoom: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
     },
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -419,6 +751,8 @@ export default {
   .home-conent {
     width: 1080px;
     margin: 0 auto;
+    word-break: break-all;
+    word-wrap: break-word;
     .home-common-icon {
       width: 57px;
       height: 42px;
@@ -435,7 +769,7 @@ export default {
   .home-subscribe {
     background: #232835;
     // justify-content: center;
-    background: url("./../../assets/docs/03.jpg") no-repeat;
+    background: url('./../../assets/docs/03.jpg') no-repeat;
     background-size: 100% 100%;
     height: 600px;
     box-sizing: border-box;
@@ -453,11 +787,12 @@ export default {
         line-height: 1.5;
         text-align: center;
         width: 60%;
+        font-size: 14px;
         h1 {
-          font-size: 36px;
+          font-size: 38px;
         }
         p {
-          color: #a6a6a6;
+          color: #87868c;
           margin: 20px 0;
         }
         .home-subscribe-left-btn {
@@ -496,19 +831,26 @@ export default {
     }
   }
   .home-introduce {
-    background: url("./../../assets/docs/05.jpg") no-repeat;
+    background: url('./../../assets/docs/05.jpg') no-repeat;
     background-size: 100% 100%;
     height: 100%;
     padding: 40px 0;
     .home-conent {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       text-align: center;
       .home-introduce-bg {
         background: rgba(255, 255, 255, 0.075);
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.5);
         line-height: 1.2;
+      }
+      .home-common-title {
+        font-size: 24px;
+      }
+      .home-common-content {
+        font-size: 14px;
+        color: #87868c;
       }
       .home-introduce-left {
         width: 55%;
@@ -522,7 +864,7 @@ export default {
           // background-size: 100%;
         }
         .home-introduce-left2 {
-          height: 200px;
+          min-height: 200px;
           width: 80%;
           margin: 30px 0 30px 15%;
         }
@@ -539,26 +881,21 @@ export default {
         }
         .home-introduce-right1 {
           width: 90%;
-          height: 240px;
+          min-height: 240px;
         }
         .home-introduce-right2 {
           width: 90%;
-          height: 240px;
+          min-height: 240px;
           margin-left: 10%;
         }
       }
     }
-  }
-  .home-trusted {
-    height: 120px;
-    color: #838788;
-    // background: url('./../../assets/docs/06.jpg') no-repeat;
-    // background-size: 100%;
-    padding-top: 20px;
-    text-align: center;
+    .home-conent-swiper1 {
+      display: none;
+    }
   }
   .home-content {
-    background: url("./../../assets/docs/06.jpg") no-repeat;
+    background: url('./../../assets/docs/06.jpg') no-repeat;
     background-size: 100% 100%;
     padding: 40px 0;
     .home-title {
@@ -585,7 +922,7 @@ export default {
           height: 68px;
         }
         .home-common-title {
-          font-size: 18px;
+          font-size: 24px;
           font-weight: 600;
           background: linear-gradient(to right, #2ffdd4, #e0f86f);
           -webkit-background-clip: text;
@@ -597,41 +934,15 @@ export default {
         box-shadow: 0px 0px 10px 0px #2ffdd4;
       }
     }
-  }
-  .home-tokens {
-    display: flex;
-    justify-content: space-around;
-    padding: 40px 0;
-    li {
-      width: 40%;
-      padding: 40px;
-      background: #232835;
-      text-align: center;
-      .home-tokens-logo {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto;
-        background: #777777;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      .home-tokens-title {
-        margin: 20px 0;
-      }
-      .home-tokens-content {
-        line-height: 1.5;
-        text-align: left;
-      }
+    .mobile {
+      display: none;
     }
   }
+
   .home-veZoic {
     line-height: 1.5;
     padding: 40px 0;
-    background: url("./../../assets/docs/07.jpg") no-repeat;
+    background: url('./../../assets/docs/07.jpg') no-repeat;
     background-size: 100% 100%;
     .home-conent {
       display: flex;
@@ -640,7 +951,7 @@ export default {
         font-size: 14px;
         width: 48%;
         .home-veZoicTitle {
-          width: 125px;
+          width: 131px;
           font-size: 36px;
           font-weight: 700;
           background: linear-gradient(to right, #3dfdcb, #def871);
@@ -656,14 +967,21 @@ export default {
           }
         }
       }
+      li:nth-child(1) {
+        .home-veZoic-img {
+          display: none;
+        }
+      }
     }
     .home-veZoic-title {
       font-size: 24px;
     }
     .home-veZoic-tit {
+      font-size: 18px;
     }
     .home-veZoic-content {
       color: #adadad;
+      font-size: 14px;
     }
     .el-button {
       margin-top: 40px;
@@ -673,7 +991,7 @@ export default {
     }
   }
   .home-how {
-    background: url("./../../assets/docs/08.jpg") no-repeat;
+    background: url('./../../assets/docs/08.jpg') no-repeat;
     background-size: 100% 100%;
     .home-title {
       padding: 40px 0;
@@ -681,12 +999,12 @@ export default {
     }
     .home-conent {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       li {
         margin-top: 20px;
         position: relative;
         width: 30%;
-        height: 360px;
+        height: 300px;
         padding: 40px 30px;
         background: rgba(0, 0, 0, 0.5);
         border: 1px solid #e0f86f;
@@ -697,12 +1015,14 @@ export default {
         font-size: 14px;
         line-height: 1.5;
         border-radius: 5px;
+        color: #adadad;
         .upward {
           position: absolute;
           top: -34px;
           left: 50%;
           transform: translateX(-50%);
           width: 80%;
+          height: 100%;
           .home-common-icon {
             width: 68px;
             height: 68px;
@@ -717,12 +1037,15 @@ export default {
         }
       }
     }
+    .mobile {
+      display: none;
+    }
   }
   .home-benefit {
     height: 100%;
-    padding: 40px 0;
-    background: url("./../../assets/docs/09.jpg") no-repeat;
+    background: url('./../../assets/docs/09.jpg') no-repeat;
     background-size: 100% 100%;
+    padding-bottom: 20px;
     .home-title {
       margin: 40px auto;
       text-align: center;
@@ -735,11 +1058,11 @@ export default {
         height: 260px;
         border-radius: 10px;
         font-size: 14px;
-        background: url("./../../assets/docs/27.png") no-repeat;
+        background: url('./../../assets/docs/27.png') no-repeat;
         background-size: 100% 100%;
         .borderRadius {
           height: 100%;
-          padding: 40px;
+          padding: 30px;
           box-sizing: border-box;
 
           // background: #232835;
@@ -756,13 +1079,18 @@ export default {
           font-size: 18px;
         }
         .home-tokens-title {
-          margin: 20px 0;
+          font-size: 24px;
+          margin: 10px 0;
         }
         .home-tokens-content {
           line-height: 1.5;
           text-align: left;
+          color: #adadad;
         }
       }
+    }
+    .mobile {
+      display: none;
     }
   }
   .home-bottom {
@@ -807,6 +1135,238 @@ export default {
           color: #000;
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .home {
+    .home-conent {
+      width: 90%;
+      margin: 0 auto;
+      .home-common-icon {
+        width: 57px;
+        height: 42px;
+        margin: 0 auto;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .home-common-title {
+        margin: 10px 0;
+      }
+    }
+    .home-subscribe {
+      padding-top: 0rem;
+      height: 12.3rem !important;
+      .home-conent {
+        .home-subscribe-left {
+          width: 100%;
+          padding: 0;
+          margin-top: 3rem;
+        }
+      }
+    }
+    .home-introduce {
+      padding: 0.5rem 0;
+      .home-conent {
+        display: none;
+      }
+      .home-conent-swiper1 {
+        display: block;
+        height: 5rem;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        .seiper-container {
+          .swiper-wrapper {
+            width: 100% !important;
+            margin: 0 auto;
+            .swiper-slide {
+              width: 100% !important;
+              .home-introduce-left {
+                width: 75% !important;
+                margin: 0 auto;
+                text-align: center;
+                .home-common-icon {
+                  width: 1.5rem;
+                  height: 1.2rem;
+                  margin: 0 auto;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+                .home-common-title {
+                  font-size: 0.45rem;
+                  margin-bottom: 0.2rem;
+                }
+                .home-common-content {
+                  color: #87868c;
+                }
+              }
+            }
+          }
+          .swiper-button-next {
+            // top: 0;
+          }
+          .swiper-button-prev {
+            // top: 0;
+          }
+        }
+      }
+    }
+    .home-content {
+      .home-conent {
+        width: 100%;
+        ul {
+          display: none;
+        }
+        .mobile {
+          display: block;
+          position: relative;
+          height: 6rem;
+          .seiper-container {
+            .swiper-wrapper {
+              width: 100% !important;
+              .swiper-slide {
+                width: 100% !important;
+                li {
+                  width: 75%;
+                  margin: 0 auto;
+                  // text-align: center;
+                  .home-common-icon {
+                    width: 1rem;
+                    height: 1rem;
+                    margin: 0 auto;
+                    img {
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+                  .home-common-title {
+                    font-size: 0.6rem;
+                  }
+                  .home-common-content {
+                    line-height: 1.2;
+                    font-size: 0.25rem;
+                    color: #87868c;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .home-veZoic {
+      .home-conent {
+        display: block;
+        li:nth-child(1) {
+          .home-veZoicTitle {
+            width: 2.5rem;
+            margin: 0 auto;
+          }
+          .home-veZoic-img {
+            display: block !important;
+            width: 4rem;
+            height: 3.5rem;
+            margin: 0.4rem auto;
+          }
+          .home-veZoic-title {
+            font-size: 0.6rem;
+          }
+          .home-veZoic-tit {
+            font-size: 0.4rem;
+          }
+          .home-veZoic-content {
+            font-size: 0.25rem;
+            color: #87868c;
+          }
+        }
+        li {
+          width: 100%;
+        }
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    .home-how {
+      .home-conent {
+        display: none;
+      }
+      .mobile {
+        display: block;
+        .seiper-container {
+          position: relative;
+          .swiper-wrapper {
+            .swiper-slide {
+              li {
+                width: 80%;
+                margin: 0 auto;
+                .upward {
+                  .home-common-icon {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    margin: 0 auto;
+                    img {
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+                  .home-common-title {
+                    font-size: 0.6rem;
+                    margin: 0.2rem 0;
+                  }
+                  .home-common-content {
+                    font-size: 0.25rem;
+                    color: #87868c;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .home-benefit {
+      .home-conent {
+        display: none;
+      }
+      .mobile {
+        display: block;
+
+        padding-bottom: 0.5rem;
+        .seiper-container {
+          position: relative;
+          .swiper-wrapper {
+            .swiper-slide {
+              li {
+                width: 80%;
+                margin: 0 auto;
+                background: url('./../../assets/docs/27.png') no-repeat;
+                background-size: 100% 100%;
+                padding: 0.5rem;
+                box-sizing: border-box;
+                .home-tokens-title {
+                  font-size: 0.4rem;
+                  margin: 0.2rem auto;
+                }
+                .home-common-content {
+                  color: #87868c;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      background: linear-gradient(to right, #2ffdd4, #e0f86f);
+      -webkit-background-clip: text;
+      color: transparent;
     }
   }
 }

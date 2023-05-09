@@ -481,7 +481,7 @@ export default {
             color: #fff;
           }
           .header-address {
-            width: 100px;
+            width: 105px;
             span {
               display: inline-block;
               width: 50%;

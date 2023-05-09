@@ -35,6 +35,28 @@ Vue.prototype.$message = Message
 import Web3 from "web3";
 import Web3Utils from "web3-utils";
 
+
+import VueAwesomeSwiper from "vue-awesome-swiper"
+import "swiper/css/swiper.css"
+Vue.use(VueAwesomeSwiper)
+
+
+
+const setHtmlFontSize = () => {
+  const htmlDom = document.getElementsByTagName('html')[0];
+  let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+  if (htmlWidth >= 750) {
+    htmlWidth = 750;
+  }
+  if (htmlWidth <= 320) {
+    htmlWidth = 320;
+  }
+  htmlDom.style.fontSize = `${htmlWidth / 7.5}px`;
+};
+window.onresize = setHtmlFontSize;
+setHtmlFontSize();
+
+
 // Vue.use(new Web3())
 Vue.use(new Web3)
 Vue.use(Web3Utils)
@@ -51,11 +73,11 @@ new Vue({
   render: h => h(App),
   mounted() {
     AOS.init({
-      offset: 100,   
-      duration: 600,   
-      easing: 'ease-in-sine',   
+      offset: 100,
+      duration: 600,
+      easing: 'ease-in-sine',
       delay: 100,
       // disable: 'mobile'
-   });
+    });
   },
 }).$mount('#app')
