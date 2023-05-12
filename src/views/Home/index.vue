@@ -16,11 +16,23 @@
             <!-- <div @click="obtain">获取</div>
             <div @click="subm">发邮件</div> -->
             <div class="home-subscribe-left-docs">
-              <span>
-                {{ $t('home.homeDocs') }}
-              </span>
+              <a
+                href="https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer"
+                target="_blank"
+              >
+                <span>
+                  {{ $t('home.homeDocs') }}
+                </span>
+              </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="home-subscribe-outer">
+        <div>
+          <li v-for="(item, index) in outerChainList" :key="index">
+            <img :src="item.imgSrc" alt="" />
+          </li>
         </div>
       </div>
     </div>
@@ -466,15 +478,14 @@
         </div>
       </div>
     </div>
-    <div class="home-bottom">
+    <!-- <div class="home-bottom">
       <div class="home-conent">
         <Bottom />
       </div>
-    </div>
+    </div> -->
     <el-dialog
       :title="$t('homeDialog.dialogTitlte')"
       :visible.sync="EmailDialogVisible"
-      width="500px"
       :close-on-click-modal="false"
       :before-close="handleClose"
     >
@@ -524,7 +535,7 @@
 <script>
 // @ is an alias to /src
 import PublicTitle from '@/components/publicTitle.vue'
-import Bottom from '@/components/bottom/index.vue'
+// import Bottom from '@/components/bottom/index.vue'
 import { getWalletAddress, isWalletConnected } from './../../white/index.js'
 import { Swiper } from 'vue-awesome-swiper'
 
@@ -532,7 +543,7 @@ export default {
   name: 'Home',
   components: {
     PublicTitle,
-    Bottom,
+    // Bottom,
   },
 
   data() {
@@ -542,6 +553,17 @@ export default {
         email: '',
       },
       getInnerWidth: 0,
+      outerChainList: [
+        {
+          imgSrc: require('./../../assets/bottom/24.png'),
+        },
+        {
+          imgSrc: require('./../../assets/bottom/25.png'),
+        },
+        {
+          imgSrc: require('./../../assets/bottom/26.png'),
+        },
+      ],
     }
   },
   watch: {
@@ -749,7 +771,7 @@ export default {
   text-align: left;
   overflow: hidden;
   .home-conent {
-    width: 1080px;
+    max-width: 1300px;
     margin: 0 auto;
     word-break: break-all;
     word-wrap: break-word;
@@ -777,6 +799,7 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-around;
+      position: relative;
       .home-subscribe-left {
         // display: flex;
         // justify-content: inherit;
@@ -786,14 +809,16 @@ export default {
         padding: 20px;
         line-height: 1.5;
         text-align: center;
-        width: 60%;
+        // width: 60%;
         font-size: 14px;
         h1 {
-          font-size: 38px;
+          font-size: 72px;
         }
         p {
+          width: 842px;
+          font-size: 26px;
           color: #87868c;
-          margin: 20px 0;
+          margin: 20px auto;
         }
         .home-subscribe-left-btn {
           margin: 0 auto;
@@ -817,15 +842,33 @@ export default {
             -webkit-background-clip: text;
             color: transparent;
             overflow: hidden;
-            span {
-              display: inline-block;
-              font-weight: 500;
-              width: 96px;
-              height: 31px;
-              border: 2px solid black;
-              border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
+            cursor: pointer;
+            a {
+              background: linear-gradient(to right, #3dfccb, #e1f86e);
+              -webkit-background-clip: text;
+              color: transparent;
+              span {
+                display: inline-block;
+                font-weight: 500;
+                width: 96px;
+                height: 31px;
+                line-height: 31px;
+                border: 2px solid black;
+                border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
+              }
             }
           }
+        }
+      }
+    }
+    .home-subscribe-outer {
+      position: absolute;
+      left: 20px;
+      bottom: 5%;
+      div {
+        display: flex;
+        li {
+          margin: 0 10px;
         }
       }
     }
@@ -840,9 +883,12 @@ export default {
       justify-content: space-between;
       text-align: center;
       .home-introduce-bg {
-        background: rgba(255, 255, 255, 0.075);
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(129, 129, 129, 0.5);
+        border-radius: 16px;
+
+        // border: 1px solid rgba(129, 129, 129, 0.8);
+
+        box-shadow: 0px 0px 28px 4px rgba(33, 22, 19, 0.21);
         line-height: 1.2;
       }
       .home-common-title {
@@ -874,17 +920,17 @@ export default {
         }
       }
       .home-introduce-right {
-        width: 35%;
+        width: 40%;
         > div {
           padding: 20px;
           margin-top: 40px;
         }
         .home-introduce-right1 {
-          width: 90%;
+          width: 91%;
           min-height: 240px;
         }
         .home-introduce-right2 {
-          width: 90%;
+          width: 91%;
           min-height: 240px;
           margin-left: 10%;
         }
@@ -993,6 +1039,7 @@ export default {
   .home-how {
     background: url('./../../assets/docs/08.jpg') no-repeat;
     background-size: 100% 100%;
+    padding: 40px 0;
     .home-title {
       padding: 40px 0;
       text-align: center;
@@ -1045,7 +1092,7 @@ export default {
     height: 100%;
     background: url('./../../assets/docs/09.jpg') no-repeat;
     background-size: 100% 100%;
-    padding-bottom: 20px;
+    padding: 40px 0;
     .home-title {
       margin: 40px auto;
       text-align: center;
@@ -1102,6 +1149,7 @@ export default {
       background: #353945;
       color: #fff;
       padding: 0 20px;
+      width: 50%;
       .el-dialog__header {
         .el-dialog__title {
           color: #fff;
@@ -1367,6 +1415,11 @@ export default {
       background: linear-gradient(to right, #2ffdd4, #e0f86f);
       -webkit-background-clip: text;
       color: transparent;
+    }
+    /deep/.el-dialog__wrapper {
+      .el-dialog {
+        width: 80%;
+      }
     }
   }
 }

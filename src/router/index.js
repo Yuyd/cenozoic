@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home/index.vue'
 import Games from '../views/Games/index.vue'
 import About from '../views/About/index.vue'
+import PrivacyPolicy from '../views/Privacy/index.vue'
+import Trademark from '../views/Trademark/index.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,16 @@ const routes = [
     path: '/About',
     name: 'about',
     component: About
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/trademark',
+    name: 'Trademark',
+    component: Trademark
   }
 ]
 

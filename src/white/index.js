@@ -6,12 +6,12 @@ export async function isWalletConnected() {
   const addressArray = await ethereum.request({
     method: 'eth_accounts'
   })
-  console.log(addressArray[0])
-  if (typeof addressArray[0] == 'undefined' || addressArray[0] == '') {
+  if (typeof addressArray == [] || addressArray == 'undefined') {
     return false
   } else {
     return true
   }
+  return false
 }
 
 

@@ -6,14 +6,27 @@
     </div> -->
     <Header />
     <router-view/>
+    <Bottom />
   </div>
 </template>
 <script>
 import Header from '@/components/header/index.vue'
+import Bottom from '@/components/bottom/index.vue'
 export default {
   components: {
-    Header
-  }
+    Header,
+    Bottom
+  },
+  // watch: {
+  //   language(newVaalue, old) {
+  //     if(newVaalue != old) {
+  //       console.log(newVaalue, old,'173---------------')
+  //       this.language = newVaalue
+  //       getLang(newVaalue)
+  //       sessionStorage.setItem("lang", this.language);
+  //     }
+  //   }
+  // },
 }
 </script>
 

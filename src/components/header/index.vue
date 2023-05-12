@@ -46,8 +46,8 @@
             <div>
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                  {{ getLang(language) || "English"
-                  }}<i class="el-icon-arrow-down el-icon--right"></i>
+                  {{ getLangFn(language) || 'English' }}
+                  <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item :disabled="language === 'en'" command="en">
@@ -76,15 +76,16 @@
             </div>
           </li>
           <li class="connect-white">
-            <div
-              v-if="myAddress == '' || myAddress == 'undefined'"
-              @click="toWhite"
-            >
-              {{ $t("header.connect") }}
+            <div v-if="!myAddress" @click="toWhite">
+              {{ $t('header.connect') }}
             </div>
             <div v-else class="header-address">
-              <span>{{ myAddress.slice(0, 9) }}</span>
-              <span>{{ myAddress.slice(-6) }}</span>
+              <span>
+                {{ myAddress.slice(0, 9) }}
+              </span>
+              <span>
+                {{ myAddress.slice(-6) }}
+              </span>
             </div>
             <!-- <span>{{ myAddress }}</span> -->
           </li>
@@ -137,9 +138,9 @@
 </template>
 
 <script>
-import axios from "axios";
-import getLang from "./../../lang/language.json";
-import { getWalletAddress } from "./../../white/index.js";
+import axios from 'axios'
+import getLang from './../../lang/language.json'
+import { getWalletAddress, isWalletConnected } from './../../white/index.js'
 // import upWallet from "./../../util/unipasswallet/unipasswallet.js";
 // import LoginDialog from "./../login/index.vue";
 export default {
@@ -148,64 +149,76 @@ export default {
   },
   data() {
     return {
-      headerList: ["Docs", "Games", "About"],
+      headerList: ['Docs', 'Games', 'About'],
       cur: 0,
-      myAddress: "",
+      myAddress: '',
       loginDialogVisible: false,
       login: false,
       user: false,
       registerForm: {
-        email: "",
-        walletAddress: "",
-        promotionCode: "",
+        email: '',
+        walletAddress: '',
+        promotionCode: '',
       },
       rulesRegister: {},
       registerDialogVisible: false,
       isToken: false,
-      token: "",
+      token: '',
       // languageList: ["中文", "en", "cn"],
-      language: sessionStorage.getItem("lang"),
-    };
+      language: sessionStorage.getItem('lang'),
+    }
   },
-  watch: {},
+  watch: {
+    // language(newVaalue, old) {
+    //   if(newVaalue != old) {
+    //     this.handleCommand(newVaalue)
+    //     // console.log(newVaalue, old,'173---------------')
+    //     // this.language = newVaalue
+    //     // getLang(newVaalue)
+    //     sessionStorage.setItem("lang", newVaalue);
+    //   }
+    // }
+  },
   created() {},
   mounted() {
-    this.isTokenTable();
-    this.$nextTick(() => {});
+    this.isTokenTable()
+    this.$nextTick(() => {})
   },
   methods: {
     // 多语言切换
     handleCommand(value) {
-      this.language = value;
-      this.$i18n.locale = value;
-      window.sessionStorage.setItem("lang", this.language);
+      this.language = value
+      this.$i18n.locale = value
+      sessionStorage.setItem('lang', value)
+      location.reload()
+      // this.$emit('handleCommand',value)
     },
     // 语言选择
-    getLang(language) {
-      return getLang[language];
+    getLangFn(language) {
+      return getLang[language]
     },
     async getWalletAddress1() {
-      this.myAddress = await getWalletAddress();
-      localStorage.setItem("address", this.myAddress);
+      this.myAddress = await getWalletAddress()
+      localStorage.setItem('address', this.myAddress)
     },
     goNext(index) {
-      this.cur = index;
+      this.cur = index
       switch (index) {
         case 0:
           this.$router.push({
-            name: "home",
-          });
-          break;
+            name: 'home',
+          })
+          break
         case 1:
           this.$router.push({
-            name: "games",
-          });
-          break;
+            name: 'games',
+          })
+          break
         case 2:
           this.$router.push({
-            name: "about",
-          });
-          break;
+            name: 'about',
+          })
+          break
         // case 3:
         // 	window.open("https://email.163.com/");
         // break;
@@ -215,60 +228,70 @@ export default {
       }
     },
     getting() {
-      this.$router.push({ name: "welcome" });
+      this.$router.push({ name: 'welcome' })
     },
     // 链接钱包
     toWhite() {
-      const ethereum = window.ethereum;
-      ethereum.request({ method: "eth_requestAccounts" });
+      const ethereum = window.ethereum
+      ethereum.request({ method: 'eth_requestAccounts' })
       setTimeout(() => {
-        this.getWalletAddress1();
-      }, 2000);
+        this.getWalletAddress1()
+      }, 1000)
+    },
+    // 检查钱包是否链接
+    async getIsWalletConnected() {
+      try {
+        let a = isWalletConnected()
+        console.log(a, '-------------------------------')
+        return await isWalletConnected()
+      } catch (e) {
+        console.info(e)
+      }
     },
     toLogin() {
-      this.loginDialogVisible = true;
+      this.loginDialogVisible = true
     },
     toRegister() {
-      this.registerDialogVisible = true;
+      this.registerDialogVisible = true
     },
     logindialog() {
-      this.loginDialogVisible = false;
+      this.loginDialogVisible = false
     },
     // verificationCode() {},
     toSignIn() {
-      this.loginDialogVisible = true;
-      this.registerDialogVisible = false;
+      this.loginDialogVisible = true
+      this.registerDialogVisible = false
     },
     onToRegister() {
-      this.loginDialogVisible = false;
-      this.registerDialogVisible = true;
+      this.loginDialogVisible = false
+      this.registerDialogVisible = true
     },
     toBox() {
       this.$router.push({
-        name: "box",
-      });
+        name: 'box',
+      })
     },
     // 注册
     async registerSumbit(email, walletAddress, promotionCode) {
       // this.$refs[registerForm].validate(async (valid) => {
       //   if (valid) {
-      let res = await axios.post("/api/app/official/register", {
+      let res = await axios.post('/api/app/official/register', {
         email: email,
         walletAddress: walletAddress,
         promotionCode: promotionCode,
-      });
+      })
       if (res.data.code == 0) {
         // this.registerForm.email = "";
         // this.registerForm.walletAddress = "";
         // this.registerForm.promotionCode = "";
         // this.loginDialogVisible = true;
         // this.registerDialogVisible = false;
-        this.$message.success(res.data.msg);
+        this.$message.success(res.data.msg)
       } else {
-        if (res.data.msg == "Email has been registered") {
-          this.loginSumbit(email, walletAddress);
+        if (res.data.msg == 'Email has been registered') {
+          this.loginSumbit(email, walletAddress)
         } else {
-          this.$message.error(res.data.msg);
+          this.$message.error(res.data.msg)
         }
       }
       //   }
@@ -279,22 +302,22 @@ export default {
       const query = {
         email: email,
         walletAddress: walletAddress,
-      };
-      let res = await axios.post("/api/app/official/login", query);
-      console.log(res);
+      }
+      let res = await axios.post('/api/app/official/login', query)
+      console.log(res)
       if (res.data.code == 0) {
-        this.token = res.data.data.token;
-        localStorage.setItem("token", this.token);
-        localStorage.setItem("user_info", JSON.stringify(res.data.data));
-        this.$message.success(res.data.msg);
+        this.token = res.data.data.token
+        localStorage.setItem('token', this.token)
+        localStorage.setItem('user_info', JSON.stringify(res.data.data))
+        this.$message.success(res.data.msg)
         this.$router.push({
-          name: "account",
-        });
+          name: 'account',
+        })
         setTimeout(() => {
-          this.getWalletAddress1();
-        }, 500);
+          this.getWalletAddress1()
+        }, 500)
       } else {
-        this.$message.error(res.data.msg);
+        this.$message.error(res.data.msg)
       }
     },
     // unipass注册登录
@@ -323,41 +346,41 @@ export default {
       // }
     },
     ChangeLoginClick(val) {
-      this.loginDialogVisible = false;
-      this.token = val;
-      this.isTokenTable();
+      this.loginDialogVisible = false
+      this.token = val
+      this.isTokenTable()
     },
     // 判断是否有token
     isTokenTable() {
-      this.token = localStorage.getItem("token");
-      if (this.token == "" || this.token == null) {
-        this.isToken = false;
+      this.token = localStorage.getItem('token')
+      if (this.token == '' || this.token == null) {
+        this.isToken = false
       } else {
-        this.isToken = true;
+        this.isToken = true
       }
       setTimeout(() => {
-        this.getWalletAddress1();
-      }, 500);
+        this.getWalletAddress1()
+      }, 500)
     },
     // 用户中心
     toUser() {
-      this.isTokenTable();
+      this.isTokenTable()
       this.$router.push({
-        name: "account",
-      });
+        name: 'account',
+      })
     },
     // 退出登录
     async logOut() {
       // await upWallet.logout();
-      localStorage.clear();
-      this.token = "";
-      this.isTokenTable();
+      localStorage.clear()
+      this.token = ''
+      this.isTokenTable()
       this.$router.push({
-        name: "home",
-      });
+        name: 'home',
+      })
     },
   },
-};
+}
 </script>
 
 <style scoped lang="less">
