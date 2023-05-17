@@ -863,7 +863,7 @@ export default {
           }
           .subscribeTo:hover {
             // zoom: 1.1;
-            // box-shadow: 0px 0px 28px 4px rgba(33, 22, 19, 0.21);
+            background: linear-gradient(to right, #e1f86e, #3dfccb);
           }
           .home-subscribe-left-docs {
             margin-left: 20px;
@@ -885,6 +885,14 @@ export default {
                 line-height: 31px;
                 border: 2px solid black;
                 border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
+              }
+            }
+            a:hover {
+              background: linear-gradient(to right, #e1f86e, #3dfccb);
+              -webkit-background-clip: text;
+              color: transparent;
+              span {
+                border-image: linear-gradient(to right, #e1f86e, #3dfccb) 2;
               }
             }
           }
@@ -1098,6 +1106,9 @@ export default {
       background: linear-gradient(to right, #2ffdd4, #e0f86f);
       border: 0px;
       color: #000;
+    }
+    .el-button:hover {
+      background: linear-gradient(to right, #e0f86f, #2ffdd4);
     }
   }
   .home-how {
