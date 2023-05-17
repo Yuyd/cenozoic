@@ -24,7 +24,8 @@
         </li> -->
         <router-link to="/privacy-policy">
           <span>Privacy Policy</span>
-        </router-link>&nbsp;|
+        </router-link>
+        &nbsp;|
         <router-link to="/trademark">
           <span>Terms</span>
         </router-link>
@@ -100,7 +101,7 @@ export default {
   background: #111314;
   .content {
     max-width: 1300px;
-    min-height: 80px;
+    height: 80px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -147,12 +148,27 @@ export default {
       //       height: 100%;
       //     }
       //   }
-        a {
-          color: #fff;
-          margin-left: 10px;
-          text-decoration: underline;
-        }
+      a {
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: underline;
+      }
       // }
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .bottom {
+    .content {
+      width: 100%;
+      height: 1rem;
+      font-size: 0.2rem;
+      padding: 0 0.2rem;
+      box-sizing: border-box;
+      .bottom-left {
+      }
+      .bottom-right {
+      }
     }
   }
 }

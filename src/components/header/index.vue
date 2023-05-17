@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-content">
       <div class="header-left">
-        <div class="left">
+        <div class="left" @click="toHome">
           <div class="logo"><img src="./../../assets/logo.png" alt="" /></div>
           <div class="name">Cenozoic</div>
         </div>
@@ -232,11 +232,15 @@ export default {
     },
     // 链接钱包
     toWhite() {
-      const ethereum = window.ethereum
-      ethereum.request({ method: 'eth_requestAccounts' })
-      setTimeout(() => {
-        this.getWalletAddress1()
-      }, 1000)
+      let ethereum = window.ethereum
+      if (ethereum) {
+        ethereum.request({ method: 'eth_requestAccounts' })
+        setTimeout(() => {
+          this.getWalletAddress1()
+        }, 1000)
+      } else {
+        this.$message.info('请按装MetaMask插件')
+      }
     },
     // 检查钱包是否链接
     async getIsWalletConnected() {
@@ -247,6 +251,16 @@ export default {
       } catch (e) {
         console.info(e)
       }
+    },
+    // 回顶部
+    toHome() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -=50
+        if(top <= 0) {
+          clearInterval(timeTop)
+        }
+      }, 20)
     },
     toLogin() {
       this.loginDialogVisible = true
@@ -407,6 +421,7 @@ export default {
         display: flex;
         align-items: center;
         font-weight: 700;
+        cursor: pointer;
         .logo {
           width: 40px;
           height: 40px;

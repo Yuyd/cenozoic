@@ -16,7 +16,9 @@ import {
   Option,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Collapse,
+  CollapseItem
 } from 'element-ui'
 
 
@@ -30,6 +32,8 @@ Vue.use(Option)
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 Vue.prototype.$message = Message
 
 import Web3 from "web3";
