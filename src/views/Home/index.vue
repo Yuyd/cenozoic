@@ -955,7 +955,7 @@ export default {
       justify-content: space-between;
       text-align: center;
       .home-introduce-bg {
-        background: rgba(129, 129, 129, 0.5);
+        background: rgba(129, 129, 129, 0.2);
         border-radius: 16px;
 
         // border: 1px solid rgba(129, 129, 129, 0.8);
@@ -986,6 +986,9 @@ export default {
           width: 80%;
           margin: 30px 0 30px 15%;
         }
+        > div:hover {
+          background: rgba(129, 129, 129, 0.5);
+        }
         .home-introduce-left3 {
           height: 200px;
           width: 100%;
@@ -996,6 +999,9 @@ export default {
         > div {
           padding: 20px;
           margin-top: 40px;
+        }
+        > div:hover {
+          background: rgba(129, 129, 129, 0.5);
         }
         .home-introduce-right1 {
           width: 91%;
@@ -1050,6 +1056,12 @@ export default {
       li:last-child {
         border-color: #2ffdd4;
         box-shadow: 0px 0px 10px 0px #2ffdd4;
+      }
+      li:hover {
+        box-shadow: 0px 0px 15px 0px #e0f86f;
+      }
+      li:last-child:hover {
+        box-shadow: 0px 0px 15px 0px #2ffdd4;
       }
     }
     .mobile {
@@ -1157,6 +1169,9 @@ export default {
             color: transparent;
           }
         }
+      }
+      li:hover {
+        box-shadow: 0px 0px 15px 0px #e0f86f;
       }
     }
     .mobile {
