@@ -1226,7 +1226,8 @@ export default {
         }
       }
       li:hover {
-        background: rgba(129, 129, 129, 0.2);
+        // background: rgba(129, 129, 129, 0.2);
+        zoom: 1.01;
       }
     }
     .mobile {
