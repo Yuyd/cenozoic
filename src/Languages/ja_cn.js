@@ -47,7 +47,7 @@ const ja = {
     homeSubscribeBtn: 'Subscribe',
     homeDocs: 'Docs',
     homeTrusted: 'Trusted by',
-    homeSupporting: 'Wユニバーサルエコノミックレイヤー',
+    homeSupporting: 'ユニバーサルエコノミックレイヤー',
     homeSupportingContent: 'Cenozoicプロトコルの共有経済とガバナンスを通じて、分散型ゲーム開発を促進します。',
     homeInteroper: 'オンチェーンの評判と利益',
     homeInteroperContent: '暗号資産の質入れによるプレイヤーの収益の向上、ZOICガバナンスインセンティブ、永久的なブロックチェーン上のストレージ、そして実績NFTによるオンチェーン上の評判を提供します。',
@@ -79,7 +79,7 @@ const ja = {
     homeAdvantageLift1: '安定通貨のゲーム通貨と引き換え可能なNFTで金融リスクを軽減します。',
     homeAdvantageLift2: 'CENOでのゲームプレイやZOIC報酬、ガバナンス投票権により収益を増やすことができます。',
     homeAdvantageLift3: 'プレイヤー向け',
-    homeAdvantageRight1: 'veZOICの投票権を取得することで、ZOIC報酬の配布を誘導し、より多くのプレイヤーを自分たちのゲームに参加させることができます。',
+    homeAdvantageRight1: 'veZOICの投票権を取得することで、ZOIC報酬の配布を誘導し、より多くのプレイヤーを自分たちのゲームに参加させることができます',
     homeAdvantageRight2: 'ゲーム開発者向け',
   },
   menu: {

@@ -71,7 +71,7 @@ const da = {
     homeHowTit: 'Sådan deltager du',
     homeDepositsTit: 'Indbetal og præg CENO',
     homeDepositsContent: 'Indbetal aktiver til CENO stablecoin, der kan bruges når som helst og hvor som helst til spil. Transparent offentligt CENO-vault.',
-    homeEarnTit: 'Optjen og indløs spilbelønninger',
+    homeEarnTit: 'Optjen og indløs spilbelønninger.',
     homeEarnContent: "Brænd NFT'er for at udtrække CENO og optjene ZOIC. Brænd CENO og ZOIC for at indløse aktiver fra protokolvault.",
     homeReceiveTit: 'Få veZOIC for øgede spilbelønninger',
     homeReceiveContent: 'Lås ZOIC for veZOIC, hvilket øger in-game belønninger op til 254%.',
