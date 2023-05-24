@@ -102,7 +102,8 @@ export default {
 
 <style lang="less" scoped>
 .bottom {
-  background: #111314;
+  background: url('./../../assets/bottom/06.jpg') no-repeat;
+  background-size: 100% 100%;
   .content {
     max-width: 1300px;
     height: 80px;

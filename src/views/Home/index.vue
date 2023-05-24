@@ -1107,7 +1107,7 @@ export default {
     }
   }
   .home-content {
-    background: url('./../../assets/docs/06.jpg') no-repeat;
+    background: url('./../../assets/docs/03.jpg') no-repeat;
     background-size: 100% 100%;
     padding: 40px 0;
     .home-title {
@@ -1182,7 +1182,7 @@ export default {
   .home-veZoic {
     line-height: 1.5;
     padding: 40px 0;
-    background: url('./../../assets/docs/07.jpg') no-repeat;
+    background: url('./../../assets/docs/04.jpg') no-repeat;
     background-size: 100% 100%;
     .home-conent {
       display: flex;
@@ -1234,7 +1234,7 @@ export default {
     }
   }
   .home-how {
-    background: url('./../../assets/docs/08.jpg') no-repeat;
+    background: url('./../../assets/docs/05.jpg') no-repeat;
     background-size: 100% 100%;
     padding: 40px 0;
     .home-title {
@@ -1248,7 +1248,7 @@ export default {
         width: 100%;
         margin: 40px auto;
         div {
-          border: 1px solid #383938;
+          border: 1px solid #535353;
         }
       }
       li {
