@@ -4,31 +4,35 @@
     <div class="content">
       <div class="bottom-left">
         <div class="bottom-left-list">
-          <!-- <li
+          <li
             v-for="(item, index) in this.$t('bottom.sponsorList')"
             :key="index"
           >
-              <router-link :to="item.src">{{ item.name }}</router-link>
-          </li> -->
-          @ 2023 Cenozoic. All Rights Reserved
+              <!-- <router-link :to="item.src">{{ item.name }}</router-link> -->
+              <a href="">
+              <span>{{ item.name }}</span>
+
+              </a>
+          </li>
+          <!-- @ 2023 Cenozoic. All Rights Reserved -->
         </div>
       </div>
       <div class="bottom-right">
-        <!-- <li v-for="(item, index) in outerChainList" :key="index">
+        <li v-for="(item, index) in outerChainList" :key="index">
           <div class="outer-img">
             <img :src="item.imgSrc" alt="" />
           </div>
-          <p>
+          <!-- <p>
             <a :href="item.blankSrc" target="_blank">{{ item.name }}</a>
-          </p>
-        </li> -->
-        <router-link to="/privacy-policy">
+          </p> -->
+        </li>
+        <!-- <router-link to="/privacy-policy">
           <span>Privacy Policy</span>
         </router-link>
         &nbsp;|
         <router-link to="/trademark">
           <span>Terms</span>
-        </router-link>
+        </router-link> -->
       </div>
     </div>
   </div>
@@ -81,12 +85,12 @@ export default {
         },
       ],
       outerChainList: [
-        // {
-        //   imgSrc: require('./../../assets/bottom/24.png'),
-        // },
-        // {
-        //   imgSrc: require('./../../assets/bottom/25.png'),
-        // },
+        {
+          imgSrc: require('./../../assets/bottom/24.png'),
+        },
+        {
+          imgSrc: require('./../../assets/bottom/25.png'),
+        },
         {
           imgSrc: require('./../../assets/bottom/26.png'),
         },
@@ -136,24 +140,26 @@ export default {
       align-items: center;
       height: 100%;
       color: #fff;
-      // li {
-      //   color: #fff;
-      //   display: flex;
-      //   align-items: center;
-      //   .outer-img {
-      //     width: 40px;
-      //     height: 40px;
-      //     img {
-      //       width: 100%;
-      //       height: 100%;
-      //     }
-      //   }
-      a {
+      li {
         color: #fff;
-        margin-left: 10px;
-        text-decoration: underline;
-      }
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        .outer-img {
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      // a {
+      //   color: #fff;
+      //   margin-left: 10px;
+      //   text-decoration: underline;
       // }
+      }
     }
   }
 }

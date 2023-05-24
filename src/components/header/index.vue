@@ -42,6 +42,11 @@
       </div>
       <div class="header-right">
         <div>
+          <li class="header-tab-list">
+            <div v-for="(item,index) in tableList" :key="index">
+              <span @click="goNext(index)" :class="{ active: cur == index}">{{item}}</span>
+            </div>
+          </li>
           <li>
             <div>
               <el-dropdown @command="handleCommand">
@@ -149,7 +154,7 @@ export default {
   },
   data() {
     return {
-      headerList: ['Docs', 'Games', 'About'],
+      tableList: ['Home', 'Economic Layer', 'Community'],
       cur: 0,
       myAddress: '',
       loginDialogVisible: false,
@@ -203,29 +208,24 @@ export default {
     },
     goNext(index) {
       this.cur = index
-      switch (index) {
-        case 0:
-          this.$router.push({
-            name: 'home',
-          })
-          break
-        case 1:
-          this.$router.push({
-            name: 'games',
-          })
-          break
-        case 2:
-          this.$router.push({
-            name: 'about',
-          })
-          break
-        // case 3:
-        // 	window.open("https://email.163.com/");
-        // break;
-        // case 4:
-        // 	window.open("https://email.163.com/");
-        // break;
-      }
+      console.log(this.cur)
+      // switch (index) {
+      //   case 0:
+      //     this.$router.push({
+      //       name: 'home',
+      //     })
+      //     break
+      //   case 1:
+      //     this.$router.push({
+      //       name: 'games',
+      //     })
+      //     break
+      //   case 2:
+      //     this.$router.push({
+      //       name: 'about',
+      //     })
+      //     break
+      // }
     },
     getting() {
       this.$router.push({ name: 'welcome' })
@@ -529,9 +529,27 @@ export default {
             }
           }
         }
+        .header-tab-list {
+          display: flex;
+          div {
+            padding: 0 10px;
+            span {
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+            }
+            span:hover {
+              color: #48d34c;
+            }
+            .active {
+              color: #48d34c;
+            }
+          }
+        }
         .connect-white {
-          color: #a3b88c;
-          border: 1px solid #a3b88c;
+          color: #000;
+          // background: #abf47c;
+          background: linear-gradient(to right, #46d44a, #abf47c)
         }
         .portrait {
           width: 15px;

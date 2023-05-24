@@ -5,6 +5,14 @@
         <div class="home-subscribe-left">
           <h1 data-aos="fade">{{ $t('home.homeTitle') }}</h1>
           <p data-aos="zoom-in">{{ $t('home.homeBanner') }}</p>
+          <div class="home-line"></div>
+          <div class="home-subscribe-outer">
+            <div>
+              <li v-for="(item, index) in outerChainList" :key="index">
+                <img :src="item.imgSrc" alt="" />
+              </li>
+            </div>
+          </div>
           <div
             class="home-subscribe-left-btn"
             data-aos="fade-up"
@@ -28,13 +36,13 @@
           </div>
         </div>
       </div>
-      <div class="home-subscribe-outer">
+      <!-- <div class="home-subscribe-outer">
         <div>
           <li v-for="(item, index) in outerChainList" :key="index">
             <img :src="item.imgSrc" alt="" />
           </li>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="home-collapse">
       <div class="home-conent">
@@ -54,9 +62,10 @@
             <div>{{ $t('home.homeTranspraentContent') }}</div>
           </el-collapse-item>
         </el-collapse>
+        <div class="home-btn">Start Now</div>
       </div>
     </div>
-    <div class="home-introduce">
+    <!-- <div class="home-introduce">
       <div class="home-conent">
         <div class="home-introduce-left">
           <div
@@ -85,7 +94,7 @@
               {{ $t('home.homeCoMposContent') }}
             </div>
           </div>
-          <!-- <div
+          <div
             class="home-introduce-left3 home-introduce-bg"
             data-aos="fade-right"
           >
@@ -98,7 +107,7 @@
             <div class="home-common-content">
               {{ $t('home.homeBuildingContent') }}
             </div>
-          </div> -->
+          </div>
         </div>
         <div class="home-introduce-right">
           <div
@@ -158,7 +167,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="swiper-slide">
+            <div class="swiper-slide">
               <div class="home-introduce-left home-introduce-bg">
                 <div class="home-common-icon">
                   <img src="./../../assets/docs/14.png" alt="" />
@@ -170,7 +179,7 @@
                   {{ $t('home.homeBuildingContent') }}
                 </div>
               </div>
-            </div> -->
+            </div>
             <div class="swiper-slide">
               <div class="home-introduce-left home-introduce-bg">
                 <div class="home-common-icon">
@@ -202,7 +211,7 @@
           <div class="swiper-button-prev"></div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="home-content">
       <div class="home-conent">
@@ -235,6 +244,20 @@
             </div>
             <div class="home-common-content">
               {{ $t('home.homeGovernanceContent') }}
+            </div>
+          </li>
+          <li data-aos="zoom-out-up">
+            <div class="home-common-icon">
+              <img src="./../../assets/docs/16.png" alt="" />
+            </div>
+            <div class="home-common-title">
+              {{ $t('home.homeVeZOIC') }}
+            </div>
+            <div class="home-common-content">
+              {{ $t('home.homeVeZOICContent1') }}
+            </div>
+            <div class="home-common-content">
+              {{ $t('home.homeVeZOICContent2') }}
             </div>
           </li>
         </ul>
@@ -275,41 +298,57 @@
             <div class="swiper-button-prev"></div>
           </div>
         </div>
+        <div class="home-btn">
+          Read More
+        </div>
       </div>
     </div>
 
     <div class="home-veZoic">
       <div class="home-conent">
-        <li>
-          <div class="home-veZoicTitle" data-aos="zoom-in-up">
-            {{ $t('home.homeVeZOIC') }}
-          </div>
-          <div class="home-veZoic-img">
-            <img src="./../../assets/docs/17.png" alt="" />
-          </div>
-          <div class="home-veZoic-title">
-            {{ $t('home.homeVeZOICTit1') }}
-          </div>
-          <!-- <div class="home-veZoic-tit">
-            {{ $t('home.homeVeZOICTit2') }}
-          </div> -->
-          <div class="home-veZoic-content">
-            <p>
-              {{ $t('home.homeVeZOICContent') }}
-            </p>
-          </div>
-          <el-button @click="expect">
-            {{ $t('home.homeVeZOICBtn') }}
-          </el-button>
-        </li>
         <li
           data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="1500"
         >
+          <div class="home-veZoic-img">
+            <img src="./../../assets/docs/17.png" alt="" />
+          </div>
+        </li>
+        <li>
+          <div class="home-veZoicTitle" data-aos="zoom-in-up">
+            {{ $t('home.homeHowTit') }}
+          </div>
           <!-- <div class="home-veZoic-img">
             <img src="./../../assets/docs/17.png" alt="" />
           </div> -->
+          <div class="home-veZoic-title">
+            {{ $t('home.homeDepositsTit') }}
+          </div>
+          <div class="home-veZoic-content">
+            <p>
+              {{ $t('home.homeDepositsContent') }}
+            </p>
+          </div>
+          <div class="home-veZoic-title">
+            {{ $t('home.homeEarnTit') }}
+          </div>
+          <div class="home-veZoic-content">
+            <p>
+              {{ $t('home.homeEarnContent') }}
+            </p>
+          </div>
+          <div class="home-veZoic-title">
+            {{ $t('home.homeReceiveTit') }}
+          </div>
+          <div class="home-veZoic-content">
+            <p>
+              {{ $t('home.homeReceiveContent') }}
+            </p>
+          </div>
+          <el-button @click="expect">
+            {{ $t('home.homeVeZOICBtn') }}
+          </el-button>
         </li>
       </div>
     </div>
@@ -317,8 +356,13 @@
       <PublicTitle
         data-aos="zoom-in-up"
         class="home-title"
-        :title="$t('home.homeHowTit')"
+        :title="$t('home.homeCommunity')"
       />
+      <div class="home-conent">
+        <div class="home-how-line">
+          <div></div>
+        </div>
+      </div>
       <div class="home-conent">
         <li
           data-aos="flip-left"
@@ -326,15 +370,16 @@
           data-aos-duration="2000"
         >
           <div class="upward">
-            <div class="home-common-icon">
+            <!-- <div class="home-common-icon">
               <img src="./../../assets/docs/19.png" alt="" />
-            </div>
+            </div> -->
             <div class="home-common-title">
-              {{ $t('home.homeDepositsTit') }}
+              {{ $t('home.homeCommunity1') }}
             </div>
-            <div class="home-common-content">
+            <!-- <div class="home-common-content">
               <p>{{ $t('home.homeDepositsContent') }}</p>
-            </div>
+            </div> -->
+            <div class="upward-btn">Contact with us</div>
           </div>
         </li>
         <li
@@ -343,13 +388,14 @@
           data-aos-duration="2000"
         >
           <div class="upward">
-            <div class="home-common-icon">
+            <!-- <div class="home-common-icon">
               <img src="./../../assets/docs/20.png" alt="" />
-            </div>
-            <div class="home-common-title">{{ $t('home.homeEarnTit') }}</div>
-            <div class="home-common-content">
+            </div> -->
+            <div class="home-common-title">{{ $t('home.homeCommunity2') }}</div>
+            <!-- <div class="home-common-content">
               <p>{{ $t('home.homeEarnContent') }}</p>
-            </div>
+            </div> -->
+            <div class="upward-btn">Comming Soon</div>
           </div>
         </li>
         <li
@@ -358,13 +404,21 @@
           data-aos-duration="2000"
         >
           <div class="upward">
-            <div class="home-common-icon">
+            <!-- <div class="home-common-icon">
               <img src="./../../assets/docs/21.png" alt="" />
+            </div> -->
+            <div class="home-common-title">{{ $t('home.homeCommunity3') }}</div>
+            <div class="upward-list">
+              <div>
+                <img src="./../../assets/docs/21.png" alt="">
+              </div>
+              <div>
+                <img src="./../../assets/docs/20.png" alt="">
+              </div>
             </div>
-            <div class="home-common-title">{{ $t('home.homeReceiveTit') }}</div>
-            <div class="home-common-content">
+            <!-- <div class="home-common-content">
               <p>{{ $t('home.homeReceiveContent') }}</p>
-            </div>
+            </div> -->
           </div>
         </li>
       </div>
@@ -422,7 +476,7 @@
         </div>
       </div>
     </div>
-    <div class="home-benefit">
+    <!-- <div class="home-benefit">
       <PublicTitle
         data-aos="zoom-in-up"
         class="home-title"
@@ -431,10 +485,10 @@
       <div class="home-conent">
         <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
-            <!-- <div class="home-tokens-logo">
+            <div class="home-tokens-logo">
               <img src="./../../assets/docs/22.png" alt="" />
-            </div> -->
-            <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
+            </div>
+            <div class="home-tokens-title">游戏稳定币：CEON</div>
             <div class="home-tokens-title">
               {{ $t('home.homeAdvantageLift3') }}
             </div>
@@ -446,9 +500,9 @@
         </li>
         <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <div class="borderRadius">
-            <!-- <div class="home-tokens-logo">
+            <div class="home-tokens-logo">
               <img src="./../../assets/docs/22.png" alt="" />
-            </div> -->
+            </div>
             <div class="home-tokens-title">
               {{ $t('home.homeAdvantageRight2') }}
             </div>
@@ -464,10 +518,10 @@
             <div class="swiper-slide">
               <li>
                 <div class="borderRadius">
-                  <!-- <div class="home-tokens-logo">
+                  <div class="home-tokens-logo">
                     <img src="./../../assets/docs/22.png" alt="" />
-                  </div> -->
-                  <!-- <div class="home-tokens-title">游戏稳定币：CEON</div> -->
+                  </div>
+                  <div class="home-tokens-title">游戏稳定币：CEON</div>
                   <div class="home-tokens-title">
                     {{ $t('home.homeAdvantageLift3') }}
                   </div>
@@ -481,9 +535,9 @@
             <div class="swiper-slide">
               <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
                 <div class="borderRadius">
-                  <!-- <div class="home-tokens-logo">
+                  <div class="home-tokens-logo">
                     <img src="./../../assets/docs/22.png" alt="" />
-                  </div> -->
+                  </div>
                   <div class="home-tokens-title">
                     {{ $t('home.homeAdvantageRight2') }}
                   </div>
@@ -498,7 +552,7 @@
           <div class="swiper-button-prev"></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="home-bottom">
       <div class="home-conent">
         <Bottom />
@@ -817,7 +871,7 @@ export default {
   .home-subscribe {
     background: #232835;
     // justify-content: center;
-    background: url('./../../assets/docs/03.jpg') no-repeat;
+    background: url('./../../assets/docs/01.jpg') no-repeat;
     background-size: 100% 100%;
     height: 600px;
     box-sizing: border-box;
@@ -825,7 +879,7 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-around;
-      position: relative;
+      // position: relative;
       .home-subscribe-left {
         // display: flex;
         // justify-content: inherit;
@@ -846,6 +900,30 @@ export default {
           color: #87868c;
           margin: 20px auto;
         }
+        .home-line {
+          height: 1px;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) (0%),
+            #6a7b57(50%),
+            rgba(0, 0, 0, 0) (100%)
+          );
+        }
+        .home-subscribe-outer {
+          margin: 20px auto;
+          cursor: pointer;
+          div {
+            display: flex;
+            justify-content: center;
+            li {
+              margin: 0 10px;
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
         .home-subscribe-left-btn {
           margin: 0 auto;
           display: flex;
@@ -854,94 +932,104 @@ export default {
             width: 100px;
             height: 35px;
             line-height: 35px;
-            background: linear-gradient(to right, #3dfccb, #e1f86e);
             color: #000;
             border-radius: 5px;
           }
           .subscribeTo {
+            background: linear-gradient(to right, #70c95d, #c2ee8f);
             cursor: pointer;
           }
           .subscribeTo:hover {
             // zoom: 1.1;
-            background: linear-gradient(to right, #e1f86e, #3dfccb);
+            background: linear-gradient(to right, #c2ee8f, #70c95d);
           }
           .home-subscribe-left-docs {
             margin-left: 20px;
             border-radius: 5px;
-            background: linear-gradient(to right, #3dfccb, #e1f86e);
-            -webkit-background-clip: text;
-            color: transparent;
-            overflow: hidden;
+            border: 1px dashed #6bb673;
+            // background: linear-gradient(to right, #3dfccb, #e1f86e);
+            // -webkit-background-clip: text;
+            // color: transparent;
+            // overflow: hidden;
             cursor: pointer;
             a {
-              background: linear-gradient(to right, #3dfccb, #e1f86e);
-              -webkit-background-clip: text;
-              color: transparent;
+              // background: linear-gradient(to right, #3dfccb, #e1f86e);
+              // -webkit-background-clip: text;
+              // color: transparent;
+              color: #fff;
               span {
                 display: inline-block;
                 font-weight: 500;
                 width: 96px;
                 height: 31px;
                 line-height: 31px;
-                border: 2px solid black;
-                border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
-              }
-            }
-            a:hover {
-              background: linear-gradient(to right, #e1f86e, #3dfccb);
-              -webkit-background-clip: text;
-              color: transparent;
-              span {
-                border-image: linear-gradient(to right, #e1f86e, #3dfccb) 2;
+                // border: 2px solid black;
+                // border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
               }
             }
           }
-        }
-      }
-    }
-    .home-subscribe-outer {
-      position: absolute;
-      left: 20px;
-      bottom: 5%;
-      cursor: pointer;
-      div {
-        display: flex;
-        li {
-          margin: 0 10px;
-          img {
-            width: 100%;
+          .home-subscribe-left-docs:hover {
+            border: 1px solid #6bb673;
           }
         }
       }
     }
   }
   .home-collapse {
+    background: url('./../../assets/docs/02.jpg') no-repeat;
+    background-size: 100% 100%;
     .home-conent {
       /deep/.el-collapse {
         border: 0px;
         .el-collapse-item {
-          background: #0d0d0d;
+          background: rgba(0, 0, 0, 0);
           color: #fff;
-          border: 1px solid #202020;
+          border: 1px solid #434343;
           border-radius: 4px;
           margin-bottom: 10px;
           padding-left: 10px;
           .el-collapse-item__header {
-            background: #0d0d0d;
+            background: rgba(0, 0, 0, 0);
             color: #fff;
             border: 0px;
             font-weight: 700;
             font-size: 14px;
           }
           .el-collapse-item__wrap {
-            background: #0d0d0d;
+            background: rgba(0, 0, 0, 0);
             border: 0px;
             .el-collapse-item__content {
-              color: #cdcdcd;
+              color: #A7A9AE;
               font-size: 12px;
             }
           }
         }
+        .is-active {
+          border: 1px solid #6bb95a;
+          .el-collapse-item__header {
+            color: #8EE583;
+          }
+          .el-collapse-item__arrow.is-active {
+            border: 0px !important;
+          }
+        }
+        .el-collapse-item:hover {
+          border: 1px solid #6bb95a;
+        }
+      }
+      .home-btn {
+        width: 80px;
+        padding: 5px 30px;
+        height: 35px;
+        line-height: 35px;
+        color: #000;
+        text-align: center;
+        border-radius: 5px;
+        background: linear-gradient(to right, #70c95d, #c2ee8f);
+        cursor: pointer;
+      }
+      .home-btn:hover {
+        background: linear-gradient(to right, #c2ee8f, #70c95d);
       }
     }
   }
@@ -1031,7 +1119,7 @@ export default {
       justify-content: space-between;
       text-align: center;
       li {
-        width: 48%;
+        width: 31%;
         border: 1px solid #dfff00;
         color: #adadad;
         padding: 30px;
@@ -1053,19 +1141,41 @@ export default {
           color: transparent;
         }
       }
-      li:last-child {
-        border-color: #2ffdd4;
-        box-shadow: 0px 0px 10px 0px #2ffdd4;
+      // li:last-child {
+      //   border-color: #2ffdd4;
+      //   box-shadow: 0px 0px 10px 0px #2ffdd4;
+      // }
+      li:nth-child(2) {
+        margin-top: 60px;
       }
-      li:hover {
-        box-shadow: 0px 0px 15px 0px #e0f86f;
+      li:nth-child(3) {
+        margin-top: 120px;
       }
-      li:last-child:hover {
-        box-shadow: 0px 0px 15px 0px #2ffdd4;
-      }
+      // li:hover {
+      //   box-shadow: 0px 0px 15px 0px #e0f86f;
+      // }
+      // li:last-child:hover {
+      //   box-shadow: 0px 0px 15px 0px #2ffdd4;
+      // }
     }
     .mobile {
       display: none;
+    }
+    .home-btn {
+      width: 90px;
+      padding: 5px 30px;
+      height: 35px;
+      margin: 0 auto;
+      margin-top: 40px;
+      line-height: 35px;
+      color: #000;
+      text-align: center;
+      border-radius: 5px;
+      background: linear-gradient(to right, #70c95d, #c2ee8f);
+      cursor: pointer;
+    }
+    .home-btn:hover {
+      background: linear-gradient(to right, #c2ee8f, #70c95d);
     }
   }
 
@@ -1081,12 +1191,9 @@ export default {
         font-size: 14px;
         width: 48%;
         .home-veZoicTitle {
-          width: 131px;
           font-size: 36px;
           font-weight: 700;
-          background: linear-gradient(to right, #3dfdcb, #def871);
-          -webkit-background-clip: text;
-          color: transparent;
+          margin-bottom: 30px;
         }
         .home-veZoic-img {
           width: 400px;
@@ -1099,12 +1206,13 @@ export default {
       }
       li:nth-child(1) {
         .home-veZoic-img {
-          display: none;
+          // display: none;
         }
       }
     }
     .home-veZoic-title {
       font-size: 24px;
+      margin-bottom: 10px;
     }
     .home-veZoic-tit {
       font-size: 18px;
@@ -1112,15 +1220,17 @@ export default {
     .home-veZoic-content {
       color: #adadad;
       font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
     .el-button {
       margin-top: 40px;
-      background: linear-gradient(to right, #2ffdd4, #e0f86f);
+      background: linear-gradient(to right, #70c95d, #c2ee8f);
       border: 0px;
       color: #000;
     }
     .el-button:hover {
-      background: linear-gradient(to right, #e0f86f, #2ffdd4);
+      background: linear-gradient(to right, #c2ee8f, #70c95d);
     }
   }
   .home-how {
@@ -1134,29 +1244,37 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-between;
+      .home-how-line {
+        width: 100%;
+        margin: 40px auto;
+        div {
+          border: 1px solid #383938;
+        }
+      }
       li {
         margin-top: 20px;
         position: relative;
         width: 30%;
-        height: 300px;
-        padding: 40px 30px;
+        height: 200px;
+        padding: 30px;
+        margin-top: 40px;
         background: rgba(0, 0, 0, 0.5);
         border: 1px solid #e0f86f;
-        box-shadow: 0px 0px 10px 0px #e0f86f;
-        border: 1px solid;
-        text-align: center;
+        // box-shadow: 0px 0px 10px 0px #e0f86f;
+        border: 1px solid #383938;
+        // text-align: center;
         box-sizing: border-box;
         font-size: 14px;
         line-height: 1.5;
         border-radius: 5px;
         color: #adadad;
         .upward {
-          position: absolute;
-          top: -34px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80%;
-          height: 100%;
+          // position: absolute;
+          // top: -34px;
+          // left: 50%;
+          // transform: translateX(-50%);
+          // width: 80%;
+          // height: 100%;
           .home-common-icon {
             width: 68px;
             height: 68px;
@@ -1164,15 +1282,40 @@ export default {
           .home-common-title {
             font-size: 18px;
             font-weight: 700;
-            background: linear-gradient(to right, #3dfdcb, #def871);
-            -webkit-background-clip: text;
-            color: transparent;
+            color: #fff;
+            // background: linear-gradient(to right, #3dfdcb, #def871);
+            // -webkit-background-clip: text;
+            // color: transparent;
           }
+          .upward-btn {
+            width: 110px;
+            padding: 6px 10px;
+            border: 1px solid #c2ef8f;
+            color: #c2ef8f;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+          }
+          .upward-list {
+            display: flex;
+            div {
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          } 
         }
       }
-      li:hover {
-        box-shadow: 0px 0px 15px 0px #e0f86f;
+      li:nth-child(1) {
+        margin-top: 0;
       }
+      // li:hover {
+      //   box-shadow: 0px 0px 15px 0px #e0f86f;
+      // }
     }
     .mobile {
       display: none;
