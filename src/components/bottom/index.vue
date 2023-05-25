@@ -19,7 +19,7 @@
       </div>
       <div class="bottom-right">
         <li v-for="(item, index) in outerChainList" :key="index">
-          <div class="outer-img" @click="toOuter">
+          <div class="outer-img" @click="toOuter(index)">
             <img :src="item.imgSrc" alt="" />
           </div>
           <!-- <p>
@@ -131,16 +131,14 @@ export default {
       }
     },
     // 跳转
-    toOuter() {
+    toOuter(index) {
       switch (index) {
         case 0:
-          window.open(routerUrl1.href,"_blank")
           break
-          case 1:
-          window.open(routerUrl1.href,"_blank")
+        case 1:
           break
-          case 2:
-          window.open('https://twitter.com/Cenozoic_xyz',"_blank")
+        case 2:
+          window.open('https://twitter.com/Cenozoic_xyz', '_blank')
           break
       }
     },

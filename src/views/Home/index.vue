@@ -28,7 +28,7 @@
           </div>
           <div class="home-subscribe-outer">
             <div>
-              <li v-for="(item, index) in outerChainList" :key="index">
+              <li v-for="(item, index) in outerChainList" :key="index" @click="goOuter(index)">
                 <img :src="item.imgSrc" alt="" />
               </li>
             </div>
@@ -399,7 +399,7 @@
             <!-- <div class="home-common-content">
               <p>{{ $t('home.homeEarnContent') }}</p>
             </div> -->
-            <div class="upward-btn">Comming Soon</div>
+            <div class="upward-btn" @click="expect">Comming Soon</div>
           </div>
         </li>
         <li
@@ -416,7 +416,7 @@
               <div>
                 <img src="./../../assets/comment/2.png" alt="" />
               </div>
-              <div>
+              <div @click="goTwitter">
                 <img src="./../../assets/comment/1.png" alt="" />
               </div>
             </div>
@@ -678,6 +678,19 @@ export default {
     anchorPoint1(e) {
       window.location.hash = '#'+e
     },
+    goOuter(index) {
+      switch (index) {
+        case 0:
+          window.open('https://twitter.com/Cenozoic_xyz', '_blank')
+          break
+        case 1:
+          break
+        case 2:
+          break
+          case 3:
+          break
+      }
+    },
     goNow() {
       window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer")
     },
@@ -686,6 +699,9 @@ export default {
     },
     goGle() {
       window.open("https://forms.gle/FdWiDGXFGYLVdbqv7")
+    },
+    goTwitter() {
+      window.open("https://twitter.com/Cenozoic_xyz")
     },
     subscribeTo() {
       this.EmailDialogVisible = true
@@ -996,6 +1012,9 @@ export default {
               // background: linear-gradient(to right, #3dfccb, #e1f86e);
               // -webkit-background-clip: text;
               // color: transparent;
+              display: inline-block;
+              width: 100%;
+              height: 100%;
               color: #fff;
               span {
                 display: inline-block;
