@@ -68,7 +68,7 @@ Vue.use(Web3Utils)
 import AOS from 'aos/dist/aos.js'
 import 'aos/dist/aos.css'
 Vue.use(AOS)
-
+Vue.prototype.$bus = new Vue
 Vue.config.productionTip = false
 
 new Vue({
