@@ -1,23 +1,15 @@
 <template>
   <div class="home">
-    <div class="home-subscribe" ref="subHeight">
+    <div class="home-subscribe" id="Home" ref="subHeight">
       <div class="home-conent">
         <div class="home-subscribe-left">
           <h1 data-aos="fade">{{ $t('home.homeTitle') }}</h1>
           <p data-aos="zoom-in">{{ $t('home.homeBanner') }}</p>
           <div class="home-line"></div>
-          <div class="home-subscribe-outer">
-            <div>
-              <li v-for="(item, index) in outerChainList" :key="index">
-                <img :src="item.imgSrc" alt="" />
-              </li>
-            </div>
-          </div>
-          <div
-            class="home-subscribe-left-btn"
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-          >
+
+          <div class="home-subscribe-left-btn">
+            <!-- data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom" -->
             <div class="subscribeTo" @click="subscribeTo">
               {{ $t('home.homeSubscribeBtn') }}
             </div>
@@ -34,6 +26,13 @@
               </a>
             </div>
           </div>
+          <div class="home-subscribe-outer">
+            <div>
+              <li v-for="(item, index) in outerChainList" :key="index">
+                <img :src="item.imgSrc" alt="" />
+              </li>
+            </div>
+          </div>
         </div>
       </div>
       <!-- <div class="home-subscribe-outer">
@@ -44,7 +43,7 @@
         </div>
       </div> -->
     </div>
-    <div class="home-collapse">
+    <div class="home-collapse" id="Cenozoic">
       <div class="home-conent">
         <el-collapse v-model="activeNames" accordion>
           <el-collapse-item :title="$t('home.homeSupporting')" name="1">
@@ -62,7 +61,7 @@
             <div>{{ $t('home.homeTranspraentContent') }}</div>
           </el-collapse-item>
         </el-collapse>
-        <div class="home-btn">Start Now</div>
+        <div class="home-btn" @click="goNow">Start Now</div>
       </div>
     </div>
     <!-- <div class="home-introduce">
@@ -213,7 +212,7 @@
       </div>
     </div> -->
 
-    <div class="home-content">
+    <div class="home-content" id="Economics">
       <div class="home-conent">
         <PublicTitle
           data-aos="zoom-in-up"
@@ -222,36 +221,41 @@
         />
         <ul>
           <li data-aos="zoom-out-up">
-            <div class="home-common-icon">
-              <img src="./../../assets/docs/15.png" alt="" />
-            </div>
-            <div class="home-common-title">
-              {{ $t('home.homeGame') }}
-            </div>
-            <div class="home-common-content">
-              {{ $t('home.homeGameContent1') }}
+            <div class="home-content-top">
+              <div class="home-common-icon">
+                <img src="./../../assets/docs/15.png" alt="" />
+              </div>
+              <div class="home-common-title">
+                {{ $t('home.homeGame') }}
+                <br />
+                {{ $t('home.homeGameContent1') }}
+              </div>
             </div>
             <div class="home-common-content">
               {{ $t('home.homeGameContent2') }}
             </div>
           </li>
           <li data-aos="zoom-out-up">
-            <div class="home-common-icon">
-              <img src="./../../assets/docs/16.png" alt="" />
-            </div>
-            <div class="home-common-title">
-              {{ $t('home.homeGovernance') }}
+            <div class="home-content-top">
+              <div class="home-common-icon">
+                <img src="./../../assets/docs/16.png" alt="" />
+              </div>
+              <div class="home-common-title">
+                {{ $t('home.homeGovernance') }}
+              </div>
             </div>
             <div class="home-common-content">
               {{ $t('home.homeGovernanceContent') }}
             </div>
           </li>
           <li data-aos="zoom-out-up">
-            <div class="home-common-icon">
-              <img src="./../../assets/docs/16.png" alt="" />
-            </div>
-            <div class="home-common-title">
-              {{ $t('home.homeVeZOIC') }}
+            <div class="home-content-top">
+              <div class="home-common-icon">
+                <img src="./../../assets/docs/28.png" alt="" />
+              </div>
+              <div class="home-common-title">
+                {{ $t('home.homeVeZOIC') }}
+              </div>
             </div>
             <div class="home-common-content">
               {{ $t('home.homeVeZOICContent1') }}
@@ -298,7 +302,7 @@
             <div class="swiper-button-prev"></div>
           </div>
         </div>
-        <div class="home-btn">
+        <div class="home-btn" @click="goModel">
           Read More
         </div>
       </div>
@@ -352,7 +356,7 @@
         </li>
       </div>
     </div>
-    <div class="home-how">
+    <div class="home-how" id="Community">
       <PublicTitle
         data-aos="zoom-in-up"
         class="home-title"
@@ -410,10 +414,10 @@
             <div class="home-common-title">{{ $t('home.homeCommunity3') }}</div>
             <div class="upward-list">
               <div>
-                <img src="./../../assets/docs/21.png" alt="">
+                <img src="./../../assets/comment/2.png" alt="" />
               </div>
               <div>
-                <img src="./../../assets/docs/20.png" alt="">
+                <img src="./../../assets/comment/1.png" alt="" />
               </div>
             </div>
             <!-- <div class="home-common-content">
@@ -609,6 +613,7 @@
 
 <script>
 // @ is an alias to /src
+import EventBus from '@/components/eventBus/index.js'
 import PublicTitle from '@/components/publicTitle.vue'
 // import Bottom from '@/components/bottom/index.vue'
 import { getWalletAddress, isWalletConnected } from './../../white/index.js'
@@ -630,13 +635,16 @@ export default {
       getInnerWidth: 0,
       outerChainList: [
         {
-          imgSrc: require('./../../assets/bottom/24.png'),
+          imgSrc: require('./../../assets/comment/1.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/25.png'),
+          imgSrc: require('./../../assets/comment/2.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/26.png'),
+          imgSrc: require('./../../assets/comment/3.png'),
+        },
+        {
+          imgSrc: require('./../../assets/comment/4.png'),
         },
       ],
       activeNames: '1',
@@ -647,7 +655,9 @@ export default {
       console.log(val)
     },
   },
-  created() {},
+  created() {
+    
+  },
   mounted() {
     // 设置首屏高度
     this.getInnerWidth = window.innerHeight
@@ -659,8 +669,21 @@ export default {
       this.swiper3()
       this.swiper4()
     })
+    this.$bus.$on('anchorPoint', val => {
+      this.anchorPoint1(val)
+    })
   },
   methods: {
+    // 锚点
+    anchorPoint1(e) {
+      window.location.hash = '#'+e
+    },
+    goNow() {
+      window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer")
+    },
+    goModel() {
+      window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/economic-model/stablecoin-usdceno");
+    },
     subscribeTo() {
       this.EmailDialogVisible = true
     },
@@ -873,9 +896,10 @@ export default {
     // justify-content: center;
     background: url('./../../assets/docs/01.jpg') no-repeat;
     background-size: 100% 100%;
-    height: 600px;
+    // height: 600px;
     box-sizing: border-box;
     padding-top: 40px;
+    padding-bottom: 80px;
     .home-conent {
       display: flex;
       justify-content: space-around;
@@ -892,17 +916,23 @@ export default {
         // width: 60%;
         font-size: 14px;
         h1 {
-          font-size: 72px;
+          font-size: 85px;
+          font-family: BerlinSansFBDemi;
+          font-weight: bold;
+          color: #ffffff;
         }
         p {
-          width: 842px;
-          font-size: 26px;
-          color: #87868c;
+          width: 1155px;
+          font-size: 24px;
+          font-family: LigaMontserratSemiBold;
+          font-weight: 600;
+          color: #e8e8e8;
           margin: 20px auto;
         }
         .home-line {
           height: 1px;
           width: 100%;
+          margin: 40px auto;
           background: linear-gradient(
             to right,
             rgba(0, 0, 0, 0) (0%),
@@ -911,31 +941,38 @@ export default {
           );
         }
         .home-subscribe-outer {
-          margin: 20px auto;
+          margin: 20px 0;
           cursor: pointer;
           div {
             display: flex;
-            justify-content: center;
+            // justify-content: center;
             li {
               margin: 0 10px;
+              width: 40px;
+              height: 40px;
               img {
                 width: 100%;
+                height: 100%;
               }
             }
           }
         }
         .home-subscribe-left-btn {
-          margin: 0 auto;
+          margin: 40px auto;
           display: flex;
           justify-content: center;
+          align-items: center;
           div {
-            width: 100px;
-            height: 35px;
-            line-height: 35px;
+            width: 110px;
+            padding: 20px 35px;
             color: #000;
             border-radius: 5px;
           }
           .subscribeTo {
+            font-family: Avenir;
+            font-weight: 900;
+            color: #000000;
+            text-align: center;
             background: linear-gradient(to right, #70c95d, #c2ee8f);
             cursor: pointer;
           }
@@ -959,10 +996,13 @@ export default {
               color: #fff;
               span {
                 display: inline-block;
-                font-weight: 500;
+                font-family: Avenir;
+                font-weight: 900;
+                color: #9b9fa0;
+                text-align: center;
                 width: 96px;
-                height: 31px;
-                line-height: 31px;
+                // height: 31px;
+                // line-height: 31px;
                 // border: 2px solid black;
                 // border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
               }
@@ -979,6 +1019,7 @@ export default {
     background: url('./../../assets/docs/02.jpg') no-repeat;
     background-size: 100% 100%;
     .home-conent {
+      padding-top: 50px;
       /deep/.el-collapse {
         border: 0px;
         .el-collapse-item {
@@ -986,28 +1027,33 @@ export default {
           color: #fff;
           border: 1px solid #434343;
           border-radius: 4px;
-          margin-bottom: 10px;
-          padding-left: 10px;
+          margin-bottom: 50px;
+          font-family: Alibaba;
+
+          padding: 0 30px;
           .el-collapse-item__header {
             background: rgba(0, 0, 0, 0);
             color: #fff;
+            height: 76px;
             border: 0px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 28px;
           }
           .el-collapse-item__wrap {
+            min-height: 80px;
             background: rgba(0, 0, 0, 0);
             border: 0px;
             .el-collapse-item__content {
-              color: #A7A9AE;
-              font-size: 12px;
+              height: 100px;
+              color: #a7a9ae;
+              font-size: 20px;
             }
           }
         }
         .is-active {
           border: 1px solid #6bb95a;
           .el-collapse-item__header {
-            color: #8EE583;
+            color: #8ee583;
           }
           .el-collapse-item__arrow.is-active {
             border: 0px !important;
@@ -1018,11 +1064,14 @@ export default {
         }
       }
       .home-btn {
-        width: 80px;
+        width: 85px;
         padding: 5px 30px;
         height: 35px;
         line-height: 35px;
-        color: #000;
+        // font-size: 24px;
+        font-family: Avenir;
+        font-weight: 900;
+        color: #000000;
         text-align: center;
         border-radius: 5px;
         background: linear-gradient(to right, #70c95d, #c2ee8f);
@@ -1109,7 +1158,7 @@ export default {
   .home-content {
     background: url('./../../assets/docs/03.jpg') no-repeat;
     background-size: 100% 100%;
-    padding: 40px 0;
+    padding: 42px 0;
     .home-title {
       padding: 40px 0;
       text-align: center;
@@ -1117,28 +1166,44 @@ export default {
     ul {
       display: flex;
       justify-content: space-between;
-      text-align: center;
+      align-items: center;
+      // text-align: center;
       li {
-        width: 31%;
-        border: 1px solid #dfff00;
+        width: 32%;
+        height: 260px;
+        // border: 1px solid #dfff00;
         color: #adadad;
         padding: 30px;
         font-size: 14px;
         box-sizing: border-box;
         border-radius: 5px;
-        background: rgba(0, 0, 0, 0.4);
-        box-shadow: 0px 0px 10px 0px #e0f86f;
+        background: url('./../../assets/docs/29.png') no-repeat;
+        background-size: 100% 100%;
+        // box-shadow: 0px 0px 10px 0px #e0f86f;
         line-height: 1.5;
+        // box-sizing: border-box;
+        .home-content-top {
+          display: flex;
+          padding: 0 10px;
+          align-items: center;
+          margin-bottom: 10px;
+        }
         .home-common-icon {
           width: 68px;
           height: 68px;
+          margin: 0;
         }
         .home-common-title {
           font-size: 24px;
           font-weight: 600;
-          background: linear-gradient(to right, #2ffdd4, #e0f86f);
-          -webkit-background-clip: text;
-          color: transparent;
+          color: #fff;
+          margin-left: 10px;
+          // background: linear-gradient(to right, #2ffdd4, #e0f86f);
+          // -webkit-background-clip: text;
+          // color: transparent;
+        }
+        .home-common-content {
+          padding: 0 10px;
         }
       }
       // li:last-child {
@@ -1152,7 +1217,8 @@ export default {
         margin-top: 120px;
       }
       // li:hover {
-      //   box-shadow: 0px 0px 15px 0px #e0f86f;
+      //   background: url('./../../assets/docs/30.png') no-repeat;
+      //   background-size: 100% 100%;
       // }
       // li:last-child:hover {
       //   box-shadow: 0px 0px 15px 0px #2ffdd4;
@@ -1168,7 +1234,10 @@ export default {
       margin: 0 auto;
       margin-top: 40px;
       line-height: 35px;
-      color: #000;
+      font-family: Avenir;
+      font-weight: 900;
+      color: #000000;
+      text-align: center;
       text-align: center;
       border-radius: 5px;
       background: linear-gradient(to right, #70c95d, #c2ee8f);
@@ -1227,7 +1296,10 @@ export default {
       margin-top: 40px;
       background: linear-gradient(to right, #70c95d, #c2ee8f);
       border: 0px;
-      color: #000;
+      font-size: 20px;
+      font-family: Avenir;
+      font-weight: 900;
+      color: #000000;
     }
     .el-button:hover {
       background: linear-gradient(to right, #c2ee8f, #70c95d);
@@ -1258,8 +1330,7 @@ export default {
         height: 200px;
         padding: 30px;
         margin-top: 40px;
-        background: rgba(0, 0, 0, 0.5);
-        border: 1px solid #e0f86f;
+
         // box-shadow: 0px 0px 10px 0px #e0f86f;
         border: 1px solid #383938;
         // text-align: center;
@@ -1280,18 +1351,21 @@ export default {
             height: 68px;
           }
           .home-common-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
+            font-size: 28px;
+            font-family: Avenir;
+            font-weight: normal;
+            color: #ffffff;
             // background: linear-gradient(to right, #3dfdcb, #def871);
             // -webkit-background-clip: text;
             // color: transparent;
           }
           .upward-btn {
-            width: 110px;
-            padding: 6px 10px;
+            width: 150px;
+            height: 47px;
+            line-height: 47px;
             border: 1px solid #c2ef8f;
             color: #c2ef8f;
+            text-align: center;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
@@ -1299,23 +1373,31 @@ export default {
           .upward-list {
             display: flex;
             div {
-              width: 40px;
-              height: 40px;
+              width: 55px;
+              height: 55px;
+              border: 1px solid #fff;
+              border-radius: 50%;
               cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: 10px;
               img {
-                width: 100%;
-                height: 100%;
+                width: 80%;
+                height: 80%;
               }
             }
-          } 
+          }
         }
       }
       li:nth-child(1) {
         margin-top: 0;
       }
-      // li:hover {
-      //   box-shadow: 0px 0px 15px 0px #e0f86f;
-      // }
+      li:hover {
+        border: 0px;
+        background: url('./../../assets/docs/31.png') no-repeat;
+        background-size: 100% 100%;
+      }
     }
     .mobile {
       display: none;

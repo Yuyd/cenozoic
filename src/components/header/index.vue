@@ -43,8 +43,10 @@
       <div class="header-right">
         <div>
           <li class="header-tab-list">
-            <div v-for="(item,index) in tableList" :key="index">
-              <span @click="goNext(index)" :class="{ active: cur == index}">{{item}}</span>
+            <div v-for="(item, index) in tableList" :key="index">
+              <span @click="goNext(item,index)" :class="{ active: cur == index }">
+                {{ item }}
+              </span>
             </div>
           </li>
           <li>
@@ -81,17 +83,30 @@
             </div>
           </li>
           <li class="connect-white">
-            <div v-if="!myAddress" @click="toWhite">
-              {{ $t('header.connect') }}
+            <div class="link-white">
+              <div v-if="!myAddress" @click="whiteClick">
+                {{ $t('header.connect') }}
+              </div>
+              <div v-else class="header-address">
+                <span>
+                  {{ myAddress.slice(0, 9) }}
+                </span>
+                <span>
+                  {{ myAddress.slice(-6) }}
+                </span>
+              </div>
+              <div v-show="isShow" class="white-list">
+                <li @click="toWhiteMetaMask">
+                  <div class="white-logo">
+                    <img src="./../../assets/comment/6.png" alt="" />
+                  </div>
+                  <div class="white-name">
+                    MetaMask
+                  </div>
+                </li>
+              </div>
             </div>
-            <div v-else class="header-address">
-              <span>
-                {{ myAddress.slice(0, 9) }}
-              </span>
-              <span>
-                {{ myAddress.slice(-6) }}
-              </span>
-            </div>
+
             <!-- <span>{{ myAddress }}</span> -->
           </li>
           <!-- <li
@@ -144,6 +159,7 @@
 
 <script>
 import axios from 'axios'
+import EventBus from '@/components/eventBus/index.js'
 import getLang from './../../lang/language.json'
 import { getWalletAddress, isWalletConnected } from './../../white/index.js'
 // import upWallet from "./../../util/unipasswallet/unipasswallet.js";
@@ -154,7 +170,7 @@ export default {
   },
   data() {
     return {
-      tableList: ['Home', 'Economic Layer', 'Community'],
+      tableList: ['Home', 'Cenozoic', 'Economics', 'Community'],
       cur: 0,
       myAddress: '',
       loginDialogVisible: false,
@@ -171,6 +187,7 @@ export default {
       token: '',
       // languageList: ["中文", "en", "cn"],
       language: sessionStorage.getItem('lang'),
+      isShow: false,
     }
   },
   watch: {
@@ -188,6 +205,15 @@ export default {
   mounted() {
     this.isTokenTable()
     this.$nextTick(() => {})
+    document.addEventListener('mousedown', (e) => {
+      //获取弹窗对象
+      const userCon = document.querySelector('.white-list')
+      if (userCon && !userCon.contains(e.target)) {
+        //如果包含则跳转回之前的页面
+        // this.isPulldown = false;
+        this.isShow = false
+      }
+    })
   },
   methods: {
     // 多语言切换
@@ -206,9 +232,10 @@ export default {
       this.myAddress = await getWalletAddress()
       localStorage.setItem('address', this.myAddress)
     },
-    goNext(index) {
+    goNext(selector, index) {
       this.cur = index
-      console.log(this.cur)
+      this.$bus.$emit('anchorPoint',selector)
+      // this.$el.querySelector(selector).scrollIntoView()
       // switch (index) {
       //   case 0:
       //     this.$router.push({
@@ -230,8 +257,12 @@ export default {
     getting() {
       this.$router.push({ name: 'welcome' })
     },
+
+    whiteClick() {
+      this.isShow = true
+    },
     // 链接钱包
-    toWhite() {
+    toWhiteMetaMask() {
       let ethereum = window.ethereum
       if (ethereum) {
         ethereum.request({ method: 'eth_requestAccounts' })
@@ -246,7 +277,6 @@ export default {
     async getIsWalletConnected() {
       try {
         let a = isWalletConnected()
-        console.log(a, '-------------------------------')
         return await isWalletConnected()
       } catch (e) {
         console.info(e)
@@ -256,8 +286,8 @@ export default {
     toHome() {
       let top = document.documentElement.scrollTop || document.body.scrollTop
       const timeTop = setInterval(() => {
-        document.body.scrollTop = document.documentElement.scrollTop = top -=50
-        if(top <= 0) {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50
+        if (top <= 0) {
           clearInterval(timeTop)
         }
       }, 20)
@@ -512,7 +542,6 @@ export default {
           padding: 0 10px;
           // width: 100px;
           border-radius: 5px;
-
           font-size: 14px;
           cursor: pointer;
           .el-dropdown {
@@ -549,7 +578,57 @@ export default {
         .connect-white {
           color: #000;
           // background: #abf47c;
-          background: linear-gradient(to right, #46d44a, #abf47c)
+          background: linear-gradient(to right, #46d44a, #abf47c);
+          // display: block;
+          .link-white {
+            width: 100px;
+            text-align: center;
+            position: relative;
+            div {
+              margin: 0 auto;
+            }
+          }
+          .white-list {
+            color: #fff;
+            display: block;
+            // width: 200px;
+            // height: 100%;
+            background: url('./../../assets/comment/5.png') no-repeat;
+            background-size: 100% 100%;
+            // background: #f1f1f1;
+            padding: 27px 40px;
+            padding-top: 60px;
+            padding-bottom: 40px;
+            // box-sizing: border-box;
+            position: absolute;
+            top: 100%;
+            right: -10px;
+            li {
+              width: 130px;
+              height: 60px;
+              display: flex;
+              align-items: center;
+              margin: 0;
+              padding: 0;
+              .white-logo {
+                width: 50px;
+                height: 50px;
+                background: #ffffff;
+                border-radius: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 70%;
+                  height: 70%;
+                }
+              }
+              .white-name {
+                font-weight: 700;
+                padding-left: 5px;
+              }
+            }
+          }
         }
         .portrait {
           width: 15px;

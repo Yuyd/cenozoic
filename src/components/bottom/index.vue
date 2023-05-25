@@ -7,12 +7,12 @@
           <li
             v-for="(item, index) in this.$t('bottom.sponsorList')"
             :key="index"
+            @click="goNext(item.name, index)"
           >
-              <!-- <router-link :to="item.src">{{ item.name }}</router-link> -->
-              <a href="">
+            <!-- <router-link :to="item.src">{{ item.name }}</router-link> -->
+            <a>
               <span>{{ item.name }}</span>
-
-              </a>
+            </a>
           </li>
           <!-- @ 2023 Cenozoic. All Rights Reserved -->
         </div>
@@ -86,16 +86,50 @@ export default {
       ],
       outerChainList: [
         {
-          imgSrc: require('./../../assets/bottom/24.png'),
+          imgSrc: require('./../../assets/comment/2.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/25.png'),
+          imgSrc: require('./../../assets/comment/3.png'),
         },
         {
-          imgSrc: require('./../../assets/bottom/26.png'),
+          imgSrc: require('./../../assets/comment/1.png'),
         },
       ],
     }
+  },
+  methods: {
+    goNext(selector, index) {
+      switch (index) {
+        case 0:
+          this.$router.push({
+            name: 'home',
+          })
+          break
+        case 1:
+          this.$bus.$emit('anchorPoint', selector)
+          break
+        case 2:
+          this.$bus.$emit('anchorPoint', selector)
+          break
+        case 3:
+          this.$bus.$emit('anchorPoint', selector)
+          break
+        case 4:
+          this.$router.push({
+            name: 'PrivacyPolicy',
+          })
+          // const routerUrl1 = this.$router.resolve({
+          //   path: '/PrivacyPolicy',
+          // })
+          // window.open(routerUrl1.href,"_blank")
+          break
+        case 5:
+          this.$router.push({
+            name: 'Trademark',
+          })
+          break
+      }
+    },
   },
 }
 </script>
@@ -130,8 +164,14 @@ export default {
             cursor: pointer;
           }
           a:hover {
-            color: #b0b0b2;
+            color: #48d34c;
           }
+        }
+        li:nth-child(5) {
+          text-decoration: underline;
+        }
+        li:nth-child(6) {
+          text-decoration: underline;
         }
       }
     }
@@ -155,11 +195,11 @@ export default {
             height: 100%;
           }
         }
-      // a {
-      //   color: #fff;
-      //   margin-left: 10px;
-      //   text-decoration: underline;
-      // }
+        // a {
+        //   color: #fff;
+        //   margin-left: 10px;
+        //   text-decoration: underline;
+        // }
       }
     }
   }

@@ -8,14 +8,16 @@ export default {
   props: {
     title: String,
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
 .public-title {
   span {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 68px;
+    font-family: LigaMontserratSemiBold;
+    font-weight: 600;
+    color: #ffffff;
     // background: linear-gradient(to right, #3cfdce, #e0f871);
     // -webkit-background-clip: text;
     // color: transparent;

@@ -16,7 +16,10 @@ const en = {
         name: "Home",
       },
       {
-        name: "Economic Layer",
+        name: "Cenozoic",
+      },
+      {
+        name: "Economics",
       },
       {
         name: "Community",
@@ -41,7 +44,7 @@ const en = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',

@@ -16,7 +16,10 @@ const es = {
         name: "Home",
       },
       {
-        name: "Economic Layer",
+        name: "Cenozoic",
+      },
+      {
+        name: "Economics",
       },
       {
         name: "Community",
