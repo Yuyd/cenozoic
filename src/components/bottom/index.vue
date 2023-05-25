@@ -19,7 +19,7 @@
       </div>
       <div class="bottom-right">
         <li v-for="(item, index) in outerChainList" :key="index">
-          <div class="outer-img">
+          <div class="outer-img" @click="toOuter">
             <img :src="item.imgSrc" alt="" />
           </div>
           <!-- <p>
@@ -127,6 +127,20 @@ export default {
           this.$router.push({
             name: 'Trademark',
           })
+          break
+      }
+    },
+    // 跳转
+    toOuter() {
+      switch (index) {
+        case 0:
+          window.open(routerUrl1.href,"_blank")
+          break
+          case 1:
+          window.open(routerUrl1.href,"_blank")
+          break
+          case 2:
+          window.open('https://twitter.com/Cenozoic_xyz',"_blank")
           break
       }
     },

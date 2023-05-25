@@ -383,7 +383,7 @@
             <!-- <div class="home-common-content">
               <p>{{ $t('home.homeDepositsContent') }}</p>
             </div> -->
-            <div class="upward-btn">Contact with us</div>
+            <div class="upward-btn" @click="goGle">Contact with us</div>
           </div>
         </li>
         <li
@@ -683,6 +683,9 @@ export default {
     },
     goModel() {
       window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/economic-model/stablecoin-usdceno");
+    },
+    goGle() {
+      window.open("https://forms.gle/FdWiDGXFGYLVdbqv7")
     },
     subscribeTo() {
       this.EmailDialogVisible = true
