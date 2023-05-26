@@ -19,7 +19,14 @@
       </div>
       <div class="bottom-right">
         <li v-for="(item, index) in outerChainList" :key="index">
-          <div class="outer-img" @click="toOuter(index)">
+          <div
+            v-if="index == 0 || index == 3"
+            class="outer-img"
+            @click="toOuter(index)"
+          >
+            <img :src="item.imgSrc" alt="" />
+          </div>
+          <div v-else>
             <img :src="item.imgSrc" alt="" />
           </div>
           <!-- <p>
@@ -86,13 +93,16 @@ export default {
       ],
       outerChainList: [
         {
-          imgSrc: require('./../../assets/comment/2.png'),
-        },
-        {
-          imgSrc: require('./../../assets/comment/3.png'),
-        },
-        {
           imgSrc: require('./../../assets/comment/1.png'),
+        },
+        {
+          imgSrc: require('./../../assets/comment/12.png'),
+        },
+        {
+          imgSrc: require('./../../assets/comment/11.png'),
+        },
+        {
+          imgSrc: require('./../../assets/comment/4.png'),
         },
       ],
     }
@@ -101,9 +111,7 @@ export default {
     goNext(selector, index) {
       switch (index) {
         case 0:
-          this.$router.push({
-            name: 'home',
-          })
+          this.$bus.$emit('anchorPoint', selector)
           break
         case 1:
           this.$bus.$emit('anchorPoint', selector)
@@ -112,9 +120,6 @@ export default {
           this.$bus.$emit('anchorPoint', selector)
           break
         case 3:
-          this.$bus.$emit('anchorPoint', selector)
-          break
-        case 4:
           this.$router.push({
             name: 'PrivacyPolicy',
           })
@@ -123,7 +128,7 @@ export default {
           // })
           // window.open(routerUrl1.href,"_blank")
           break
-        case 5:
+        case 4:
           this.$router.push({
             name: 'Trademark',
           })
@@ -139,6 +144,9 @@ export default {
           break
         case 2:
           window.open('https://twitter.com/Cenozoic_xyz', '_blank')
+          break
+        case 3:
+          window.open('https://cenozoic-protocol.gitbook.io', '_blank')
           break
       }
     },
@@ -172,19 +180,19 @@ export default {
             font-size: 14px;
             font-weight: 400;
             color: #fff;
-            margin-right: 10px;
+            margin-right: 20px;
             cursor: pointer;
           }
           a:hover {
             color: #48d34c;
           }
         }
-        li:nth-child(5) {
-          text-decoration: underline;
-        }
-        li:nth-child(6) {
-          text-decoration: underline;
-        }
+        // li:nth-child(5) {
+        //   text-decoration: underline;
+        // }
+        // li:nth-child(6) {
+        //   text-decoration: underline;
+        // }
       }
     }
     .bottom-right {
@@ -198,14 +206,18 @@ export default {
         display: flex;
         align-items: center;
         padding-right: 10px;
-        .outer-img {
-          width: 40px;
-          height: 40px;
+        div {
+          width: 23px;
+          height: 17px;
           cursor: pointer;
           img {
             width: 100%;
             height: 100%;
           }
+        }
+        .outer-img {
+          width: 30px;
+          height: 30px;
         }
         // a {
         //   color: #fff;

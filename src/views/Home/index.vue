@@ -4,48 +4,101 @@
       <div class="home-conent">
         <div class="home-subscribe-left">
           <h1 data-aos="fade">{{ $t('home.homeTitle') }}</h1>
-          <p data-aos="zoom-in">{{ $t('home.homeBanner') }}</p>
+          <p data-aos="zoom-in">{{ $t('home.homeBanner1') }}</p>
+          <p data-aos="zoom-in">{{ $t('home.homeBanner2') }}</p>
           <div class="home-line"></div>
-
+          <div class="home-subscribe-outer">
+            <div>
+              <li
+                v-for="(item, index) in outerChainList"
+                :key="index"
+                @click="goOuter(index)"
+              >
+                <div v-if="index == 1" class="noLink">
+                  <img :src="item.imgSrc" alt="" />
+                </div>
+                <div v-else>
+                  <img :src="item.imgSrc" alt="" />
+                </div>
+              </li>
+            </div>
+          </div>
           <div class="home-subscribe-left-btn">
             <!-- data-aos="fade-up"
             data-aos-anchor-placement="bottom-bottom" -->
-            <div class="subscribeTo" @click="subscribeTo">
+            <div class="subscribeTo">
               {{ $t('home.homeSubscribeBtn') }}
             </div>
-            <!-- <div @click="obtain">获取</div>
-            <div @click="subm">发邮件</div> -->
-            <div class="home-subscribe-left-docs">
-              <a
-                href="https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer"
-                target="_blank"
-              >
+            <div class="home-subscribe-left-docs" @click="subscribeTo">
+              <a>
                 <span>
                   {{ $t('home.homeDocs') }}
                 </span>
               </a>
             </div>
           </div>
-          <div class="home-subscribe-outer">
-            <div>
-              <li v-for="(item, index) in outerChainList" :key="index" @click="goOuter(index)">
-                <img :src="item.imgSrc" alt="" />
-              </li>
-            </div>
-          </div>
         </div>
       </div>
       <!-- <div class="home-subscribe-outer">
         <div>
-          <li v-for="(item, index) in outerChainList" :key="index">
+          <li
+            v-for="(item, index) in outerChainList"
+            :key="index"
+            @click="goOuter(index)"
+          >
             <img :src="item.imgSrc" alt="" />
           </li>
         </div>
       </div> -->
     </div>
-    <div class="home-collapse" id="Cenozoic">
+    <div class="home-collapse" id="Features">
       <div class="home-conent">
-        <el-collapse v-model="activeNames" accordion>
+        <PublicTitle
+          data-aos="zoom-in-up"
+          class="home-title"
+          title="Cenozoic Features"
+        />
+        <!-- <div class="home-subscribe-swiper">
+          <div class="seiper-container" ref="mySwiper5">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <el-collapse accordion>
+                  <el-collapse-item :title="$t('home.homeSupporting')">
+                    <div>
+                      {{ $t('home.homeSupportingContent') }}
+                    </div>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+              <div class="swiper-slide">
+                <el-collapse>
+                  <el-collapse-item :title="$t('home.homeCoMpos')">
+                    <div>{{ $t('home.homeCoMposContent') }}</div>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+              <div class="swiper-slide">
+                <el-collapse>
+                  <el-collapse-item :title="$t('home.homeInteroper')">
+                    <div>{{ $t('home.homeInteroperContent') }}</div>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+              <div class="swiper-slide">
+                <el-collapse>
+                  <el-collapse-item
+                    :title="$t('home.homeTranspraent')"
+                    
+                  >
+                    <div>{{ $t('home.homeTranspraentContent') }}</div>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <el-collapse accordion>
           <el-collapse-item :title="$t('home.homeSupporting')" name="1">
             <div>
               {{ $t('home.homeSupportingContent') }}
@@ -61,7 +114,7 @@
             <div>{{ $t('home.homeTranspraentContent') }}</div>
           </el-collapse-item>
         </el-collapse>
-        <div class="home-btn" @click="goNow">Start Now</div>
+        <div class="home-btn" @click="goNow">Read More</div>
       </div>
     </div>
     <!-- <div class="home-introduce">
@@ -350,9 +403,12 @@
               {{ $t('home.homeReceiveContent') }}
             </p>
           </div>
-          <el-button @click="expect">
+          <!-- <el-button >
             {{ $t('home.homeVeZOICBtn') }}
-          </el-button>
+          </el-button> -->
+          <div class="home-btn" @click="expect">
+            {{ $t('home.homeVeZOICBtn') }}
+          </div>
         </li>
       </div>
     </div>
@@ -383,7 +439,12 @@
             <!-- <div class="home-common-content">
               <p>{{ $t('home.homeDepositsContent') }}</p>
             </div> -->
-            <div class="upward-btn" @click="goGle">Contact with us</div>
+            <div class="upward-btn" @click="goGle">
+              <span>Contact With Us</span>
+            </div>
+          </div>
+          <div class="round">
+            <img src="./../../assets/docs/round.png" alt="" />
           </div>
         </li>
         <li
@@ -399,7 +460,9 @@
             <!-- <div class="home-common-content">
               <p>{{ $t('home.homeEarnContent') }}</p>
             </div> -->
-            <div class="upward-btn" @click="expect">Comming Soon</div>
+            <div class="upward-btn" @click="expect">
+              <span>Comming Soon</span>
+            </div>
           </div>
         </li>
         <li
@@ -413,8 +476,8 @@
             </div> -->
             <div class="home-common-title">{{ $t('home.homeCommunity3') }}</div>
             <div class="upward-list">
-              <div>
-                <img src="./../../assets/comment/2.png" alt="" />
+              <div class="noLink">
+                <img src="./../../assets/comment/12.png" alt="" />
               </div>
               <div @click="goTwitter">
                 <img src="./../../assets/comment/1.png" alt="" />
@@ -638,11 +701,11 @@ export default {
           imgSrc: require('./../../assets/comment/1.png'),
         },
         {
-          imgSrc: require('./../../assets/comment/2.png'),
+          imgSrc: require('./../../assets/comment/12.png'),
         },
-        {
-          imgSrc: require('./../../assets/comment/3.png'),
-        },
+        // {
+        //   imgSrc: require('./../../assets/comment/3.png'),
+        // },
         {
           imgSrc: require('./../../assets/comment/4.png'),
         },
@@ -655,9 +718,7 @@ export default {
       console.log(val)
     },
   },
-  created() {
-    
-  },
+  created() {},
   mounted() {
     // 设置首屏高度
     this.getInnerWidth = window.innerHeight
@@ -668,15 +729,16 @@ export default {
       this.swiper2()
       this.swiper3()
       this.swiper4()
+      // this.swiper5()
     })
-    this.$bus.$on('anchorPoint', val => {
+    this.$bus.$on('anchorPoint', (val) => {
       this.anchorPoint1(val)
     })
   },
   methods: {
     // 锚点
     anchorPoint1(e) {
-      window.location.hash = '#'+e
+      window.location.hash = '#' + e
     },
     goOuter(index) {
       switch (index) {
@@ -686,22 +748,25 @@ export default {
         case 1:
           break
         case 2:
-          break
-          case 3:
+          window.open('https://cenozoic-protocol.gitbook.io', '_blank')
           break
       }
     },
     goNow() {
-      window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer")
+      window.open(
+        'https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/key-features/universal-economic-layer',
+      )
     },
     goModel() {
-      window.open("https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/economic-model/stablecoin-usdceno");
+      window.open(
+        'https://cenozoic-protocol.gitbook.io/cenozoic-protocol-litepaper/economic-model/stablecoin-usdceno',
+      )
     },
     goGle() {
-      window.open("https://forms.gle/FdWiDGXFGYLVdbqv7")
+      window.open('https://forms.gle/FdWiDGXFGYLVdbqv7')
     },
     goTwitter() {
-      window.open("https://twitter.com/Cenozoic_xyz")
+      window.open('https://twitter.com/Cenozoic_xyz')
     },
     subscribeTo() {
       this.EmailDialogVisible = true
@@ -881,11 +946,39 @@ export default {
         },
       })
     },
+    // swiper5() {
+    //   new Swiper(this.$refs.mySwiper5, {
+    //     slidesPerView: 3,
+    //     direction: 'vertical',
+    //     effect: 'coverflow',
+    //     centeredSlides: true,
+    //     watchSlidesProgress: true,
+    //     autoplay: true,
+    //     // speed: 500,
+    //     // delay: 1000,
+    //     // delay: 35,
+    //     // coverflow: {
+    //     //   stretch: 10,
+    //     //   depth: 0,
+    //     // },
+    //     slideShadows: false,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     zoom: true,
+    //     loopFillGroupWithBlank: true,
+    //   })
+    // },
   },
 }
 </script>
 
 <style lang="less" scoped>
+@font-face {
+  font-family: BRLNSDB;
+  font-weight: 400;
+  font-style: normal;
+  src: url('./../../compon/BRLNSR.TTF') format('truetype');
+}
 .home {
   padding-top: 60px;
   background: #070707;
@@ -910,6 +1003,24 @@ export default {
       margin: 10px 0;
     }
   }
+  .home-btn {
+    width: 90px;
+    // padding: 5px 30px;
+    height: 35px;
+    margin: 0 auto;
+    margin-top: 40px;
+    line-height: 35px;
+    font-size: 14px;
+    padding: 0 15px;
+    color: #000000;
+    text-align: center;
+    border-radius: 5px;
+    background: linear-gradient(to right, #70c95d, #c2ee8f);
+    cursor: pointer;
+  }
+  .home-btn:hover {
+    background: linear-gradient(to right, #c2ee8f, #70c95d);
+  }
   .home-subscribe {
     background: #232835;
     // justify-content: center;
@@ -922,7 +1033,7 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-around;
-      // position: relative;
+      position: relative;
       .home-subscribe-left {
         // display: flex;
         // justify-content: inherit;
@@ -936,17 +1047,19 @@ export default {
         font-size: 14px;
         h1 {
           font-size: 85px;
-          font-family: BerlinSansFBDemi;
+          font-family: BRLNSDB;
           font-weight: bold;
           color: #ffffff;
+          word-break: break-word !important;
         }
         p {
           width: 1155px;
           font-size: 24px;
-          font-family: LigaMontserratSemiBold;
+          // font-family: LigaMontserratSemiBold;
           font-weight: 600;
           color: #e8e8e8;
           margin: 20px auto;
+          word-break: break-word !important;
         }
         .home-line {
           height: 1px;
@@ -959,37 +1072,23 @@ export default {
             rgba(0, 0, 0, 0) (100%)
           );
         }
-        .home-subscribe-outer {
-          margin: 20px 0;
-          cursor: pointer;
-          div {
-            display: flex;
-            // justify-content: center;
-            li {
-              margin: 0 10px;
-              width: 40px;
-              height: 40px;
-              img {
-                width: 100%;
-                height: 100%;
-              }
-            }
-          }
-        }
+
         .home-subscribe-left-btn {
           margin: 40px auto;
           display: flex;
           justify-content: center;
           align-items: center;
           div {
-            width: 110px;
-            padding: 20px 35px;
+            // width: 140px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0px 15px;
             color: #000;
             border-radius: 5px;
           }
           .subscribeTo {
-            font-family: Avenir;
-            font-weight: 900;
+            font-size: 14px;
+            font-weight: 400;
             color: #000000;
             text-align: center;
             background: linear-gradient(to right, #70c95d, #c2ee8f);
@@ -1018,15 +1117,11 @@ export default {
               color: #fff;
               span {
                 display: inline-block;
-                font-family: Avenir;
-                font-weight: 900;
+                font-size: 14px;
+                font-weight: 400;
                 color: #9b9fa0;
                 text-align: center;
-                width: 96px;
-                // height: 31px;
-                // line-height: 31px;
-                // border: 2px solid black;
-                // border-image: linear-gradient(to right, #3dfccb, #e1f86e) 2;
+                width: 110px;
               }
             }
           }
@@ -1036,21 +1131,69 @@ export default {
         }
       }
     }
+    .home-subscribe-outer {
+      // position: absolute;
+      // left: 20px;
+      // bottom: 5%;
+      // display: flex;
+      margin: 40px 0;
+      cursor: pointer;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li {
+          margin: 0 10px;
+          div {
+            width: 30px;
+            height: 30px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .noLink {
+            width: 30px;
+            height: 23px;
+          }
+        }
+      }
+    }
   }
   .home-collapse {
     background: url('./../../assets/docs/02.jpg') no-repeat;
     background-size: 100% 100%;
     .home-conent {
+      width: 900px;
+      margin: 0 auto;
       padding-top: 50px;
+      .home-title {
+        margin: 50px auto;
+        margin-top: 80px;
+        text-align: center;
+      }
+      .home-subscribe-swiper {
+        height: 320px;
+        overflow: hidden;
+        .seiper-container {
+          .swiper-wrapper {
+            width: 100%;
+            .swiper-slide {
+              height: 50px;
+              width: 100%;
+            }
+          }
+        }
+      }
       /deep/.el-collapse {
         border: 0px;
         .el-collapse-item {
-          background: rgba(0, 0, 0, 0);
+          background: rgba(0, 0, 0, 0.2);
           color: #fff;
           border: 1px solid #434343;
-          border-radius: 4px;
+          border-radius: 8px;
           margin-bottom: 50px;
-          font-family: Alibaba;
+          // font-family: Alibaba;
 
           padding: 0 30px;
           .el-collapse-item__header {
@@ -1058,8 +1201,8 @@ export default {
             color: #fff;
             height: 76px;
             border: 0px;
-            font-weight: 700;
-            font-size: 28px;
+            font-weight: 400;
+            font-size: 24px;
           }
           .el-collapse-item__wrap {
             min-height: 80px;
@@ -1068,7 +1211,8 @@ export default {
             .el-collapse-item__content {
               height: 100px;
               color: #a7a9ae;
-              font-size: 20px;
+              font-size: 16px;
+              word-break: break-word !important;
             }
           }
         }
@@ -1076,6 +1220,7 @@ export default {
           border: 1px solid #6bb95a;
           .el-collapse-item__header {
             color: #8ee583;
+            transition: border-bottom-color 20s !important;
           }
           .el-collapse-item__arrow.is-active {
             border: 0px !important;
@@ -1086,16 +1231,15 @@ export default {
         }
       }
       .home-btn {
-        width: 85px;
-        padding: 5px 30px;
+        width: 90px;
         height: 35px;
         line-height: 35px;
-        // font-size: 24px;
-        font-family: Avenir;
-        font-weight: 900;
+        font-size: 14px;
+        padding: 0 15px;
         color: #000000;
         text-align: center;
         border-radius: 5px;
+        margin-left: 0;
         background: linear-gradient(to right, #70c95d, #c2ee8f);
         cursor: pointer;
       }
@@ -1128,6 +1272,7 @@ export default {
       .home-common-content {
         font-size: 14px;
         color: #87868c;
+        word-break: break-all !important;
       }
       .home-introduce-left {
         width: 55%;
@@ -1203,6 +1348,7 @@ export default {
         background-size: 100% 100%;
         // box-shadow: 0px 0px 10px 0px #e0f86f;
         line-height: 1.5;
+        word-break: break-word !important;
         // box-sizing: border-box;
         .home-content-top {
           display: flex;
@@ -1249,25 +1395,6 @@ export default {
     .mobile {
       display: none;
     }
-    .home-btn {
-      width: 90px;
-      padding: 5px 30px;
-      height: 35px;
-      margin: 0 auto;
-      margin-top: 40px;
-      line-height: 35px;
-      font-family: Avenir;
-      font-weight: 900;
-      color: #000000;
-      text-align: center;
-      text-align: center;
-      border-radius: 5px;
-      background: linear-gradient(to right, #70c95d, #c2ee8f);
-      cursor: pointer;
-    }
-    .home-btn:hover {
-      background: linear-gradient(to right, #c2ee8f, #70c95d);
-    }
   }
 
   .home-veZoic {
@@ -1281,6 +1408,7 @@ export default {
       li {
         font-size: 14px;
         width: 48%;
+        word-break: break-word !important;
         .home-veZoicTitle {
           font-size: 36px;
           font-weight: 700;
@@ -1289,9 +1417,12 @@ export default {
         .home-veZoic-img {
           width: 400px;
           margin: 0 auto;
+          border-radius: 20px;
+          box-shadow: 0px 0px 20px 0px #2ffdd4;
           img {
             width: 100%;
             height: 100%;
+            border-radius: 20px;
           }
         }
       }
@@ -1314,17 +1445,8 @@ export default {
       margin-bottom: 20px;
       line-height: 1.5;
     }
-    .el-button {
-      margin-top: 40px;
-      background: linear-gradient(to right, #70c95d, #c2ee8f);
-      border: 0px;
-      font-size: 20px;
-      font-family: Avenir;
-      font-weight: 900;
-      color: #000000;
-    }
-    .el-button:hover {
-      background: linear-gradient(to right, #c2ee8f, #70c95d);
+    .home-btn {
+      width: 120px;
     }
   }
   .home-how {
@@ -1341,6 +1463,7 @@ export default {
       .home-how-line {
         width: 100%;
         margin: 40px auto;
+        margin-bottom: 20px;
         div {
           border: 1px solid #535353;
         }
@@ -1352,10 +1475,7 @@ export default {
         height: 200px;
         padding: 30px;
         margin-top: 40px;
-
-        // box-shadow: 0px 0px 10px 0px #e0f86f;
         border: 1px solid #383938;
-        // text-align: center;
         box-sizing: border-box;
         font-size: 14px;
         line-height: 1.5;
@@ -1373,8 +1493,8 @@ export default {
             height: 68px;
           }
           .home-common-title {
-            font-size: 28px;
-            font-family: Avenir;
+            font-size: 18px;
+            // font-family: Avenir;
             font-weight: normal;
             color: #ffffff;
             // background: linear-gradient(to right, #3dfdcb, #def871);
@@ -1382,44 +1502,73 @@ export default {
             // color: transparent;
           }
           .upward-btn {
-            width: 150px;
-            height: 47px;
-            line-height: 47px;
-            border: 1px solid #c2ef8f;
-            color: #c2ef8f;
-            text-align: center;
-            border-radius: 5px;
+            width: 130px;
+            margin-left: 0;
+            font-size: 12px;
+            border-radius: 4px;
+            overflow: hidden;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 40px;
+            span {
+              display: inline-block;
+              text-align: center;
+              width: 126px;
+              height: 30px;
+              line-height: 30px;
+              border: 2px solid;
+              border-image: linear-gradient(90deg, #77d965, #d1ff9a) 1;
+              color: #72d161;
+            }
           }
           .upward-list {
             display: flex;
+            margin-top: 40px;
             div {
-              width: 55px;
-              height: 55px;
+              width: 30px;
+              height: 30px;
               border: 1px solid #fff;
               border-radius: 50%;
               cursor: pointer;
               display: flex;
               justify-content: center;
               align-items: center;
-              margin-left: 10px;
+              margin-right: 20px;
               img {
                 width: 80%;
                 height: 80%;
               }
             }
+            .noLink {
+              img {
+                width: 80%;
+                height: 60%;
+              }
+            }
+          }
+        }
+        .round {
+          position: absolute;
+          top: -38px;
+          left: 25px;
+          width: 30px;
+          height: 30px;
+          img {
+            width: 100%;
+            height: 100%;
           }
         }
       }
       li:nth-child(1) {
-        margin-top: 0;
-      }
-      li:hover {
+        height: 220px;
+        margin: 0;
         border: 0px;
         background: url('./../../assets/docs/31.png') no-repeat;
         background-size: 100% 100%;
       }
+      // li:hover {
+      //   border: 0px;
+
+      // }
     }
     .mobile {
       display: none;
@@ -1487,7 +1636,8 @@ export default {
   /deep/.el-dialog__wrapper {
     color: #fff;
     .el-dialog {
-      background: #353945;
+      background: #0f1815;
+      opacity: 0.95;
       color: #fff;
       padding: 0 20px;
       width: 50%;
@@ -1503,6 +1653,7 @@ export default {
               .el-form-item__content {
                 .el-input {
                   .el-input__inner {
+                    border: 1px solid #81fc5b;
                     background: none;
                     color: #fff;
                   }
@@ -1513,15 +1664,17 @@ export default {
         }
       }
       .el-dialog__footer {
-        .determine {
-          background: #dfff00;
-        }
-        .cancel {
-          background: #808080;
-        }
         .el-button {
           border: 0px solid;
           color: #000;
+        }
+        .determine {
+          background: linear-gradient(to right, #46d44a, #abf47c);
+        }
+        .cancel {
+          background: none;
+          border: 1px solid #81fc5b !important;
+          color: #fff;
         }
       }
     }

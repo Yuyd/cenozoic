@@ -4,7 +4,7 @@
       <div class="header-left">
         <div class="left" @click="toHome">
           <div class="logo"><img src="./../../assets/logo.png" alt="" /></div>
-          <div class="name">Cenozoic</div>
+          <!-- <div class="name">Cenozoic</div> -->
         </div>
         <!-- <div class="header-table">
           <div v-for="(item, index) in headerList" :key="index">
@@ -44,7 +44,10 @@
         <div>
           <li class="header-tab-list">
             <div v-for="(item, index) in tableList" :key="index">
-              <span @click="goNext(item,index)" :class="{ active: cur == index }">
+              <span
+                @click="goNext(item, index)"
+                :class="{ active: cur == index }"
+              >
                 {{ item }}
               </span>
             </div>
@@ -53,30 +56,30 @@
             <div>
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                  {{ getLangFn(language) || 'English' }}
-                  <i class="el-icon-arrow-down el-icon--right"></i>
+                  {{ getLangFn(language) || 'EN' }}
+                  <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item :disabled="language === 'en'" command="en">
-                    English
+                    EN
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'zh'" command="zh">
-                    简体中文
+                    CN
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'da'" command="da">
-                    Dansk
+                    DK
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'es'" command="es">
-                    Español
+                    ES
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'ja'" command="ja">
-                    日本語
+                    JP
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'ko'" command="ko">
-                    한국어
+                    KR
                   </el-dropdown-item>
                   <el-dropdown-item :disabled="language === 'pt'" command="pt">
-                    Português
+                    PT
                   </el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
@@ -170,7 +173,7 @@ export default {
   },
   data() {
     return {
-      tableList: ['Home', 'Cenozoic', 'Economics', 'Community'],
+      tableList: ['Features', 'Economics', 'Community'],
       cur: 0,
       myAddress: '',
       loginDialogVisible: false,
@@ -234,7 +237,7 @@ export default {
     },
     goNext(selector, index) {
       this.cur = index
-      this.$bus.$emit('anchorPoint',selector)
+      this.$bus.$emit('anchorPoint', selector)
       // this.$el.querySelector(selector).scrollIntoView()
       // switch (index) {
       //   case 0:
@@ -430,14 +433,17 @@ export default {
 <style scoped lang="less">
 .header {
   width: 100%;
-  background: #01090b;
+  background: url('./../../assets/docs/01.jpg') no-repeat;
+  background-size: 100%;
+  opacity: .8;
+  // background: #fff;
   color: #fff;
   position: fixed;
   z-index: 999;
 
   .header-content {
-    // width: 1080px;
-    height: 60px;
+    width: 1300px;
+    height: 72px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -453,7 +459,7 @@ export default {
         font-weight: 700;
         cursor: pointer;
         .logo {
-          width: 40px;
+          width: 140px;
           height: 40px;
           padding-left: 10px;
           img {
@@ -533,12 +539,15 @@ export default {
       }
     }
     .header-right {
+      height: 100%;
       div {
         display: flex;
+        align-items: center;
+        height: 100%;
         li {
           margin: 0 10px;
-          height: 25px;
-          line-height: 25px;
+          // height: 25px;
+          // line-height: 25px;
           padding: 0 10px;
           // width: 100px;
           border-radius: 5px;
@@ -557,6 +566,18 @@ export default {
               white-space: nowrap;
             }
           }
+          /deep/.el-dropdown {
+            .el-dropdown-link {
+              height: 28px;
+              line-height: 28px;
+              font-family: Avenir;
+              font-weight: normal;
+              color: #81fc5b;
+              border: 1px solid #81fc5b;
+              padding: 0px 12px;
+              border-radius: 3px;
+            }
+          }
         }
         .header-tab-list {
           display: flex;
@@ -564,6 +585,7 @@ export default {
             padding: 0 10px;
             span {
               display: inline-block;
+              font-family: LigaMontserratSemiBold-SemiBold;
               width: 100%;
               height: 100%;
             }
@@ -581,7 +603,11 @@ export default {
           background: linear-gradient(to right, #46d44a, #abf47c);
           // display: block;
           .link-white {
-            width: 100px;
+            width: 80px;
+            height: 35px;
+            font-size: 14px;
+            font-family: Avenir-Roman;
+            font-weight: 500;
             text-align: center;
             position: relative;
             div {
@@ -591,30 +617,33 @@ export default {
           .white-list {
             color: #fff;
             display: block;
-            // width: 200px;
+            // width: 120px;
             // height: 100%;
             background: url('./../../assets/comment/5.png') no-repeat;
             background-size: 100% 100%;
             // background: #f1f1f1;
-            padding: 27px 40px;
-            padding-top: 60px;
-            padding-bottom: 40px;
+            padding: 27px 30px;
+            padding-top: 25px;
+            padding-bottom: 10px;
             // box-sizing: border-box;
             position: absolute;
             top: 100%;
             right: -10px;
             li {
-              width: 130px;
-              height: 60px;
+              // width: 130px;
+              // height: 40px;
               display: flex;
               align-items: center;
               margin: 0;
               padding: 0;
+              div {
+                margin: 0;
+              }
               .white-logo {
-                width: 50px;
-                height: 50px;
+                width: 25px;
+                height: 25px;
                 background: #ffffff;
-                border-radius: 15px;
+                border-radius: 5px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -624,7 +653,6 @@ export default {
                 }
               }
               .white-name {
-                font-weight: 700;
                 padding-left: 5px;
               }
             }
@@ -813,6 +841,28 @@ export default {
         }
       }
     }
+  }
+}
+</style>
+<style lang="less">
+.el-dropdown-menu.el-popper {
+  background: #08080a !important;
+  border: 1px solid #81fc5b;
+  .el-dropdown-menu__item {
+    background-color: #08080a !important;
+    color: #fff;
+  }
+  .el-dropdown-menu__item:hover {
+    color: #81fc5b;
+  }
+  .is-disabled {
+    color: #81fc5b;
+  }
+  .popper__arrow {
+    border-bottom-color: #81fc5b !important;
+  }
+  .popper__arrow::after {
+    border-bottom-color: #81fc5b !important;
   }
 }
 </style>

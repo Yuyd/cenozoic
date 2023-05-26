@@ -3,7 +3,7 @@ const ko = {
     header: 'zh'
   },
   header: {
-    connect: '연결하기',
+    connect: 'Connect',
   },
   menu: {
     bottom: 'zh'
@@ -13,10 +13,7 @@ const ko = {
     privacy: '隐私',
     sponsorList: [
       {
-        name: "Home",
-      },
-      {
-        name: "Cenozoic",
+        name: "Features",
       },
       {
         name: "Economics",
@@ -37,18 +34,19 @@ const ko = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner1: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and',
+    homeBanner2: 'a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',
     homeSupporting: '유니버설 경제 계층',
-    homeSupportingContent: "Cenozoic 프로토콜의 공유 경제와 거버넌스를 통해 탈중앙화된 게임 개발을 촉진합니다.",
+    homeSupportingContent: "개방적인 공유 경제 및 거래 계층과 탈중앙화된 거버넌스 및 인센티브를 통해 모든 참가자가 Cenozoic 프로토콜의 거버넌스 및 개발에 참여하도록 장려하여 분산형 게임의 발전을 촉진합니다.",
     homeInteroper: '온체인 평판 및 수익',
-    homeInteroperContent: '크립토 자산 담보, ZOIC 거버넌스 인센티브, 영구적인 블록체인 저장 및 온체인 평판을 위한 업적 NFT를 통해 플레이어 수익을 높입니다.',
+    homeInteroperContent: 'Cenozoic 프로토콜은 암호화 자산을 담보로 구입 및 환매하는 것으로 플레이어에게 더 높은 수익을 제공합니다. 거버넌스 토큰인 ZOIC은 게임 및 프로토콜 개발에 참여하는 것을 인센티브로 제공합니다. 또한 게임 데이터는 블록체인에 영구적으로 저장되고 프로토콜 내에서 업적 NFT의 형태로 표시되어 플레이어의 온체인 평판 구축을 돕습니다.',
     homeCoMpos: '상호 운용성 및 구성 가능성',
-    homeCoMposContent: "암호화폐 안정화토큰과 거버넌스 토큰의 공유 경제, 새로운 게임 규칙 / 지도의 구성 가능성을 통해 자유롭고 공정하며 안전한 게임 환경을 제공합니다.",
+    homeCoMposContent: "Cenozoic 프로토콜은 게임 스테이블 코인과 거버넌스 토큰이 상호 운용성을 달성하는 공유 경제 및 거래 계층을 제공합니다. 프로토콜이 지원하는 게임에서 기본 규칙 위에 새로운 게임 규칙 및 맵을 설정할 수 있으므로 구성 가능성을 달성할 수 있습니다. 이는 플레이어와 개발자에게 자유롭고 개방적이며 공정하며 안전한 게임 환경을 제공합니다.",
     homeTranspraent: 'DAO 메커니즘',
-    homeTranspraentContent: "ZOIC 토큰 참여를 통해 투명하고 공정한 DAO 거버넌스를 구현하여 탈중앙화 및 민주적 거버넌스를 촉진하며, Web3.0 생태계에 활력을 불어넣습니다.",
+    homeTranspraentContent: "Cenozoic 프로토콜은 거버넌스 토큰인 ZOIC 보유가 프로토콜의 거버넌스에 참여할 수 있도록 투명하고 공정한 DAO 거버넌스 메커니즘을 채택합니다. 이는 Cenozoic 프로토콜을 커뮤니티의 요구와 이익에 더 잘 부합시켜 진정한 분산형 민주적 거버넌스를 실현하여 전체 Web3.0 생태계에 새로운 활력을 불어넣습니다.",
     homeCenoTit: 'Universal Economic Layer',
     homeGame: 'CENO',
     homeGameContent1: '100 CENO ≈ 1 USDT',
@@ -58,7 +56,7 @@ const ko = {
     homeVeZOIC: 'veZOIC',
     homeVeZOICContent1: "커뮤니티, 자산, 프로토콜 및 게임 의사결정을 위한 투표 보류 시스템입니다.",
     homeVeZOICContent2: "Cenozoic 프로토콜은 결정 및 가치 확보를 위해 투표 잠금된 거버넌스 토큰을 활용하며, 토큰 소유자는 게임 내 보상 보너스를 받을 수 있습니다.",
-    homeVeZOICBtn: 'Comming soon',
+    homeVeZOICBtn: 'Comming Soon',
     homeHowTit: 'How to participate',
     homeDepositsTit: 'CENO 예금 및 코인 새로 만들기',
     homeDepositsContent: '게임에서 언제 어디서든 사용할 수 있는 CENO 스테이블코인을 위한 자산을 예금하세요. 투명한 공개 CENO 금고.',

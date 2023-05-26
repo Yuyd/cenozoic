@@ -3,7 +3,7 @@ const zh = {
     header: 'zh'
   },
   header: {
-    connect: '连接钱包',
+    connect: 'Connect',
   },
   menu: {
     bottom: 'zh'
@@ -13,10 +13,7 @@ const zh = {
     privacy: '隐私',
     sponsorList: [
       {
-        name: "Home",
-      },
-      {
-        name: "Cenozoic",
+        name: "Features",
       },
       {
         name: "Economics",
@@ -37,18 +34,19 @@ const zh = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner1: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and',
+    homeBanner2: 'a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',
     homeSupporting: '通用经济层',
-    homeSupportingContent: "通过Cenozoic协议的共享经济和治理，推广去中心化游戏开发。",
+    homeSupportingContent: "通过一个开放的共享经济与贸易层和去中心化的治理与激励，鼓励所有参与者共同参与Cenozoic协议的治理和建设，以推动去中心游戏的发展。",
     homeInteroper: '链上声誉和收益',
-    homeInteroperContent: '通过加密资产质押、ZOIC治理激励、永久的区块链存储和成就NFT来提高玩家收益，增加链上声誉。',
+    homeInteroperContent: 'Cenozoic协议通过质押加密货币资产购买和赎回，为玩家提供更高的收入。治理代币ZOIC的奖励激励玩家参与游戏和协议的发展。此外，游戏数据会永久地存储在区块链上，并在协议中以成就NFT的形式展现出来，帮助玩家建立自己链上声誉。',
     homeCoMpos: '互操作性和可组合性',
-    homeCoMposContent: "共享稳定币和治理代币的经济体系，为新游戏规则/地图的可组合性提供自由、公开、公平、安全的游戏环境。",
+    homeCoMposContent: "Cenozoic协议提供了一个共享经济与贸易层，其中游戏稳定币和治理代币实现了互操作性。在协议支持的游戏中，任何人都可以在基础规则上建立新的游戏规则和地图，实现可组合性。为玩家和开发者提供了自由、开放、公平、安全的游戏环境。",
     homeTranspraent: 'DAO机制',
-    homeTranspraentContent: "通过ZOIC代币的参与，推动透明、公正的DAO治理，促进去中心化和民主化治理，注入Web3.0生态系统的新活力。",
+    homeTranspraentContent: "Cenozoic协议采用透明、开放、公平的DAO治理机制，持有治理代币ZOIC即可参与协议的治理，使得Cenozoic协议更符合社区的需求和利益，实现真正的去中心化和民主化治理，为整个Web3.0生态注入新的活力。",
     homeCenoTit: 'Universal Economic Layer',
     homeGame: 'CENO',
     homeGameContent1: '100 CENO ≈ 1 USDT',
@@ -58,7 +56,7 @@ const zh = {
     homeVeZOIC: 'veZOIC',
     homeVeZOICContent1: "用于社区、资产、Cenozoic协议和游戏决策的投票锁定系统",
     homeVeZOICContent2: "Cenozoic协议的投票锁定治理代币，用于决策和价值捕获，代币持有者可获得游戏内的奖励加成。",
-    homeVeZOICBtn: 'Comming soon',
+    homeVeZOICBtn: 'Comming Soon',
     homeHowTit: 'How to participate',
     homeDepositsTit: '存款和铸造CENO',
     homeDepositsContent: '通过质押资产获得CENO稳定币，可在任何时间和任何地点用于游戏。CENO库是公开透明的。',

@@ -14,7 +14,7 @@ export default {
 <style lang="less" scoped>
 .public-title {
   span {
-    font-size: 68px;
+    font-size: 36px;
     font-family: LigaMontserratSemiBold;
     font-weight: 600;
     color: #ffffff;

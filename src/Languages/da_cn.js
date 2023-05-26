@@ -3,7 +3,7 @@ const da = {
     header: 'zh'
   },
   header: {
-    connect: 'Tilslut',
+    connect: 'Connect',
   },
   menu: {
     bottom: 'da'
@@ -13,10 +13,7 @@ const da = {
     privacy: '隐私',
     sponsorList: [
       {
-        name: "Home",
-      },
-      {
-        name: "Cenozoic",
+        name: "Features",
       },
       {
         name: "Economics",
@@ -37,18 +34,19 @@ const da = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner1: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and',
+    homeBanner2: 'a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',
     homeSupporting: 'Universelt økonomisk lag',
-    homeSupportingContent: "Fremme decentraliseret spiludvikling gennem Cenozoic-protokollens delte økonomi og governance.",
+    homeSupportingContent: "Opfordrer alle deltagere til at deltage i styringen og udviklingen af Cenozoic-protokollen gennem et åbent fællesøkonomi og handelslag og decentraliseret styring og incitamenter for at fremme udviklingen af decentraliserede spil.",
     homeInteroper: 'On-Chain Reputation & Profit',
-    homeInteroperContent: 'Højere spillerindtjening gennem krypto-aktiv pledging, ZOIC governance incitamenter, permanent blockchain opbevaring og achievement NFTs for on-chain reputation.',
+    homeInteroperContent: "Cenozoic-protokollen giver højere indtjening for spillere ved at lægge kryptoaktiver til køb og tilbagekøb. Styringsmønten ZOIC incitamenterer spillere til at deltage i spil og protokoludvikling. Desuden opbevares spildata permanent på blockchain og vises i form af præstations-NFT'er i protokollen, hvilket hjælper spillere med at opbygge deres on-chain omdømme.",
     homeCoMpos: 'Interoperabilitet & Composability',
-    homeCoMposContent: "Fælles økonomi for stablecoins og governance tokens, komponibilitet for nye spilregler/kort, der giver en gratis, åben, fair, sikker spillemiljø.",
+    homeCoMposContent: "Cenozoic-protokollen giver et fællesøkonomi og handelslag, hvor spil-stabilecoins og styringsmønter opnår interoperabilitet. I spil, der understøttes af protokollen, kan enhver etablere nye spilregler og kort oven på de grundlæggende regler, hvilket opnår komponerbarhed. Dette giver spillere og udviklere en gratis, åben, fair og sikker spiloplevelse.",
     homeTranspraent: 'DAO mekanisme',
-    homeTranspraentContent: "Transparent og fair DAO governance gennem ZOIC-token deltagelse, der fremmer decentraliseret og demokratisk governance og injicerer vitalitet i Web3.0-økosystemet.",
+    homeTranspraentContent: "Cenozoic-protokollen vedtager en gennemsigtig, åben og retfærdig DAO-styringsmekanisme, hvor besiddelse af styringsmønten ZOIC giver mulighed for deltagelse i protokollens styring. Dette gør Cenozoic-protokollen mere i overensstemmelse med fællesskabets behov og interesser, opnår sand decentraliseret og demokratisk styring og injicerer ny vitalitet i hele Web3.0-økosystemet.",
     homeCenoTit: 'Universal Economic Layer',
     homeGame: 'CENO',
     homeGameContent1: '100 CENO ≈ 1 USDT',
@@ -58,7 +56,7 @@ const da = {
     homeVeZOIC: 'veZOIC',
     homeVeZOICContent1: "Stemme-escrow-system til community, asset, protokol og spil beslutningstagning",
     homeVeZOICContent2: "Cenozoic-protokollen bruger stemmeblokerede styretokens til beslutningstagning og værdifangst, hvilket gør det muligt for tokenindehavere at modtage bonusbelønninger i spillet.",
-    homeVeZOICBtn: 'Comming soon',
+    homeVeZOICBtn: 'Comming Soon',
     homeHowTit: 'How to participate',
     homeDepositsTit: 'Indsætning og prægning af CENO',
     homeDepositsContent: 'Indbetal aktiver til CENO stablecoin, der kan bruges når som helst og hvor som helst til spil. Transparent offentligt CENO-vault.',

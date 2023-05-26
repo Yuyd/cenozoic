@@ -3,7 +3,7 @@ const es = {
     header: 'zh'
   },
   header: {
-    connect: 'Conectar',
+    connect: 'Connect',
   },
   menu: {
     bottom: 'zh'
@@ -13,10 +13,7 @@ const es = {
     privacy: '隐私',
     sponsorList: [
       {
-        name: "Home",
-      },
-      {
-        name: "Cenozoic",
+        name: "Features",
       },
       {
         name: "Economics",
@@ -37,18 +34,19 @@ const es = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner1: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and',
+    homeBanner2: 'a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',
     homeSupporting: 'Capa económica universal',
-    homeSupportingContent: "Promover el desarrollo de juegos descentralizados a través de la economía y la gobernanza compartida del protocolo Cenozoic.",
+    homeSupportingContent: "Fomentar la participación de todos los participantes en la gobernanza y desarrollo del protocolo Cenozoico a través de una capa de economía y comercio compartido abierto y una gobernanza descentralizada e incentivos, para promover el desarrollo de juegos descentralizados.",
     homeInteroper: 'Reputación y ganancias en cadena',
-    homeInteroperContent: 'Mayores ganancias para los jugadores a través de la garantía de activos criptográficos, los incentivos de gobernanza ZOIC, el almacenamiento permanente en blockchain y los NFT de logros para la reputación en cadena.',
+    homeInteroperContent: 'El protocolo Cenozoico proporciona mayores ingresos para los jugadores mediante la garantía de activos de criptomonedas para la compra y el canje. El token de gobernanza ZOIC incentiva a los jugadores a participar en el desarrollo del juego y del protocolo. Además, los datos del juego se almacenan permanentemente en la cadena de bloques y se muestran en forma de NFT de logros en el protocolo, lo que ayuda a los jugadores a construir su reputación en cadena.',
     homeCoMpos: 'Interoperabilidad y componibilidad',
-    homeCoMposContent: "Economía compartida para las stablecoins y los tokens de gobernanza, componibilidad para las nuevas reglas y mapas del juego, proporcionando un entorno de juego libre, abierto, justo y seguro.",
+    homeCoMposContent: "El protocolo Cenozoico proporciona una capa de economía y comercio compartido donde las monedas estables del juego y los tokens de gobernanza logran la interoperabilidad. En los juegos compatibles con el protocolo, cualquiera puede establecer nuevas reglas de juego y mapas sobre las reglas básicas, logrando la composabilidad. Esto proporciona a los jugadores y desarrolladores un entorno de juego libre, abierto, justo y seguro.",
     homeTranspraent: 'Mecanismo DAO',
-    homeTranspraentContent: "Gobernanza DAO transparente y justa a través de la participación del token ZOIC, promoviendo una gobernanza descentralizada y democrática, inyectando vitalidad en el ecosistema Web3.0.",
+    homeTranspraentContent: "El protocolo Cenozoico adopta un mecanismo de gobernanza DAO transparente, abierto y justo donde la tenencia del token de gobernanza ZOIC permite participar en la gobernanza del protocolo. Esto hace que el protocolo Cenozoico esté más alineado con las necesidades e intereses de la comunidad, logrando una gobernanza verdaderamente descentralizada y democrática, inyectando nueva vitalidad en todo el ecosistema de Web3.0.",
     homeCenoTit: 'Universal Economic Layer',
     homeGame: 'CENO',
     homeGameContent1: '100 CENO ≈ 1 USDT',
@@ -58,7 +56,7 @@ const es = {
     homeVeZOIC: 'veZOIC',
     homeVeZOICContent1: "Sistema de votación y garantía para la toma de decisiones de la comunidad, los activos, los protocolos y los juegos.",
     homeVeZOICContent2: "El protocolo Cenozoic utiliza tokens de gobernanza con bloqueo de votos para la toma de decisiones y la captura de valor, permitiendo que los poseedores de tokens reciban bonificaciones de recompensa dentro del juego.",
-    homeVeZOICBtn: 'Comming soon',
+    homeVeZOICBtn: 'Comming Soon',
     homeHowTit: 'How to participate',
     homeDepositsTit: 'Depósito y acuñación de CENO',
     homeDepositsContent: 'Depositar activos para la stablecoin CENO, utilizable en cualquier momento y en cualquier lugar para los juegos. Tesorería pública transparente de CENO.',

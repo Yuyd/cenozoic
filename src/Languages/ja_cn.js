@@ -3,7 +3,7 @@ const ja = {
     header: 'zh'
   },
   header: {
-    connect: '接続する',
+    connect: 'Connect',
   },
   menu: {
     bottom: 'ja'
@@ -13,10 +13,7 @@ const ja = {
     privacy: '隐私',
     sponsorList: [
       {
-        name: "Home",
-      },
-      {
-        name: "Cenozoic",
+        name: "Features",
       },
       {
         name: "Economics",
@@ -37,18 +34,19 @@ const ja = {
   },
   home: {
     homeTitle: 'Unleashing On-Chain Games',
-    homeBanner: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and a fully on-chain approach, free from central authority.',
+    homeBanner1: 'Advocate for a decentralized, immersive gaming platform that employs native encryption and',
+    homeBanner2: 'a fully on-chain approach.',
     homeSubscribeBtn: 'Comming Soon',
     homeDocs: 'Subscribe',
     homeTrusted: '',
     homeSupporting: 'ユニバーサルエコノミックレイヤー',
-    homeSupportingContent: "Cenozoicプロトコルの共有経済とガバナンスを通じて、分散型ゲーム開発を促進します。",
+    homeSupportingContent: "共有経済および取引層と分散化されたガバナンスおよびインセンティブを通じて、Cenozoicプロトコルのガバナンスおよび開発に参加することをすべての参加者に奨励し、分散化されたゲームの発展を促進します。",
     homeInteroper: 'オンチェーンの評判と利益',
-    homeInteroperContent: '暗号資産の質入れによるプレイヤーの収益の向上、ZOICガバナンスインセンティブ、永久的なブロックチェーン上のストレージ、そして実績NFTによるオンチェーン上の評判を提供します。',
+    homeInteroperContent: 'Cenozoicプロトコルは、暗号通貨資産を担保にして購入および引き換えることにより、プレイヤーにより高い収益を提供します。ガバナンストークンのZOICは、プレイヤーにゲームとプロトコルの開発に参加するようインセンティブを与えます。また、ゲームデータはブロックチェーン上に永久に保存され、実績NFTの形でプロトコルに表示され、プレイヤーがオンチェーン上の評判を構築するのを支援します。',
     homeCoMpos: '相互運用性と合成性',
-    homeCoMposContent: "ステーブルコインとガバナンストークンの共有経済、新しいゲームルール/マップの合成性により、自由でオープンで公正かつ安全なゲーム環境を提供します。",
+    homeCoMposContent: "Cenozoicプロトコルは、ゲームステーブルコインとガバナンストークンが相互運用性を実現する共有経済および取引層を提供します。プロトコルでサポートされるゲームでは、誰でも基本的なルールの上に新しいゲームルールやマップを確立することができ、組み合わせ可能性を実現することができます。これにより、プレイヤーや開発者は、自由で公平で安全なゲーム環境を提供されます。",
     homeTranspraent: 'DAOメカニズム',
-    homeTranspraentContent: "ZOICトークンへの参加による透明で公正なDAOガバナンスを通じて、分散型かつ民主的なガバナンスを促進し、Web3.0エコシステムに新しい活力を注入します。",
+    homeTranspraentContent: "Cenozoicプロトコルは、透明で公開で公正なDAOガバナンスメカニズムを採用しており、ガバナンストークンZOICを保持することでプロトコルのガバナンスに参加することができます。これにより、Cenozoicプロトコルは、コミュニティのニーズと利益により一致し、真の分散化と民主的なガバナンスを実現し、Web3.0エコシステム全体に新しい活力を注入します。",
     homeCenoTit: 'Universal Economic Layer',
     homeGame: 'CENO',
     homeGameContent1: '100 CENO ≈ 1 USDT',
@@ -58,7 +56,7 @@ const ja = {
     homeVeZOIC: 'veZOIC',
     homeVeZOICContent1: "コミュニティ、アセット、プロトコル、およびゲームの意思決定のための投票エスクローシステム",
     homeVeZOICContent2: "Cenozoicプロトコルでは、投票ロックされたガバナンストークンを使用して意思決定と価値の獲得を行い、トークン保有者はゲーム内の報酬ボーナスを受け取ることができます。",
-    homeVeZOICBtn: 'Comming soon',
+    homeVeZOICBtn: 'Comming Soon',
     homeHowTit: 'CENOのデポジットとミント',
     homeDepositsTit: 'CENOの預け入れと鋳造',
     homeDepositsContent: 'ステーブルコインで担保されたアセットをCENOステーブルコインにデポジットして、いつでもどこ',
