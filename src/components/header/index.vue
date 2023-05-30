@@ -288,6 +288,7 @@ export default {
     },
     // 回顶部
     toHome() {
+      this.$router.push({ name: 'home' })
       let top = document.documentElement.scrollTop || document.body.scrollTop
       const timeTop = setInterval(() => {
         document.body.scrollTop = document.documentElement.scrollTop = top -= 50
