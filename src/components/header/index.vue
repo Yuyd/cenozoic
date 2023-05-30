@@ -92,10 +92,10 @@
               </div>
               <div v-else class="header-address">
                 <span>
-                  {{ myAddress.slice(0, 9) }}
+                  {{ myAddress.slice(0, 7) }}
                 </span>
                 <span>
-                  {{ myAddress.slice(-6) }}
+                  {{ myAddress.slice(-4) }}
                 </span>
               </div>
               <div v-show="isShow" class="white-list">
@@ -271,9 +271,10 @@ export default {
         ethereum.request({ method: 'eth_requestAccounts' })
         setTimeout(() => {
           this.getWalletAddress1()
+          this.isShow = false
         }, 1000)
       } else {
-        this.$message.info('请按装MetaMask插件')
+        this.$message.info('Please install the MetaMask plugin')
       }
     },
     // 检查钱包是否链接
@@ -840,6 +841,13 @@ export default {
           }
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .header {
+    .header-content {
+      width: 100%;
     }
   }
 }

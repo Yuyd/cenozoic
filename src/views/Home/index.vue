@@ -464,6 +464,9 @@
               <span>Comming Soon</span>
             </div>
           </div>
+          <div class="round">
+            <img src="./../../assets/docs/round.png" alt="" />
+          </div>
         </li>
         <li
           data-aos="flip-left"
@@ -486,6 +489,9 @@
             <!-- <div class="home-common-content">
               <p>{{ $t('home.homeReceiveContent') }}</p>
             </div> -->
+          </div>
+          <div class="round">
+            <img src="./../../assets/docs/round.png" alt="" />
           </div>
         </li>
       </div>
@@ -738,6 +744,7 @@ export default {
   methods: {
     // 锚点
     anchorPoint1(e) {
+      this.$router.push({ name: 'home' })
       window.location.hash = '#' + e
     },
     goOuter(index) {
@@ -1334,22 +1341,18 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      // text-align: center;
       li {
-        width: 32%;
+        width: 34%;
         height: 260px;
-        // border: 1px solid #dfff00;
         color: #adadad;
         padding: 30px;
         font-size: 14px;
         box-sizing: border-box;
         border-radius: 5px;
-        background: url('./../../assets/docs/29.png') no-repeat;
+        background: url('./../../assets/docs/29-1.png') no-repeat;
         background-size: 100% 100%;
-        // box-shadow: 0px 0px 10px 0px #e0f86f;
         line-height: 1.5;
         word-break: break-word !important;
-        // box-sizing: border-box;
         .home-content-top {
           display: flex;
           padding: 0 10px;
@@ -1374,23 +1377,16 @@ export default {
           padding: 0 10px;
         }
       }
-      // li:last-child {
-      //   border-color: #2ffdd4;
-      //   box-shadow: 0px 0px 10px 0px #2ffdd4;
-      // }
       li:nth-child(2) {
         margin-top: 60px;
       }
       li:nth-child(3) {
         margin-top: 120px;
       }
-      // li:hover {
-      //   background: url('./../../assets/docs/30.png') no-repeat;
-      //   background-size: 100% 100%;
-      // }
-      // li:last-child:hover {
-      //   box-shadow: 0px 0px 15px 0px #2ffdd4;
-      // }
+      li:hover {
+        background: url('./../../assets/docs/30-1.png') no-repeat;
+        background-size: 100% 100%;
+      }
     }
     .mobile {
       display: none;
@@ -1482,19 +1478,12 @@ export default {
         border-radius: 5px;
         color: #adadad;
         .upward {
-          // position: absolute;
-          // top: -34px;
-          // left: 50%;
-          // transform: translateX(-50%);
-          // width: 80%;
-          // height: 100%;
           .home-common-icon {
             width: 68px;
             height: 68px;
           }
           .home-common-title {
             font-size: 18px;
-            // font-family: Avenir;
             font-weight: normal;
             color: #ffffff;
             // background: linear-gradient(to right, #3dfdcb, #def871);
@@ -1547,6 +1536,7 @@ export default {
           }
         }
         .round {
+          display: none;
           position: absolute;
           top: -38px;
           left: 25px;
@@ -1558,17 +1548,16 @@ export default {
           }
         }
       }
-      li:nth-child(1) {
+      li:hover {
         height: 220px;
         margin: 0;
         border: 0px;
         background: url('./../../assets/docs/31.png') no-repeat;
         background-size: 100% 100%;
+        .round {
+          display: block;
+        }
       }
-      // li:hover {
-      //   border: 0px;
-
-      // }
     }
     .mobile {
       display: none;

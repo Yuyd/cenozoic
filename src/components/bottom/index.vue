@@ -232,13 +232,24 @@ export default {
   .bottom {
     .content {
       width: 100%;
-      height: 1rem;
+      height: 100%;
       font-size: 0.2rem;
       padding: 0 0.2rem;
       box-sizing: border-box;
+      display: block;
       .bottom-left {
+        .bottom-left-list {
+          text-align: left;
+          display: block;
+          padding-top: .1rem;
+          li {
+            height: .5rem;
+          }
+        }
       }
       .bottom-right {
+        display: flex;
+        justify-content: flex-start;
       }
     }
   }
