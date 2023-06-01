@@ -381,7 +381,7 @@
     <div class="home-veZoic">
       <div class="home-conent">
         <li>
-         <!-- data-aos="fade-down"
+          <!-- data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="1500" -->
           <div class="home-veZoic-img">
@@ -512,10 +512,7 @@
         </li>
       </div>
       <div class="mobile">
-        <PublicTitle
-          class="home-title"
-          :title="$t('home.homeCommunity')"
-        />
+        <PublicTitle class="home-title" :title="$t('home.homeCommunity')" />
         <div class="seiper-container" ref="mySwiper3">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -1428,9 +1425,9 @@ export default {
           margin-bottom: 30px;
         }
         .home-veZoic-img {
-          position: absolute;
-          left: 0%;
-          width: 90%;
+          // position: absolute;
+          // left: -30%;
+          width: 100%;
           margin: 0 auto;
           border-radius: 20px;
           box-shadow: 0px 0px 20px 0px #2ffdd4;
@@ -1470,9 +1467,11 @@ export default {
       padding: 40px 0;
       text-align: center;
     }
-    .home-conent {
+    .tow {
       display: flex;
       justify-content: space-between;
+    }
+    .home-conent {
       .home-how-line {
         width: 100%;
         margin: 40px auto;
@@ -1876,8 +1875,8 @@ export default {
             margin: 0 auto;
           }
           .home-veZoic-img {
-            display: block !important;
-            position: inherit;
+            display: block;
+            // position: inherit;
             width: 5rem;
             height: 4.5rem;
             margin: 0.4rem auto;
