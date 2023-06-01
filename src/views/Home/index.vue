@@ -53,11 +53,7 @@
     </div>
     <div class="home-collapse" id="Features">
       <div class="home-conent">
-        <PublicTitle
-          data-aos="zoom-in-up"
-          class="home-title"
-          title="Cenozoic Features"
-        />
+        <PublicTitle class="home-title" title="Cenozoic Features" />
         <!-- <div class="home-subscribe-swiper">
           <div class="seiper-container" ref="mySwiper5">
             <div class="swiper-wrapper">
@@ -98,7 +94,7 @@
           </div>
         </div> -->
 
-        <el-collapse accordion>
+        <el-collapse v-model="activeNames" accordion>
           <el-collapse-item :title="$t('home.homeSupporting')" name="1">
             <div>
               {{ $t('home.homeSupportingContent') }}
@@ -323,14 +319,15 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <li data-aos="zoom-out-up">
-                  <div class="home-common-icon">
-                    <img src="./../../assets/docs/15.png" alt="" />
-                  </div>
-                  <div class="home-common-title">
-                    {{ $t('home.homeGame') }}
-                  </div>
-                  <div class="home-common-content">
-                    {{ $t('home.homeGameContent1') }}
+                  <div class="home-content-top">
+                    <div class="home-common-icon">
+                      <img src="./../../assets/docs/15.png" alt="" />
+                    </div>
+                    <div class="home-common-title">
+                      {{ $t('home.homeGame') }}
+                      <br />
+                      {{ $t('home.homeGameContent1') }}
+                    </div>
                   </div>
                   <div class="home-common-content">
                     {{ $t('home.homeGameContent2') }}
@@ -339,14 +336,34 @@
               </div>
               <div class="swiper-slide">
                 <li data-aos="zoom-out-up">
-                  <div class="home-common-icon">
-                    <img src="./../../assets/docs/16.png" alt="" />
-                  </div>
-                  <div class="home-common-title">
-                    {{ $t('home.homeGovernance') }}
+                  <div class="home-content-top">
+                    <div class="home-common-icon">
+                      <img src="./../../assets/docs/16.png" alt="" />
+                    </div>
+                    <div class="home-common-title">
+                      {{ $t('home.homeGovernance') }}
+                    </div>
                   </div>
                   <div class="home-common-content">
                     {{ $t('home.homeGovernanceContent') }}
+                  </div>
+                </li>
+              </div>
+              <div class="swiper-slide">
+                <li data-aos="zoom-out-up">
+                  <div class="home-content-top">
+                    <div class="home-common-icon">
+                      <img src="./../../assets/docs/28.png" alt="" />
+                    </div>
+                    <div class="home-common-title">
+                      {{ $t('home.homeVeZOIC') }}
+                    </div>
+                  </div>
+                  <div class="home-common-content">
+                    {{ $t('home.homeVeZOICContent1') }}
+                  </div>
+                  <div class="home-common-content">
+                    {{ $t('home.homeVeZOICContent2') }}
                   </div>
                 </li>
               </div>
@@ -363,17 +380,16 @@
 
     <div class="home-veZoic">
       <div class="home-conent">
-        <li
-          data-aos="fade-down"
+        <li>
+         <!-- data-aos="fade-down"
           data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
+          data-aos-duration="1500" -->
           <div class="home-veZoic-img">
             <img src="./../../assets/docs/17.png" alt="" />
           </div>
         </li>
         <li>
-          <div class="home-veZoicTitle" data-aos="zoom-in-up">
+          <div class="home-veZoicTitle">
             {{ $t('home.homeHowTit') }}
           </div>
           <!-- <div class="home-veZoic-img">
@@ -413,17 +429,17 @@
       </div>
     </div>
     <div class="home-how" id="Community">
-      <PublicTitle
-        data-aos="zoom-in-up"
-        class="home-title"
-        :title="$t('home.homeCommunity')"
-      />
       <div class="home-conent">
+        <PublicTitle
+          data-aos="zoom-in-up"
+          class="home-title"
+          :title="$t('home.homeCommunity')"
+        />
         <div class="home-how-line">
           <div></div>
         </div>
       </div>
-      <div class="home-conent">
+      <div class="home-conent tow">
         <li
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
@@ -496,50 +512,71 @@
         </li>
       </div>
       <div class="mobile">
+        <PublicTitle
+          class="home-title"
+          :title="$t('home.homeCommunity')"
+        />
         <div class="seiper-container" ref="mySwiper3">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <li>
                 <div class="upward">
-                  <div class="home-common-icon">
-                    <img src="./../../assets/docs/19.png" alt="" />
-                  </div>
+                  <!-- <div class="home-common-icon">
+              <img src="./../../assets/docs/19.png" alt="" />
+            </div> -->
                   <div class="home-common-title">
-                    {{ $t('home.homeDepositsTit') }}
+                    {{ $t('home.homeCommunity1') }}
                   </div>
-                  <div class="home-common-content">
-                    <p>{{ $t('home.homeDepositsContent') }}</p>
+                  <!-- <div class="home-common-content">
+              <p>{{ $t('home.homeDepositsContent') }}</p>
+            </div> -->
+                  <div class="upward-btn" @click="goGle">
+                    <span>Contact With Us</span>
                   </div>
+                </div>
+                <div class="round">
+                  <img src="./../../assets/docs/round.png" alt="" />
                 </div>
               </li>
             </div>
             <div class="swiper-slide">
               <li>
                 <div class="upward">
-                  <div class="home-common-icon">
-                    <img src="./../../assets/docs/20.png" alt="" />
-                  </div>
+                  <!-- <div class="home-common-icon">
+              <img src="./../../assets/docs/20.png" alt="" />
+            </div> -->
                   <div class="home-common-title">
-                    {{ $t('home.homeEarnTit') }}
+                    {{ $t('home.homeCommunity2') }}
                   </div>
-                  <div class="home-common-content">
-                    <p>{{ $t('home.homeEarnContent') }}</p>
+                  <!-- <div class="home-common-content">
+              <p>{{ $t('home.homeEarnContent') }}</p>
+            </div> -->
+                  <div class="upward-btn" @click="expect">
+                    <span>Comming Soon</span>
                   </div>
+                </div>
+                <div class="round">
+                  <img src="./../../assets/docs/round.png" alt="" />
                 </div>
               </li>
             </div>
             <div class="swiper-slide">
               <li>
                 <div class="upward">
-                  <div class="home-common-icon">
-                    <img src="./../../assets/docs/21.png" alt="" />
-                  </div>
                   <div class="home-common-title">
-                    {{ $t('home.homeReceiveTit') }}
+                    {{ $t('home.homeCommunity3') }}
                   </div>
-                  <div class="home-common-content">
-                    <p>{{ $t('home.homeReceiveContent') }}</p>
+                  <div class="upward-list">
+                    <div class="noLink">
+                      <img src="./../../assets/comment/12.png" alt="" />
+                    </div>
+                    <div @click="goTwitter">
+                      <img src="./../../assets/comment/1.png" alt="" />
+                    </div>
                   </div>
+                </div>
+                <div class="round">
+                  <img src="./../../assets/docs/round.png" alt="" />
                 </div>
               </li>
             </div>
@@ -624,11 +661,6 @@
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
-      </div>
-    </div> -->
-    <!-- <div class="home-bottom">
-      <div class="home-conent">
-        <Bottom />
       </div>
     </div> -->
     <el-dialog
@@ -987,7 +1019,7 @@ export default {
   src: url('./../../compon/BRLNSR.TTF') format('truetype');
 }
 .home {
-  padding-top: 60px;
+  padding-top: 72px;
   background: #070707;
   color: #fff;
   text-align: left;
@@ -1011,14 +1043,15 @@ export default {
     }
   }
   .home-btn {
-    width: 90px;
+    width: 210px;
     // padding: 5px 30px;
-    height: 35px;
+    height: 67px;
     margin: 0 auto;
     margin-top: 40px;
-    line-height: 35px;
-    font-size: 14px;
+    line-height: 67px;
+    font-size: 24px;
     padding: 0 15px;
+    font-weight: 700;
     color: #000000;
     text-align: center;
     border-radius: 5px;
@@ -1040,12 +1073,13 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-around;
+      // align-items: center;
+      height: 100%;
       position: relative;
       .home-subscribe-left {
         // display: flex;
         // justify-content: inherit;
         // flex-direction: column;
-        margin-top: 60px;
         height: 400px;
         padding: 20px;
         line-height: 1.5;
@@ -1053,7 +1087,7 @@ export default {
         // width: 60%;
         font-size: 14px;
         h1 {
-          font-size: 85px;
+          font-size: 100px;
           font-family: BRLNSDB;
           font-weight: bold;
           color: #ffffff;
@@ -1062,7 +1096,7 @@ export default {
         p {
           width: 1155px;
           font-size: 24px;
-          // font-family: LigaMontserratSemiBold;
+          font-family: LigaMontserratSemiBold;
           font-weight: 600;
           color: #e8e8e8;
           margin: 20px auto;
@@ -1071,7 +1105,7 @@ export default {
         .home-line {
           height: 1px;
           width: 100%;
-          margin: 40px auto;
+          margin: 60px auto;
           background: linear-gradient(
             to right,
             rgba(0, 0, 0, 0) (0%),
@@ -1086,16 +1120,16 @@ export default {
           justify-content: center;
           align-items: center;
           div {
-            // width: 140px;
-            height: 35px;
-            line-height: 35px;
+            width: 230px;
+            height: 75px;
+            line-height: 75px;
             padding: 0px 15px;
             color: #000;
+            font-weight: 700;
             border-radius: 5px;
+            font-size: 24px;
           }
           .subscribeTo {
-            font-size: 14px;
-            font-weight: 400;
             color: #000000;
             text-align: center;
             background: linear-gradient(to right, #70c95d, #c2ee8f);
@@ -1124,11 +1158,8 @@ export default {
               color: #fff;
               span {
                 display: inline-block;
-                font-size: 14px;
-                font-weight: 400;
                 color: #9b9fa0;
                 text-align: center;
-                width: 110px;
               }
             }
           }
@@ -1144,6 +1175,7 @@ export default {
       // bottom: 5%;
       // display: flex;
       margin: 40px 0;
+      margin-bottom: 80px;
       cursor: pointer;
       div {
         display: flex;
@@ -1171,12 +1203,11 @@ export default {
     background: url('./../../assets/docs/02.jpg') no-repeat;
     background-size: 100% 100%;
     .home-conent {
-      width: 900px;
       margin: 0 auto;
-      padding-top: 50px;
+      // padding-top: 50px;
       .home-title {
-        margin: 50px auto;
-        margin-top: 80px;
+        margin: 0 auto;
+        padding: 50px 0;
         text-align: center;
       }
       .home-subscribe-swiper {
@@ -1200,8 +1231,6 @@ export default {
           border: 1px solid #434343;
           border-radius: 8px;
           margin-bottom: 50px;
-          // font-family: Alibaba;
-
           padding: 0 30px;
           .el-collapse-item__header {
             background: rgba(0, 0, 0, 0);
@@ -1212,11 +1241,9 @@ export default {
             font-size: 24px;
           }
           .el-collapse-item__wrap {
-            min-height: 80px;
             background: rgba(0, 0, 0, 0);
             border: 0px;
             .el-collapse-item__content {
-              height: 100px;
               color: #a7a9ae;
               font-size: 16px;
               word-break: break-word !important;
@@ -1238,20 +1265,7 @@ export default {
         }
       }
       .home-btn {
-        width: 90px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 14px;
-        padding: 0 15px;
-        color: #000000;
-        text-align: center;
-        border-radius: 5px;
         margin-left: 0;
-        background: linear-gradient(to right, #70c95d, #c2ee8f);
-        cursor: pointer;
-      }
-      .home-btn:hover {
-        background: linear-gradient(to right, #c2ee8f, #70c95d);
       }
     }
   }
@@ -1332,7 +1346,7 @@ export default {
   .home-content {
     background: url('./../../assets/docs/03.jpg') no-repeat;
     background-size: 100% 100%;
-    padding: 42px 0;
+    padding: 80px 0;
     .home-title {
       padding: 40px 0;
       text-align: center;
@@ -1401,17 +1415,22 @@ export default {
     .home-conent {
       display: flex;
       justify-content: space-between;
+      position: relative;
+      padding: 80px 0;
       li {
         font-size: 14px;
         width: 48%;
         word-break: break-word !important;
+
         .home-veZoicTitle {
-          font-size: 36px;
+          font-size: 66px;
           font-weight: 700;
           margin-bottom: 30px;
         }
         .home-veZoic-img {
-          width: 400px;
+          position: absolute;
+          left: 0%;
+          width: 90%;
           margin: 0 auto;
           border-radius: 20px;
           box-shadow: 0px 0px 20px 0px #2ffdd4;
@@ -1441,14 +1460,12 @@ export default {
       margin-bottom: 20px;
       line-height: 1.5;
     }
-    .home-btn {
-      width: 120px;
-    }
   }
   .home-how {
     background: url('./../../assets/docs/05.jpg') no-repeat;
     background-size: 100% 100%;
     padding: 40px 0;
+    padding-top: 80px;
     .home-title {
       padding: 40px 0;
       text-align: center;
@@ -1619,9 +1636,6 @@ export default {
       display: none;
     }
   }
-  .home-bottom {
-    background: #111314;
-  }
   /deep/.el-dialog__wrapper {
     color: #fff;
     .el-dialog {
@@ -1669,7 +1683,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1280px) {
   .home {
     .home-conent {
       width: 90%;
@@ -1685,6 +1699,13 @@ export default {
       }
       .home-common-title {
         margin: 10px 0;
+      }
+      .home-btn {
+        margin: 0 auto !important;
+        width: 2rem;
+        height: 0.8rem;
+        line-height: 0.8rem;
+        font-size: 0.3rem;
       }
     }
     .home-subscribe {
@@ -1702,15 +1723,31 @@ export default {
             width: 80%;
             margin: 0.1rem auto;
           }
-        }
-      }
-      .home-subscribe-outer {
-        left: 0.4rem;
-        div {
-          li {
-            width: 0.45rem;
-            height: 0.45rem;
-            margin: 0 0.1rem;
+          .home-line {
+            margin: 0.5rem auto;
+          }
+          .home-subscribe-outer {
+            margin: 0.5rem auto;
+            margin-bottom: 0.8rem;
+            div {
+              li {
+                width: 0.45rem;
+                height: 0.45rem;
+                margin: 0 0.1rem;
+              }
+            }
+          }
+          .home-subscribe-left-btn {
+            div {
+              width: 2.2rem;
+              height: 1rem;
+              line-height: 1rem;
+              padding: 0px 15px;
+              color: #000;
+              font-weight: 700;
+              border-radius: 5px;
+              font-size: 0.4rem;
+            }
           }
         }
       }
@@ -1764,6 +1801,24 @@ export default {
         }
       }
     }
+    .home-collapse {
+      .home-conent {
+        /deep/.el-collapse {
+          .el-collapse-item {
+            margin-bottom: 0.5rem;
+            padding: 0 0.4rem;
+            .el-collapse-item__header {
+              font-size: 0.3rem;
+            }
+            .el-collapse-item__wrap {
+              .el-collapse-item__content {
+                font-size: 0.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
     .home-content {
       .home-conent {
         width: 100%;
@@ -1773,7 +1828,7 @@ export default {
         .mobile {
           display: block;
           position: relative;
-          height: 6rem;
+          height: 4rem;
           .seiper-container {
             .swiper-wrapper {
               width: 100% !important;
@@ -1782,7 +1837,7 @@ export default {
                 li {
                   width: 75%;
                   margin: 0 auto;
-                  // text-align: center;
+                  text-align: center;
                   .home-common-icon {
                     width: 1rem;
                     height: 1rem;
@@ -1793,15 +1848,19 @@ export default {
                     }
                   }
                   .home-common-title {
-                    font-size: 0.6rem;
+                    font-size: 0.35rem;
                   }
                   .home-common-content {
                     line-height: 1.2;
                     font-size: 0.25rem;
                     color: #87868c;
+                    word-break: break-word !important;
                   }
                 }
               }
+            }
+            .swiper-button-prev,
+            .swiper-button-next {
             }
           }
         }
@@ -1810,6 +1869,7 @@ export default {
     .home-veZoic {
       .home-conent {
         display: block;
+        padding: 0;
         li:nth-child(1) {
           .home-veZoicTitle {
             width: 2.5rem;
@@ -1817,12 +1877,14 @@ export default {
           }
           .home-veZoic-img {
             display: block !important;
-            width: 4rem;
-            height: 3.5rem;
+            position: inherit;
+            width: 5rem;
+            height: 4.5rem;
             margin: 0.4rem auto;
           }
+
           .home-veZoic-title {
-            font-size: 0.6rem;
+            font-size: 0.4rem;
           }
           .home-veZoic-tit {
             font-size: 0.4rem;
@@ -1834,15 +1896,25 @@ export default {
         }
         li {
           width: 100%;
+          .home-veZoicTitle {
+            font-size: 0.5rem;
+          }
+          .home-veZoic-title {
+            font-size: 0.35rem;
+          }
+          p {
+            font-size: 0.25rem;
+          }
         }
         li:nth-child(2) {
-          display: none;
+          // display: none;
         }
       }
     }
     .home-how {
+      padding-top: 0.5rem;
       .home-conent {
-        display: none;
+        display: none !important;
       }
       .mobile {
         display: block;
@@ -1851,8 +1923,11 @@ export default {
           .swiper-wrapper {
             .swiper-slide {
               li {
-                width: 80%;
+                width: 75%;
+                height: 2rem;
                 margin: 0 auto;
+                border: 0.06rem solid #383938;
+                border-radius: 0.05rem;
                 .upward {
                   .home-common-icon {
                     width: 1.2rem;
@@ -1864,13 +1939,56 @@ export default {
                     }
                   }
                   .home-common-title {
-                    font-size: 0.6rem;
+                    font-size: 0.35rem;
                     margin: 0.2rem 0;
+                    text-align: center;
+                    line-height: 1.2;
                   }
-                  .home-common-content {
+                  .upward-btn {
+                    width: 2.45rem;
+                    height: 0.8rem;
+                    line-height: 0.8rem;
+                    margin: 0 auto;
+                    margin-top: 0.2rem;
                     font-size: 0.25rem;
-                    color: #87868c;
+                    span {
+                      display: inline-block;
+                      text-align: center;
+                      padding: 0 0.2rem;
+                      border: 0.04rem solid;
+                      border-image: linear-gradient(90deg, #77d965, #d1ff9a) 1;
+                      color: #72d161;
+                    }
                   }
+                  .upward-list {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0.2rem;
+                    div {
+                      width: 0.8rem;
+                      height: 0.8rem;
+                      margin: 0 0.1rem;
+                      border: 0.05rem solid #fff;
+                      border-radius: 50%;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      img {
+                        width: 80%;
+                        height: 80%;
+                      }
+                    }
+                    .noLink {
+                      img {
+                        width: 80%;
+                        height: 60%;
+                      }
+                    }
+                  }
+                }
+                .round {
+                  display: none;
                 }
               }
             }
@@ -1915,6 +2033,7 @@ export default {
       background: linear-gradient(to right, #2ffdd4, #e0f86f);
       -webkit-background-clip: text;
       color: transparent;
+      // top: 33%;
     }
     /deep/.el-dialog__wrapper {
       .el-dialog {

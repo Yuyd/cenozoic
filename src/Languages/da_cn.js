@@ -57,7 +57,7 @@ const da = {
     homeVeZOICContent1: "Stemme-escrow-system til community, asset, protokol og spil beslutningstagning",
     homeVeZOICContent2: "Cenozoic-protokollen bruger stemmeblokerede styretokens til beslutningstagning og værdifangst, hvilket gør det muligt for tokenindehavere at modtage bonusbelønninger i spillet.",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'Indsætning og prægning af CENO',
     homeDepositsContent: 'Indbetal aktiver til CENO stablecoin, der kan bruges når som helst og hvor som helst til spil. Transparent offentligt CENO-vault.',
     homeEarnTit: 'Optjen og indløs spilbelønninger.',

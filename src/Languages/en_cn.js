@@ -64,7 +64,7 @@ const en = {
     homeVeZOICContent1: "Vote-escrow system for community, asset, protocol, and game decision-making.",
     homeVeZOICContent2: "The Cenozoic protocol utilizes voting-locked governance tokens for decision-making and value capture, allowing token holders to receive in-game reward bonuses.",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'Depositing and minting CENO',
     homeDepositsContent: 'Deposit assets for CENO stablecoin, usable anytime and anywhere for gaming. Transparent public CENO vault.',
     homeEarnTit: 'Earn and redeem game rewards',

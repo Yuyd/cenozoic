@@ -57,7 +57,7 @@ const ja = {
     homeVeZOICContent1: "コミュニティ、アセット、プロトコル、およびゲームの意思決定のための投票エスクローシステム",
     homeVeZOICContent2: "Cenozoicプロトコルでは、投票ロックされたガバナンストークンを使用して意思決定と価値の獲得を行い、トークン保有者はゲーム内の報酬ボーナスを受け取ることができます。",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'CENOのデポジットとミント',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'CENOの預け入れと鋳造',
     homeDepositsContent: 'ステーブルコインで担保されたアセットをCENOステーブルコインにデポジットして、いつでもどこ',
     homeEarnTit: 'ゲーム報酬を獲得し、資産を引き換える。',

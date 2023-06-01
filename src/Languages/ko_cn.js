@@ -57,7 +57,7 @@ const ko = {
     homeVeZOICContent1: "커뮤니티, 자산, 프로토콜 및 게임 의사결정을 위한 투표 보류 시스템입니다.",
     homeVeZOICContent2: "Cenozoic 프로토콜은 결정 및 가치 확보를 위해 투표 잠금된 거버넌스 토큰을 활용하며, 토큰 소유자는 게임 내 보상 보너스를 받을 수 있습니다.",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'CENO 예금 및 코인 새로 만들기',
     homeDepositsContent: '게임에서 언제 어디서든 사용할 수 있는 CENO 스테이블코인을 위한 자산을 예금하세요. 투명한 공개 CENO 금고.',
     homeEarnTit: '게임 보상 획득 및 교환',

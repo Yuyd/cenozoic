@@ -57,7 +57,7 @@ const es = {
     homeVeZOICContent1: "Sistema de votación y garantía para la toma de decisiones de la comunidad, los activos, los protocolos y los juegos.",
     homeVeZOICContent2: "El protocolo Cenozoic utiliza tokens de gobernanza con bloqueo de votos para la toma de decisiones y la captura de valor, permitiendo que los poseedores de tokens reciban bonificaciones de recompensa dentro del juego.",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'Depósito y acuñación de CENO',
     homeDepositsContent: 'Depositar activos para la stablecoin CENO, utilizable en cualquier momento y en cualquier lugar para los juegos. Tesorería pública transparente de CENO.',
     homeEarnTit: 'Ganar y canjear recompensas del juego.',

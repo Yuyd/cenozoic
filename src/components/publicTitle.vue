@@ -23,4 +23,11 @@ export default {
     // color: transparent;
   }
 }
+@media screen and (max-width: 1300px) {
+  .public-title {
+    span {
+      font-size: .5rem;
+    }
+  }
+}
 </style>

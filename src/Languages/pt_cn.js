@@ -57,7 +57,7 @@ const pt = {
     homeVeZOICContent1: "Sistema de escrow de votos para a comunidade, ativos, protocolo e tomada de decisão do jogo",
     homeVeZOICContent2: "O protocolo Cenozoic utiliza tokens de governança com bloqueio de votos para tomada de decisões e captura de valor, permitindo que os detentores de tokens recebam bônus de recompensa dentro do jogo.",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: 'Depósito e cunhagem de CENO',
     homeDepositsContent: 'Deposite ativos para a stablecoin CENO, usável a qualquer momento e em qualquer lugar para jogos. Cofre público transparente do CENO.',
     homeEarnTit: 'Ganhe e resgate recompensas de jogos.',

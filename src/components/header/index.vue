@@ -112,6 +112,21 @@
 
             <!-- <span>{{ myAddress }}</span> -->
           </li>
+          <li class="mobile-list">
+            <div class="list-btn" @click="tabList">
+              <img src="./../../assets/comment/pole.png" alt="" />
+            </div>
+            <div v-show="isTabList" class="tab-list-item">
+              <div v-for="(item, index) in tableList" :key="index">
+                <span
+                  @click="goNext(item, index)"
+                  :class="{ active: cur == index }"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+          </li>
           <!-- <li
             v-if="token == '' || token == null || token == undefined"
             @click="registerSumbitUniPass"
@@ -191,6 +206,7 @@ export default {
       // languageList: ["中文", "en", "cn"],
       language: sessionStorage.getItem('lang'),
       isShow: false,
+      isTabList: false,
     }
   },
   watch: {
@@ -217,6 +233,15 @@ export default {
         this.isShow = false
       }
     })
+    document.addEventListener('mousedown', (e) => {
+      //获取弹窗对象
+      const userCon = document.querySelector('.tab-list-item')
+      if (userCon && !userCon.contains(e.target)) {
+        //如果包含则跳转回之前的页面
+        // this.isPulldown = false;
+        this.isTabList = false
+      }
+    })
   },
   methods: {
     // 多语言切换
@@ -237,6 +262,7 @@ export default {
     },
     goNext(selector, index) {
       this.cur = index
+      this.isTabList = false
       this.$bus.$emit('anchorPoint', selector)
       // this.$el.querySelector(selector).scrollIntoView()
       // switch (index) {
@@ -285,6 +311,9 @@ export default {
       } catch (e) {
         console.info(e)
       }
+    },
+    tabList() {
+      this.isTabList = true
     },
     // 回顶部
     toHome() {
@@ -437,14 +466,13 @@ export default {
   width: 100%;
   background: url('./../../assets/docs/01.jpg') no-repeat;
   background-size: 100%;
-  opacity: .8;
+  opacity: 0.8;
   // background: #fff;
   color: #fff;
   position: fixed;
   z-index: 999;
 
   .header-content {
-    width: 1300px;
     height: 72px;
     margin: 0 auto;
     display: flex;
@@ -454,6 +482,7 @@ export default {
     .header-left {
       display: flex;
       align-items: center;
+      margin-left: 50px;
       height: 100%;
       .left {
         display: flex;
@@ -541,6 +570,7 @@ export default {
       }
     }
     .header-right {
+      margin-right: 50px;
       height: 100%;
       div {
         display: flex;
@@ -553,7 +583,8 @@ export default {
           padding: 0 10px;
           // width: 100px;
           border-radius: 5px;
-          font-size: 14px;
+          font-weight: 600;
+          font-size: 24px;
           cursor: pointer;
           .el-dropdown {
             color: #fff;
@@ -605,9 +636,9 @@ export default {
           background: linear-gradient(to right, #46d44a, #abf47c);
           // display: block;
           .link-white {
-            width: 80px;
-            height: 35px;
-            font-size: 14px;
+            width: 170px;
+            height: 50px;
+            font-size: 24px;
             font-family: Avenir-Roman;
             font-weight: 500;
             text-align: center;
@@ -659,6 +690,9 @@ export default {
               }
             }
           }
+        }
+        .mobile-list {
+          display: none;
         }
         .portrait {
           width: 15px;
@@ -849,6 +883,64 @@ export default {
   .header {
     .header-content {
       width: 100%;
+      height: 1.2rem;
+      .header-left {
+        margin-left: 0.1rem;
+        .left {
+          .logo {
+            width: 2rem;
+            height: 0.6rem;
+            padding-left: 0.1rem;
+          }
+        }
+      }
+      .header-right {
+        margin-right: .1rem;
+        div {
+          li {
+            padding: 0;
+          }
+          .header-tab-list {
+            display: none;
+          }
+          .mobile-list {
+            display: block;
+            position: relative;
+            .list-btn {
+              width: 0.5rem;
+              height: 0.5rem;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .tab-list-item {
+              position: absolute;
+              right: -.2rem;
+              margin-top: 0.5rem;
+              height: 1rem;
+              display: block;
+              padding: .5rem;
+              background: #1e1f23;
+              border: 1px solid #81fc5b;
+              border-radius: 5px;
+              font-size: .4rem;
+              font-weight: 500;
+              div {
+                height: 0.4rem;
+                line-height: 0.4rem;
+              }
+            }
+          }
+          .connect-white {
+            .link-white {
+              width: 2rem;
+              height: 0.8rem;
+              font-size: .4rem;
+            }
+          }
+        }
+      }
     }
   }
 }

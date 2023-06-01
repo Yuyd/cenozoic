@@ -57,7 +57,7 @@ const zh = {
     homeVeZOICContent1: "用于社区、资产、Cenozoic协议和游戏决策的投票锁定系统",
     homeVeZOICContent2: "Cenozoic协议的投票锁定治理代币，用于决策和价值捕获，代币持有者可获得游戏内的奖励加成。",
     homeVeZOICBtn: 'Comming Soon',
-    homeHowTit: 'How to participate',
+    homeHowTit: 'How To Participate',
     homeDepositsTit: '存款和铸造CENO',
     homeDepositsContent: '通过质押资产获得CENO稳定币，可在任何时间和任何地点用于游戏。CENO库是公开透明的。',
     homeEarnTit: '获得游戏奖励和兑换资产',
