@@ -716,6 +716,7 @@ import PublicTitle from '@/components/publicTitle.vue'
 // import Bottom from '@/components/bottom/index.vue'
 import { getWalletAddress, isWalletConnected } from './../../white/index.js'
 import { Swiper } from 'vue-awesome-swiper'
+import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -1410,7 +1411,7 @@ export default {
         word-break: break-word !important;
 
         .home-veZoicTitle {
-          font-size: 60px;
+          font-size: 36px;
           font-weight: 700;
           margin-bottom: 30px;
         }
