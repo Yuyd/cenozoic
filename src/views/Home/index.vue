@@ -1060,28 +1060,18 @@ export default {
   }
   .home-subscribe {
     background: #232835;
-    // justify-content: center;
     background: url('./../../assets/docs/01.jpg') no-repeat;
     background-size: 100% 100%;
-    // height: 600px;
     box-sizing: border-box;
-    padding-top: 40px;
-    padding-bottom: 80px;
     .home-conent {
       display: flex;
       justify-content: space-around;
-      // align-items: center;
+      align-items: center;
       height: 100%;
-      position: relative;
       .home-subscribe-left {
-        // display: flex;
-        // justify-content: inherit;
-        // flex-direction: column;
-        height: 400px;
         padding: 20px;
         line-height: 1.5;
         text-align: center;
-        // width: 60%;
         font-size: 14px;
         h1 {
           font-size: 100px;
@@ -1420,7 +1410,7 @@ export default {
         word-break: break-word !important;
 
         .home-veZoicTitle {
-          font-size: 66px;
+          font-size: 60px;
           font-weight: 700;
           margin-bottom: 30px;
         }
