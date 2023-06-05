@@ -51,6 +51,7 @@
         </div>
       </div> -->
     </div>
+    <!-- <el-button @click="aCurl">12345</el-button> -->
     <div class="home-collapse" id="Features">
       <div class="home-conent">
         <PublicTitle class="home-title" title="Cenozoic Features" />
@@ -772,6 +773,15 @@ export default {
     })
   },
   methods: {
+    // 发布更新官网用
+    // async aCurl() {
+    //   const response = await axios.post('http://107.23.80.88:8020', 'faban', {
+    //     headers: {
+    //       'Content-Type': 'application/x-www-form-urlencoded',
+    //     },
+    //   })
+    //   console.log(response,'----')
+    // },
     // 锚点
     anchorPoint1(e) {
       this.$router.push({ name: 'home' })
