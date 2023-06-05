@@ -98,18 +98,17 @@
                   {{ myAddress.slice(-4) }}
                 </span>
               </div>
-              <div v-show="isShow" class="white-list">
-                <li @click="toWhiteMetaMask">
-                  <div class="white-logo">
-                    <img src="./../../assets/comment/6.png" alt="" />
-                  </div>
-                  <div class="white-name">
-                    MetaMask
-                  </div>
-                </li>
-              </div>
             </div>
-
+            <div v-show="isShow" class="white-list">
+              <li @click="toWhiteMetaMask">
+                <div class="white-logo">
+                  <img src="./../../assets/comment/6.png" alt="" />
+                </div>
+                <div class="white-name">
+                  MetaMask
+                </div>
+              </li>
+            </div>
             <!-- <span>{{ myAddress }}</span> -->
           </li>
           <li class="mobile-list">
@@ -649,22 +648,22 @@ export default {
           }
           .white-list {
             color: #fff;
-            display: block;
-            // width: 120px;
-            // height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 240px;
+            height: 120px;
             background: url('./../../assets/comment/5.png') no-repeat;
             background-size: 100% 100%;
-            // background: #f1f1f1;
             padding: 27px 30px;
             padding-top: 25px;
             padding-bottom: 10px;
-            // box-sizing: border-box;
             position: absolute;
-            top: 100%;
-            right: -10px;
+            top: 95%;
+            right: 2%;
             li {
               // width: 130px;
-              // height: 40px;
+              height: 60px;
               display: flex;
               align-items: center;
               margin: 0;
@@ -673,10 +672,10 @@ export default {
                 margin: 0;
               }
               .white-logo {
-                width: 25px;
-                height: 25px;
+                width: 45px;
+                height: 45px;
                 background: #ffffff;
-                border-radius: 5px;
+                border-radius: 10px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -686,7 +685,10 @@ export default {
                 }
               }
               .white-name {
-                padding-left: 5px;
+                padding-left: 10px;
+                font-size: 24px;
+                font-weight: 600;
+                color: #fff;
               }
             }
           }
@@ -895,7 +897,7 @@ export default {
         }
       }
       .header-right {
-        margin-right: .1rem;
+        margin-right: 0.1rem;
         div {
           li {
             padding: 0;
@@ -916,15 +918,15 @@ export default {
             }
             .tab-list-item {
               position: absolute;
-              right: -.2rem;
+              right: -0.2rem;
               margin-top: 0.5rem;
               height: 1rem;
               display: block;
-              padding: .5rem;
+              padding: 0.5rem;
               background: #1e1f23;
               border: 1px solid #81fc5b;
               border-radius: 5px;
-              font-size: .4rem;
+              font-size: 0.4rem;
               font-weight: 500;
               div {
                 height: 0.4rem;
@@ -936,7 +938,7 @@ export default {
             .link-white {
               width: 2rem;
               height: 0.8rem;
-              font-size: .4rem;
+              font-size: 0.4rem;
             }
           }
         }
