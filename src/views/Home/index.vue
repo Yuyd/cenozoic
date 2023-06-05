@@ -52,7 +52,7 @@
       </div> -->
     </div>
     <!-- <el-button @click="aCurl">12345</el-button> -->
-    <div class="home-collapse" id="Features">
+    <div class="home-collapse" id="Features"> 
       <div class="home-conent">
         <PublicTitle class="home-title" title="Cenozoic Features" />
         <!-- <div class="home-subscribe-swiper">
