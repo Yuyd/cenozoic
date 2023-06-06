@@ -70,6 +70,12 @@ import 'aos/dist/aos.css'
 Vue.use(AOS)
 Vue.prototype.$bus = new Vue
 Vue.config.productionTip = false
+import MetaMaskSDK from "@metamask/sdk"
+Vue.use(new MetaMaskSDK)
+console.log(MetaMaskSDK)
+// export const instantiateSdk = () => {
+//   new MetaMaskSDK();
+// };
 
 new Vue({
   router,
