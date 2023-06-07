@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="menu">
     <div class="home-subscribe" id="Home" ref="subHeight">
       <div class="home-conent">
         <div class="home-subscribe-left">
@@ -478,7 +478,7 @@
               <p>{{ $t('home.homeEarnContent') }}</p>
             </div> -->
             <div class="upward-btn" @click="expect">
-              <span>Comming Soon</span>
+              <span>Coming Soon</span>
             </div>
           </div>
           <div class="round">
@@ -550,7 +550,7 @@
               <p>{{ $t('home.homeEarnContent') }}</p>
             </div> -->
                   <div class="upward-btn" @click="expect">
-                    <span>Comming Soon</span>
+                    <span>Coming Soon</span>
                   </div>
                 </div>
                 <div class="round">
@@ -748,11 +748,15 @@ export default {
         },
       ],
       activeNames: '1',
+      settm: 0,
     }
   },
   watch: {
     diaMessage1(val) {
-      console.log(val)
+      console.info(val)
+    },
+    showTop(val) {
+      console.info(val)
     },
   },
   created() {},
@@ -760,7 +764,10 @@ export default {
     // 设置首屏高度
     this.getInnerWidth = window.innerHeight
     let headerHeight = document.querySelector('.header').scrollHeight
+    this.settm = this.getInnerWidth - headerHeight
     this.$refs.subHeight.style.height = this.getInnerWidth - headerHeight + 'px'
+    // 监听滚动条
+    window.addEventListener('scroll',this.handleScroll)
     this.$nextTick(() => {
       this.swiper1()
       this.swiper2()
@@ -780,7 +787,16 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       })
-      console.log(response,'----')
+      console.log(response, '----')
+    },
+    // 隐藏导航栏
+    handleScroll() {
+      let isScrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if(isScrollTop > this.settm) {
+        this.$emit('public_header', false)
+      } else {
+        this.$emit('public_header', true)
+      }
     },
     // 锚点
     anchorPoint1(e) {
@@ -1685,6 +1701,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .home {
+    padding-top: 1.2rem;
     .home-conent {
       width: 90%;
       margin: 0 auto;
@@ -1705,7 +1722,7 @@ export default {
         width: 2rem;
         height: 0.8rem;
         line-height: 0.8rem;
-        font-size: 0.3rem;
+        font-size: 0.28rem;
       }
     }
     .home-subscribe {
@@ -1739,14 +1756,14 @@ export default {
           }
           .home-subscribe-left-btn {
             div {
-              width: 2.2rem;
-              height: 1rem;
-              line-height: 1rem;
+              width: 2rem;
+              height: 0.8rem;
+              line-height: 0.8rem;
               padding: 0px 15px;
               color: #000;
               font-weight: 700;
               border-radius: 5px;
-              font-size: 0.4rem;
+              font-size: 0.28rem;
             }
           }
         }
@@ -1904,6 +1921,9 @@ export default {
           }
           p {
             font-size: 0.25rem;
+          }
+          .home-btn {
+            width: 2rem;
           }
         }
         li:nth-child(2) {

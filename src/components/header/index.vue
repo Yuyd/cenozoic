@@ -112,8 +112,12 @@
             <!-- <span>{{ myAddress }}</span> -->
           </li>
           <li class="mobile-list">
-            <div class="list-btn" @click="tabList">
+            <div v-show="!isTabList" class="list-btn" @click="tabList">
               <img src="./../../assets/comment/pole.png" alt="" />
+            </div>
+            <div v-show="isTabList" class="list-btn" @click="isTabList = false">
+              <!-- <img src="./../../assets/comment/point01.jpg" alt="" /> -->
+              <i class="el-icon-close"></i>
             </div>
             <div v-show="isTabList" class="tab-list-item">
               <div v-for="(item, index) in tableList" :key="index">
@@ -219,7 +223,8 @@ export default {
     //   }
     // }
   },
-  created() {},
+  created() {
+  },
   mounted() {
     this.isTokenTable()
     this.$nextTick(() => {})
@@ -461,6 +466,12 @@ export default {
 </script>
 
 <style scoped lang="less">
+@font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: normal;
+  src: url('./../../compon/Montserrat-SemiBold.ttf') format('truetype');
+}
 .header {
   width: 100%;
   background: url('./../../assets/docs/01.jpg') no-repeat;
@@ -575,6 +586,7 @@ export default {
         display: flex;
         align-items: center;
         height: 100%;
+              font-size: 18px;
         li {
           margin: 0 10px;
           // height: 25px;
@@ -583,7 +595,7 @@ export default {
           // width: 100px;
           border-radius: 5px;
           font-weight: 600;
-          font-size: 24px;
+          // font-size: 24px;
           cursor: pointer;
           .el-dropdown {
             color: #fff;
@@ -608,6 +620,8 @@ export default {
               border: 1px solid #81fc5b;
               padding: 0px 12px;
               border-radius: 3px;
+font-size: 18px;
+
             }
           }
         }
@@ -617,7 +631,8 @@ export default {
             padding: 0 10px;
             span {
               display: inline-block;
-              font-family: LigaMontserratSemiBold-SemiBold;
+              // font-family: Montserrat;
+              font-weight: 400;
               width: 100%;
               height: 100%;
             }
@@ -635,8 +650,8 @@ export default {
           background: linear-gradient(to right, #46d44a, #abf47c);
           // display: block;
           .link-white {
-            width: 170px;
-            height: 50px;
+            width: 120px;
+            height: 40px;
             font-size: 24px;
             font-family: Avenir-Roman;
             font-weight: 500;
@@ -881,8 +896,9 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1280px) {
   .header {
+    opacity: 1;
     .header-content {
       width: 100%;
       height: 1.2rem;
@@ -901,6 +917,14 @@ export default {
         div {
           li {
             padding: 0;
+            .el-dropdown {
+              .el-dropdown-link {
+                height: 0.58rem;
+                width: 0.6rem;
+                line-height: 0.58rem;
+                font-size: 0.3rem;
+              }
+            }
           }
           .header-tab-list {
             display: none;
@@ -918,27 +942,27 @@ export default {
             }
             .tab-list-item {
               position: absolute;
-              right: -0.2rem;
-              margin-top: 0.5rem;
-              height: 1rem;
+              right: -0.3rem;
+              top: 0.89rem;
+              width: 6.5rem;
+              height: 100vh;
               display: block;
               padding: 0.5rem;
-              background: #1e1f23;
-              border: 1px solid #81fc5b;
-              border-radius: 5px;
+              background: rgba(0, 0, 0, 1);
               font-size: 0.4rem;
               font-weight: 500;
               div {
-                height: 0.4rem;
+                height: 0.8rem;
                 line-height: 0.4rem;
               }
             }
           }
           .connect-white {
             .link-white {
-              width: 2rem;
-              height: 0.8rem;
-              font-size: 0.4rem;
+              width: 1.8rem;
+              height: 0.6rem;
+              font-size: 0.3rem;
+              font-weight: normal;
             }
           }
         }
@@ -967,5 +991,7 @@ export default {
   .popper__arrow::after {
     border-bottom-color: #81fc5b !important;
   }
+}
+@media screen and (max-width: 1300px) {
 }
 </style>

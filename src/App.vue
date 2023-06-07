@@ -4,8 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <Header />
-    <router-view/>
+    <Header v-if="header_show" />
+    <router-view @public_header="public_header" />
     <Bottom />
   </div>
 </template>
@@ -27,6 +27,16 @@ export default {
   //     }
   //   }
   // },
+  data() {
+    return {
+      header_show: true
+    }
+  },
+  methods: {
+    public_header(bool) {
+      this.header_show = bool
+    }
+  }
 }
 </script>
 
