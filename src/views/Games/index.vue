@@ -44,7 +44,7 @@
             当前赛季:
             <span>第1赛季</span>
           </div>
-          <div><i class="el-icon-circle-close"></i></div>
+          <div @click="moreDialogVisible = false"><i class="el-icon-circle-close"></i></div>
         </div>
         <div class="more-dialog-access">
           游戏访问概况
