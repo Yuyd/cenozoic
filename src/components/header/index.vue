@@ -90,7 +90,7 @@
               <div v-if="!myAddress" @click="whiteClick">
                 {{ $t('header.connect') }}
               </div>
-              <div v-else class="header-address">
+              <div v-else class="header-address" @click="toAccount">
                 <span>
                   {{ myAddress.slice(0, 7) }}
                 </span>
@@ -336,6 +336,10 @@ export default {
     toRegister() {
       this.registerDialogVisible = true
     },
+    // 去个人中心
+    toAccount() {
+      this.$router.push('/account')
+    }, 
     logindialog() {
       this.loginDialogVisible = false
     },

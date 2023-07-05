@@ -26,7 +26,7 @@
           <div class="home-subscribe-left-btn">
             <!-- data-aos="fade-up"
             data-aos-anchor-placement="bottom-bottom" -->
-            <div class="subscribeTo">
+            <div class="subscribeTo" @click="toCompounder">
               {{ $t('home.homeSubscribeBtn') }}
             </div>
             <div class="home-subscribe-left-docs" @click="subscribeTo">
@@ -833,6 +833,10 @@ export default {
     },
     subscribeTo() {
       this.EmailDialogVisible = true
+    },
+    // 跳转toCompounder页
+    toCompounder() {
+      this.$router.push('/compounder')
     },
     handleClose() {
       this.EmailDialogVisible = false

@@ -5,6 +5,10 @@ import Games from '../views/Games/index.vue'
 import About from '../views/About/index.vue'
 import PrivacyPolicy from '../views/Privacy/index.vue'
 import Trademark from '../views/Trademark/index.vue'
+import Compounder from '../views/Compounder/index.vue'
+import Account from '../views/Account/accoutn.vue'
+import Integral from '../views/Integral/index.vue'
+// import Game
 
 Vue.use(VueRouter)
 
@@ -41,7 +45,22 @@ const routes = [
     path: '/trademark',
     name: 'Trademark',
     component: Trademark
-  }
+  },
+  {
+    path: '/compounder',
+    name: 'Compounder',
+    component: Compounder
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account
+  },
+  {
+    path: '/integral',
+    name: 'Integral',
+    component: Integral
+  },
 ]
 
 const router = new VueRouter({
