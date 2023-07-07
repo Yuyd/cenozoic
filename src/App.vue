@@ -52,6 +52,7 @@ export default {
     let urlName = window.location.pathname.split('/')
     if (urlName[1] == 'Home') {
       this.tabShow = true
+      
       this.tabBlock = false
     } else {
       this.tabBlock = true
