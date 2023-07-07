@@ -1,5 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
+Vue.use(VueRouter);
+//获取原型对象上的push函数
+const originalPush = VueRouter.prototype.push;
+//修改原型对象中的push方法
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch((err) => err);
+};
+
 import Home from '../views/Home/index.vue'
 import Games from '../views/Games/index.vue'
 import About from '../views/About/index.vue'
@@ -48,7 +57,7 @@ const routes = [
   },
   {
     path: '/compounder',
-    name: 'Compounder',
+    name: 'compounder',
     component: Compounder
   },
   {
@@ -58,7 +67,7 @@ const routes = [
   },
   {
     path: '/integral',
-    name: 'Integral',
+    name: 'integral',
     component: Integral
   },
 ]

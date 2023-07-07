@@ -1,6 +1,14 @@
 <template>
   <div class="compounder">
-    <h1>This is an about page</h1>
+    <div class="compounder-conent">
+      <div class="compounder-top">
+        <div>CENO Compounder</div>
+        <div>
+          <div>TVL</div>
+          <div>$10.38m</div>
+        </div>
+      </div>
+    </div>
     <div class="compounder-conent">
       <div class="compounder-trend">
         <div class="compounder-trend-left">
@@ -17,7 +25,11 @@
         </div>
         <div class="compounder-trend-right">
           <div class="compounder-trend-right-title">
-            <TabActive :filter="topRightFilter" @onTabSwitch="onTopTabSwitch" />
+            <TabActive
+              class="title"
+              :filter="topRightFilter"
+              @onTabSwitch="onTopTabSwitch"
+            />
           </div>
           <div class="compounder-trend-right-chart">
             <div v-show="topRightIndex == 0" class="chart-border chart-pledge">
@@ -25,10 +37,13 @@
                 <div class="pledge-item">
                   <div class="pledge-item-label">
                     <div>抵押：</div>
-                    <div>0</div>
                   </div>
                   <div class="pledge-item-select">
-                    <el-select v-model="pledgeValue1" placeholder="请选择">
+                    <div class="amount">0</div>
+                    <el-select
+                      v-model="pledgeValue1"
+                      placeholder="USDT"
+                    >
                       <el-option
                         v-for="item in pledgeOptions1"
                         :key="item.value"
@@ -41,10 +56,10 @@
                 <div class="pledge-item">
                   <div class="pledge-item-label">
                     <div>得到：</div>
-                    <div>0</div>
                   </div>
                   <div class="pledge-item-select">
-                    <el-select v-model="pledgeValue2" placeholder="请选择">
+                    <div class="amount">0</div>
+                    <el-select v-model="pledgeValue2" placeholder="CENO">
                       <el-option
                         v-for="item in pledgeOptions2"
                         :key="item.value"
@@ -55,19 +70,19 @@
                   </div>
                 </div>
                 <div class="pledge-button">
-                  <el-button>12s</el-button>
+                  <el-button>链接钱包</el-button>
                 </div>
               </div>
             </div>
             <div v-show="topRightIndex == 1" class="chart-border">
               <div class="redemption">
                 <li>
-                  <div>
+                  <div class="quantity">
                     可赎回数量：
                     <span>0</span>
                   </div>
-                  <div>最大值</div>
-                  <div>
+                  <div class="max">最大值</div>
+                  <div class="balance">
                     ZOIC余额：
                     <span>0</span>
                   </div>
@@ -76,44 +91,30 @@
                   <div>
                     <div class="pledge-item-label">
                       <div>燃烧：</div>
-                      <div>0</div>
+                      <div class="amount">0</div>
                     </div>
                     <div class="pledge-item-select">
-                      <el-select v-model="redemptionValue1" placeholder="请选择">
-                        <el-option
-                          v-for="item in redemptionOptions1"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        ></el-option>
-                      </el-select>
+                      <el-input v-model="CENOInput" placeholder="CENO" />
                     </div>
                   </div>
                   <div>
                     <div class="pledge-item-label">
                       <div>燃烧：</div>
-                      <div>0</div>
+                      <div class="amount">0</div>
                     </div>
                     <div class="pledge-item-select">
-                      <el-select v-model="redemptionValue2" placeholder="请选择">
-                        <el-option
-                          v-for="item in redemptionOptions2"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        ></el-option>
-                      </el-select>
+                      <el-input v-model="ZOICInput" placeholder="ZOIC" />
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div>
+                  <div class="obtain">
                     <div class="pledge-item-label">
-                      <div>抵押：</div>
-                      <div>0</div>
+                      <div>得到：</div>
+                      <div class="amount">0</div>
                     </div>
                     <div class="pledge-item-select">
-                      <el-select v-model="redemptionValue3" placeholder="请选择">
+                      <el-select v-model="redemptionValue3" placeholder="USDT">
                         <el-option
                           v-for="item in redemptionOptions3"
                           :key="item.value"
@@ -129,7 +130,7 @@
                 </li>
                 <li>
                   <p>
-                    <i>!</i>
+                    <b>!</b>
                     赎回U需要燃烧一定比例的ZOIC（填入CEON自动计算），可以通过玩游戏获得ZOIC,也可以通过市场自行购入。
                   </p>
                 </li>
@@ -140,17 +141,16 @@
                 <li>
                   <div>
                     收益余额：
-                    <span>0</span>
+                    <span>118.34</span>
                     CEON
                   </div>
                 </li>
                 <li>
                   <div class="pledge-item-label">
-                    <!-- <div>抵押：</div> -->
                     <div>0</div>
                   </div>
                   <div class="pledge-item-select">
-                   <el-input  v-model="incomeValue" placeholder="CEON" />
+                    <el-input v-model="incomeValue" placeholder="CEON" />
                   </div>
                 </li>
                 <li>
@@ -195,13 +195,17 @@
                   <div>地址</div>
                 </div>
                 <div>
-                  拥有
+                  持有
                 </div>
               </li>
               <li v-for="(item, index) in holderList" :key="index">
                 <div>
                   <div>{{ item.id }}</div>
-                  <div><span>{{ item.address.slice(0, 7) }}</span>...<span>{{ item.address.slice(-4) }}</span></div>
+                  <div>
+                    <span>{{ item.address.slice(0, 7) }}</span>
+                    ...
+                    <span>{{ item.address.slice(-5) }}</span>
+                  </div>
                 </div>
                 <div>
                   {{ item.balance }}
@@ -210,39 +214,67 @@
             </div>
           </div>
           <div class="compounder-bottom-paging">
-            <Paginate />
+            <Paginate class="paginate" />
           </div>
         </div>
         <div class="compounder-bottom-right">
           <div class="compounder-bottom-right-title">
-            <TabActive :filter="btmRightFilter" @onTabSwitch="onBtmTabSwitch" />
+            <TabActive
+              class="title"
+              :filter="btmRightFilter"
+              @onTabSwitch="onBtmTabSwitch"
+            />
           </div>
           <div class="compounder-bottom-right-box">
             <div v-show="btmRightIndex == 0" class="compounder-bottom-active">
-              <li>
+              <li v-for="(item, index) in activeList" :key="index">
                 <div class="compounder-bottom-active-left">
-                  <div class="active-icon">#</div>
+                  <div class="active-icon">
+                    <img :src="item.activeImg" alt="" />
+                  </div>
                   <div class="active-list">
-                    <div>1</div>
-                    <div>1</div>
+                    <div>{{ item.activeType }}</div>
+                    <div>
+                      <span>{{ item.activeAddress.slice(0, 7) }}</span>
+                      ...
+                      <span>{{ item.activeAddress.slice(-5) }}</span>
+                    </div>
                   </div>
                 </div>
                 <div class="compounder-bottom-active-right">
-                  <div>1</div>
-                  <div>1</div>
+                  <div>{{ item.activeAmount }} CENO</div>
+                  <div>{{ item.activeTime }}</div>
                 </div>
               </li>
             </div>
             <div
               v-show="btmRightIndex == 1"
-              class="compounder-bottom-forging"
-            ></div>
-            <div
-              v-show="btmRightIndex == 2"
-              class="compounder-bottom-income"
-            ></div>
+              class="compounder-bottom-active compounder-bottom-forging"
+            >
+              <li v-for="(item, index) in activeList" :key="index">
+                <div class="compounder-bottom-active-left">
+                  <div class="active-icon">
+                    <img :src="item.activeImg" alt="" />
+                  </div>
+                  <div class="active-list">
+                    <div>{{ item.activeType }}</div>
+                    <div>
+                      <span>{{ item.activeAddress.slice(0, 7) }}</span>
+                      ...
+                      <span>{{ item.activeAddress.slice(-5) }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="compounder-bottom-active-right">
+                  <div>{{ item.activeAmount }} CENO</div>
+                  <div>{{ item.activeTime }}</div>
+                </div>
+              </li>
+            </div>
           </div>
-          <div class="compounder-bottom-paging"></div>
+          <div class="compounder-bottom-paging">
+            <Paginate class="paginate" />
+          </div>
         </div>
       </div>
     </div>
@@ -273,45 +305,51 @@ export default {
       pledgeOptions1: [
         {
           value: '111',
-          label: '11'
-        }
+          label: '11',
+        },
       ],
       pledgeValue2: '',
       pledgeOptions2: [
         {
           value: '222',
-          label: '22'
-        }
+          label: '22',
+        },
       ],
+      CENOInput: '',
+      incomeValue: '',
+      ZOICInput: '',
       redemptionValue1: '',
       redemptionOptions1: [
         {
           value: '1',
-          label: '燃烧1'
-        }
+          label: '燃烧1',
+        },
       ],
       redemptionValue2: '',
       redemptionOptions2: [
         {
           value: '2',
-          label: '燃烧2'
-        }
+          label: '燃烧2',
+        },
       ],
       redemptionValue3: '',
       redemptionOptions3: [
         {
           value: '3',
-          label: '得到'
-        }
+          label: '得到',
+        },
       ],
-      incomeValue: 0,
       detailsList: [
         {
           title: 'Deposit wrapper contract address',
           address: '222tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
         },
         {
-          title: 'Deposit wrapper contract address',
+          title: 'Rewards contract address',
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+        },
+        {
+          title: 'CENO vault contract address',
           address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
         },
       ],
@@ -331,8 +369,80 @@ export default {
           address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
           balance: 666,
         },
+        {
+          id: 4,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 5,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 6,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 7,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 8,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 9,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
+        {
+          id: 10,
+          address: '111tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          balance: 666,
+        },
       ],
-      btmRightFilter: ['活跃', '锻造', '收益'],
+      btmRightFilter: ['活跃', '锻造'],
+      activeList: [
+        {
+          activeType: 'CENO mint',
+          activeAddress: 'tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          activeImg: require('./../../assets/compounder/01.png'),
+          activeAmount: '154.38',
+          activeTime: 'about 1 hours ago',
+        },
+        {
+          activeType: 'Vault Deposit',
+          activeAddress: 'tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          activeImg: require('./../../assets/compounder/02.png'),
+          activeAmount: '154.38',
+          activeTime: 'about 2 hours ago',
+        },
+        {
+          activeType: 'Vault Harvest',
+          activeAddress: 'tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          activeImg: require('./../../assets/compounder/03.png'),
+          activeAmount: '154.38',
+          activeTime: 'about 3 hours ago',
+        },
+        {
+          activeType: 'Vault Deposit',
+          activeAddress: 'tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          activeImg: require('./../../assets/compounder/02.png'),
+          activeAmount: '154.38',
+          activeTime: 'about 4 hours ago',
+        },
+        {
+          activeType: 'Vault Deposit',
+          activeAddress: 'tjje3lctgmz6mzjex3pgh5qjr1saz5rlye',
+          activeImg: require('./../../assets/compounder/03.png'),
+          activeAmount: '154.38',
+          activeTime: 'about 5 hours ago',
+        },
+      ],
       btmRightIndex: 0,
     }
   },
@@ -385,10 +495,10 @@ export default {
       this.topRightIndex = index
     },
 
-    // 
-      handleChange(value) {
-        console.log(value);
-      },
+    //
+    handleChange(value) {
+      console.log(value)
+    },
 
     // btmTabSwitch 切换
     onBtmTabSwitch(index) {
@@ -419,6 +529,31 @@ export default {
     margin: 0 auto;
     word-break: break-all;
     word-wrap: break-word;
+    .compounder-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 80px 0;
+      div:first-child {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      div:last-child {
+        div:first-child {
+          width: 200px;
+          height: 60px;
+          line-height: 60px;
+          color: #C7FA7E;
+          font-size: 16px;
+          font-weight: 400;
+          border-top: 1px solid #C7FA7E;
+        }
+        div:last-child {
+          font-size: 24px;
+          color: #ACACB5;
+        }
+      }
+    }
     .compounder-trend {
       display: flex;
       justify-content: space-around;
@@ -429,7 +564,7 @@ export default {
         width: 48%;
         .compounder-trend-left-title {
           font-weight: 700;
-          font-size: 18px;
+          font-size: 30px;
           color: #8ee482;
           margin-bottom: 30px;
         }
@@ -442,6 +577,11 @@ export default {
         width: 48%;
         .compounder-trend-right-title {
           margin-bottom: 30px;
+          /deep/.title {
+            span {
+              font-size: 30px;
+            }
+          }
         }
         .compounder-trend-right-chart {
           .chart-border {
@@ -450,17 +590,49 @@ export default {
             border-radius: 5px;
             padding: 20px 40px;
             .pledge {
+              width: 100%;
               .pledge-item {
-                display: flex;
                 margin-bottom: 20px;
                 .pledge-item-label {
+                  margin-bottom: 20px;
+                  font-size: 20px;
+                  color: #a7a9ae;
                 }
                 .pledge-item-select {
-                  margin-left: 20px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 0 10px 5px;
+                  border: 1px solid #232323;
+                  border-radius: 5px;
+                  .amount {
+                    font-size: 68px;
+                    color: #acacb5;
+                  }
+                  /deep/.el-select {
+                    .el-input {
+                      input {
+                        background: #1e293b;
+                        border: 0px;
+                        color: #acacb5;
+                      }
+                      .el-select__caret {
+                        color: #acacb5;
+                      }
+                    }
+                  }
                 }
               }
               .pledge-button {
                 text-align: center;
+                .el-button {
+                  width: 160px;
+                  color: #000;
+                  font-size: 18px;
+                  font-weight: 600;
+                  border: 0px;
+                  background: linear-gradient(to right, #79da66, #ccfd97);
+                }
               }
             }
             .redemption {
@@ -468,33 +640,144 @@ export default {
                 display: flex;
                 align-items: center;
                 text-align: center;
-                margin-bottom: 50px;
+                margin-bottom: 35px;
                 > div {
                   display: flex;
+                  align-items: flex-end;
                   margin-right: 20px;
+                  .pledge-item-label {
+                    color: #acacb4;
+                    width: 50px;
+                    height: 60px;
+                    margin-right: 10px;
+                    .amount {
+                      font-size: 48px;
+                    }
+                  }
+                  .pledge-item-select {
+                    /deep/.el-input {
+                      border-radius: 5px;
+                      .el-input__inner {
+                        width: 180px;
+                        height: 45px;
+                        line-height: 45px;
+                        font-size: 20px;
+                        background: #000;
+                        border: 1px solid #535353;
+                      }
+                    }
+                  }
                 }
+                .obtain {
+                  width: 100%;
+                  justify-content: space-between;
+                }
+                .el-button {
+                  margin: 0 auto;
+                  width: 160px;
+                  color: #000;
+                  font-size: 18px;
+                  font-weight: 600;
+                  border: 0px;
+                  background: linear-gradient(to right, #79da66, #ccfd97);
+                }
+                p {
+                  color: #8d9092;
+                  b {
+                    display: inline-block;
+                    color: #000;
+                    width: 5px;
+                    background: yellow;
+                  }
+                }
+              }
+              li:nth-child(1) {
+                .quantity {
+                  display: flex;
+                }
+                .max {
+                  background: #535353;
+                  padding: 5px 10px;
+                  border-radius: 3px;
+                  cursor: pointer;
+                }
+                .balance {
+                }
+              }
+              li:nth-child(2) {
+                justify-content: space-between;
               }
             }
             .income {
               li {
                 display: flex;
+                .el-button {
+                  margin: 0 auto;
+                  width: 160px;
+                  color: #000;
+                  font-size: 18px;
+                  font-weight: 600;
+                  border: 0px;
+                  background: linear-gradient(to right, #79da66, #ccfd97);
+                }
+              }
+              li:nth-child(1) {
+                margin-bottom: 50px;
+              }
+              li:nth-child(2) {
+                justify-content: space-between;
+                color: #acacb4;
+                margin-bottom: 30px;
+                .pledge-item-label {
+                  font-size: 48px;
+                }
+                .pledge-item-select {
+                  /deep/.el-input {
+                    border-radius: 5px;
+                    .el-input__inner {
+                      width: 180px;
+                      height: 45px;
+                      line-height: 45px;
+                      text-align: center;
+                      font-size: 20px;
+                      background: #000;
+                      border: 1px solid #535353;
+                    }
+                  }
+                }
+              }
+              li:nth-child(3) {
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 50px;
+                div {
+                  width: 20%;
+                  height: 40px;
+                  line-height: 40px;
+                  text-align: center;
+                  color: #acacb4;
+                  border: 1px solid #535353;
+                  border-radius: 5px;
+                }
               }
             }
             .details {
               li {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 20px;
+                margin-bottom: 40px;
                 .list-item {
                   display: flex;
                   flex-direction: column;
                   align-items: flex-start;
                   div:nth-child(1) {
                     flex: 1;
-                    font-size: 14px;
+                    font-size: 18px;
+                    line-height: 2;
                   }
                   div:nth-child(2) {
-                    font-size: 12px;
+                    font-size: 14px;
+                    color: #acacb4;
                   }
                 }
                 .details-copy {
@@ -527,16 +810,23 @@ export default {
         width: 48%;
         .compounder-bottom-left-title {
           margin-bottom: 30px;
+          color: #8ee583;
+          font-size: 30px;
         }
         .compounder-bottom-left-box {
-          border: 1px solid #fff;
-          border-radius: 5px 5px 0 0;
+          border: 1px solid #535353;
+          border-radius: 8px 8px 0 0;
           padding: 20px 30px;
           .compounder-bottom-list {
+            height: 500px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
             li {
               display: flex;
               justify-content: space-between;
               margin-bottom: 20px;
+              font-size: 26px;
               div {
                 display: flex;
                 div:nth-child(1) {
@@ -544,55 +834,84 @@ export default {
                 }
               }
             }
+            li:first-child {
+              color: #a7a9ae;
+              font-size: 20px;
+            }
           }
         }
         .compounder-bottom-paging {
           height: 60px;
-          border: 1px solid #fff;
+          border: 1px solid #535353;
           border-top: none;
-          border-radius: 0 0 5px 5px;
+          border-radius: 0 0 8px 8px;
+          .paginate {
+            width: 100%;
+          }
         }
       }
       .compounder-bottom-right {
         width: 48%;
         .compounder-bottom-right-title {
           margin-bottom: 30px;
+          /deep/.title {
+            span {
+              font-size: 30px;
+            }
+          }
         }
         .compounder-bottom-right-box {
-          border: 1px solid #fff;
-          border-radius: 5px 5px 0 0;
+          border: 1px solid #535353;
+          border-radius: 8px 8px 0 0;
           padding: 20px 30px;
           .compounder-bottom-active {
+            height: 500px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
             li {
               display: flex;
               justify-content: space-between;
+              align-items: center;
               margin-bottom: 20px;
+              height: 50px;
               .compounder-bottom-active-left {
                 display: flex;
                 justify-content: space-between;
                 .active-icon {
                   margin-right: 30px;
-                  height: 35px;
-                  width: 35px;
+                  height: 50px;
+                  width: 50px;
+                  border: 1px dashed #a7a9ae;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
                 }
                 .active-list {
-                  display: block;
+                  display: flex;
+                  justify-content: space-between;
+                  flex-direction: column;
                   div:nth-child(1) {
-                    font-size: 14px;
+                    font-size: 26px;
                   }
                   div:nth-child(2) {
-                    font-size: 12px;
+                    font-size: 18px;
+                    color: #a7a9ae;
                   }
                 }
               }
               .compounder-bottom-active-right {
-                display: block;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
                 div:nth-child(1) {
-                    font-size: 14px;
-                  }
-                  div:nth-child(2) {
-                    font-size: 12px;
-                  }
+                  font-size: 26px;
+                }
+                div:nth-child(2) {
+                  font-size: 18px;
+                  color: #a7a9ae;
+                }
               }
             }
           }
@@ -603,12 +922,43 @@ export default {
         }
         .compounder-bottom-paging {
           height: 60px;
-          border: 1px solid #fff;
+          border: 1px solid #535353;
           border-top: none;
-          border-radius: 0 0 5px 5px;
+          border-radius: 0 0 8px 8px;
+          .paginate {
+            width: 100%;
+          }
         }
       }
     }
+  }
+}
+</style>
+<style lang="less">
+.el-select-dropdown {
+  background: #1e293b !important;
+  border: 1px solid #1e293b !important;
+  color: #fff !important;
+  .el-scrollbar {
+    background: #1e293b;
+    .el-scrollbar__wrap {
+      margin-bottom: -12px !important;
+    }
+    .el-select-dropdown__item {
+      background: #1e293b;
+      color: #fff;
+    }
+    .el-scrollbar__thumb {
+      background: #1e293b;
+    }
+  }
+}
+.el-popper {
+  .popper__arrow {
+    border-bottom-color: #1e293b !important;
+  }
+  .popper__arrow::after {
+    border-bottom-color: #1e293b !important;
   }
 }
 </style>

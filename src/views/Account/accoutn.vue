@@ -50,14 +50,14 @@
         </div>
       </div>
     </div>
-    <div class="account-conent">
+    <!-- <div class="account-conent">
       <div class="game-list" @click="goGameList">
         游戏列表
       </div>
       <div class="game-list" @click="goIntegral">
         积分兑换
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

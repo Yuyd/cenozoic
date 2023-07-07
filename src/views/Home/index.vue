@@ -782,7 +782,7 @@ export default {
   methods: {
     // 发布更新官网用
     async aCurl() {
-      const response = await axios.post('http://107.23.80.88:8020', 'faban', {
+      const response = await axios.post('http://107.23.80.88:8020', 'faban-test', {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },

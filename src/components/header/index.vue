@@ -42,11 +42,21 @@
       </div>
       <div class="header-right">
         <div>
-          <li class="header-tab-list">
-            <div v-for="(item, index) in tableList" :key="index">
+          <li v-show="tabShow" class="header-tab-list">
+            <div v-for="(item, index) in tableList1" :key="index">
               <span
                 @click="goNext(item, index)"
                 :class="{ active: cur == index }"
+              >
+                {{ item }}
+              </span>
+            </div>
+          </li>
+          <li v-show="tabBlock" class="header-tab-list">
+            <div v-for="(item, index) in tableList2" :key="index">
+              <span
+                @click="goNext1(item, index)"
+                :class="{ active: cur1 == index }"
               >
                 {{ item }}
               </span>
@@ -120,7 +130,7 @@
               <i class="el-icon-close"></i>
             </div>
             <div v-show="isTabList" class="tab-list-item">
-              <div v-for="(item, index) in tableList" :key="index">
+              <div v-for="(item, index) in tableList1" :key="index">
                 <span
                   @click="goNext(item, index)"
                   :class="{ active: cur == index }"
@@ -189,10 +199,16 @@ export default {
   components: {
     // LoginDialog,
   },
+  props: {
+    tabShow: Boolean,
+    tabBlock: Boolean
+  },
   data() {
     return {
-      tableList: ['Features', 'Economics', 'Community'],
+      tableList1: ['Features', 'Economics', 'Community'],
+      tableList2: ['主页', '兑换', '游戏', '活动'],
       cur: 0,
+      cur1: 0,
       myAddress: '',
       loginDialogVisible: false,
       login: false,
@@ -226,6 +242,8 @@ export default {
   created() {
   },
   mounted() {
+    // this.tabShow = window.location.href.split('H')
+
     this.isTokenTable()
     this.$nextTick(() => {})
     document.addEventListener('mousedown', (e) => {
@@ -287,6 +305,34 @@ export default {
       //     break
       // }
     },
+    goNext1(selector, index) {
+      this.cur1 = index
+      console.log(index,'0---')
+      // this.isTabList = false
+      // this.$bus.$emit('anchorPoint', selector)
+      switch (index) {
+        case 0:
+          this.$router.push({
+            name: 'home',
+          })
+          break
+        case 1:
+          this.$router.push({
+            name: 'compounder',
+          })
+          break
+        case 2:
+          this.$router.push({
+            name: 'games',
+          })
+          break
+          case 3:
+          this.$router.push({
+            name: 'integral',
+          })
+          break
+      }
+    },
     getting() {
       this.$router.push({ name: 'welcome' })
     },
@@ -339,7 +385,7 @@ export default {
     // 去个人中心
     toAccount() {
       this.$router.push('/account')
-    }, 
+    },
     logindialog() {
       this.loginDialogVisible = false
     },
@@ -590,7 +636,7 @@ export default {
         display: flex;
         align-items: center;
         height: 100%;
-              font-size: 18px;
+        font-size: 18px;
         li {
           margin: 0 10px;
           // height: 25px;
@@ -624,8 +670,7 @@ export default {
               border: 1px solid #81fc5b;
               padding: 0px 12px;
               border-radius: 3px;
-font-size: 18px;
-
+              font-size: 18px;
             }
           }
         }

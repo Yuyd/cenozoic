@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <Header v-if="header_show" />
+    <Header v-if="header_show" :tabShow="tabShow" :tabBlock="tabBlock" />
     <router-view @public_header="public_header" />
     <Bottom />
   </div>
@@ -15,7 +15,7 @@ import Bottom from '@/components/bottom/index.vue'
 export default {
   components: {
     Header,
-    Bottom
+    Bottom,
   },
   // watch: {
   //   language(newVaalue, old) {
@@ -29,14 +29,40 @@ export default {
   // },
   data() {
     return {
-      header_show: true
+      header_show: true,
+      tabShow: true,
+      tabBlock: false,
+    }
+  },
+  created() {},
+  watch: {
+    $route(to, form) {
+      if (to.name == 'Home') {
+        this.tabShow = true
+        this.tabBlock = false
+        location.reload()
+      } else {
+        this.tabBlock = true
+        this.tabShow = false
+        location.reload()
+      }
+    },
+  },
+  mounted() {
+    let urlName = window.location.pathname.split('/')
+    if (urlName[1] == 'Home') {
+      this.tabShow = true
+      this.tabBlock = false
+    } else {
+      this.tabBlock = true
+      this.tabShow = false
     }
   },
   methods: {
     public_header(bool) {
       this.header_show = bool
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -201,7 +227,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
 
   content: none;
 }
@@ -307,7 +333,7 @@ textarea {
   min-height: 12px;
   min-width: 5px;
   border-radius: 3px;
-  background: rgb(217,217,217);
+  background: rgb(217, 217, 217);
 }
 ::-webkit-scrollbar-thumb:hover {
   display: block;
