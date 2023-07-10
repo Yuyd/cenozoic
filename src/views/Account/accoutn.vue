@@ -5,8 +5,11 @@
         <div class="account-information-left">
           <div class="account-my">
             我的账户
-            <div>
+            <div class="isBalance" v-if="isBalance" @click="isBalance = false">
               <img src="./../../assets/account/display.png" alt="" />
+            </div>
+            <div class="isBalance" v-if="!isBalance" @click="isBalance = true">
+              123456
             </div>
           </div>
           <div class="account-balance">
@@ -65,7 +68,9 @@
 export default {
   components: {},
   data() {
-    return {}
+    return {
+      isBalance: true,
+    }
   },
   methods: {
     // 挑战游戏列表
@@ -83,10 +88,12 @@ export default {
 .account {
   padding-top: 72px;
   background: #070707;
+  background: url('./../../assets/docs/01.jpg') no-repeat;
+  background-size: 100% 100%;
   color: #fff;
   height: 100vh;
   .account-conent {
-    width: 1614px;
+    max-width: 1300px;
     margin: 0 auto;
     text-align: left;
   }
@@ -95,7 +102,7 @@ export default {
     justify-content: space-between;
     margin-top: 84px;
     .account-information-left {
-      width: 55%;
+      width: 80%;
       display: flex;
       // justify-content: space-between;
       .account-my {
@@ -141,6 +148,7 @@ export default {
       width: 40%;
       display: flex;
       justify-content: end;
+      align-items: center;
       .account-mint {
         width: 173px;
         text-align: center;

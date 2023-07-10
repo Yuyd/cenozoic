@@ -40,10 +40,7 @@
                   </div>
                   <div class="pledge-item-select">
                     <div class="amount">0</div>
-                    <el-select
-                      v-model="pledgeValue1"
-                      placeholder="USDT"
-                    >
+                    <el-select v-model="pledgeValue1" placeholder="USDT">
                       <el-option
                         v-for="item in pledgeOptions1"
                         :key="item.value"
@@ -70,7 +67,7 @@
                   </div>
                 </div>
                 <div class="pledge-button">
-                  <el-button>链接钱包</el-button>
+                  <el-button @click="pledgeBtn">链接钱包</el-button>
                 </div>
               </div>
             </div>
@@ -455,37 +452,82 @@ export default {
     echart1() {
       this.myEchart1 = this.$echarts.init(document.getElementById('myEchart1'))
       this.myEchart1.setOption({
+        // title: {
+        //   text: '',
+        //   color: '#fff',
+        // },
+        tooltip: {
+          trigger: 'axis',
+          showContent: true,
+          triggerOn: 'mousemove',
+          axisPointer: {
+            type: 'shadow',
+          },
+        },
+        legend: {
+          data: ['流通的CENO'],
+          bottom: 'bottom',
+          itemWidth: 10,
+          itemHeight: 10,
+          textStyle: {
+            fontSize: 10, //字体大小
+            color: '#fff', //字体颜色
+          },
+        },
         xAxis: {
           data: ['一月', '二月', '三月', '四月', '五月', '六月'],
+          axisTick: {
+            // 轴刻度
+            show: false,
+          },
+          axisLabel: {
+            // 轴文字
+            show: true,
+            color: '#fff',
+            fontSize: 12,
+          },
+          axisLine: {
+            // 轴线
+            show: true,
+            color: '#268C8C',
+          },
         },
-        yAxis: {},
+        yAxis: {
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#666',
+              type: 'dashed',
+            },
+          },
+          axisLabel: {
+            color: '#fff',
+          },
+        },
         series: [
           {
+            color: '#6dae65',
             type: 'bar',
-            data: [
-              10,
-              22,
-              28,
-              {
-                value: 43,
-                // 设置单个柱子的样式
-                itemStyle: {
-                  color: '#9de98c',
-                  shadowColor: '#9de98c',
-                  borderType: 'dashed',
-                  opacity: 0.5,
-                },
-              },
-              49,
-            ],
-            itemStyle: {
-              barBorderRadius: 5,
-              borderWidth: 1,
-              borderType: 'solid',
-              borderColor: '#73c0de',
-              shadowColor: '#5470c6',
-              shadowBlur: 3,
+            data: [874, 1213, 1764, 2143, 3143, 4231],
+            name: '流通的CENO',
+            label: {
+              show: true,
+              rotate: '',
+              position: 'top',
+              color: '#fff',
             },
+            // labelStyle: {
+            //   show: true,
+            //   color: '#fff',
+            // }
+            // itemStyle: {
+            //   barBorderRadius: 5,
+            //   borderWidth: 1,
+            //   borderType: 'dashed',
+            //   borderColor: '#73c0de',
+            //   shadowColor: '#5470c6',
+            //   shadowBlur: 3,
+            // },
           },
         ],
       })
@@ -515,6 +557,9 @@ export default {
       oInput.style.display = 'none'
       this.$message.success('Copy succeeded')
     },
+    pledgeBtn() {
+      this.$message.success('链接成功')
+    },
   },
 }
 </script>
@@ -523,6 +568,8 @@ export default {
 .compounder {
   padding-top: 72px;
   background: #070707;
+  background: url('./../../assets/docs/01.jpg') no-repeat;
+  background-size: 100% 100%;
   color: #fff;
   .compounder-conent {
     max-width: 1300px;
@@ -543,14 +590,14 @@ export default {
           width: 200px;
           height: 60px;
           line-height: 60px;
-          color: #C7FA7E;
+          color: #c7fa7e;
           font-size: 16px;
           font-weight: 400;
-          border-top: 1px solid #C7FA7E;
+          border-top: 1px solid #c7fa7e;
         }
         div:last-child {
           font-size: 24px;
-          color: #ACACB5;
+          color: #acacb5;
         }
       }
     }

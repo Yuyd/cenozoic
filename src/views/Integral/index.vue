@@ -209,10 +209,12 @@ export default {
   padding-top: 72px;
   // height: 100vh;
   background: #070707;
+  background: url('./../../assets/docs/01.jpg') no-repeat;
+  background-size: 100% 100%;
   color: #fff;
   overflow: hidden;
   .integral-conent {
-    width: 1614px;
+    width: 1300px;
     margin: 0 auto;
     h1 {
       margin: 120px auto;

@@ -79,7 +79,7 @@
               style="width: 400px; height: 300px;"
             ></div>
           </li>
-          <li v-else-if="moreActive == 1">1</li>
+          <li v-else-if="moreActive == 1"></li>
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
@@ -416,8 +416,10 @@ export default {
   padding-top: 72px;
   height: 100vh;
   background: #070707;
+  background: url('./../../assets/docs/01.jpg') no-repeat;
+  background-size: 100% 100%;
   .games-conent {
-    width: 1614px;
+    max-width: 1300px;
     margin: 0 auto;
     .games-title {
       width: 220px;
@@ -432,7 +434,7 @@ export default {
     }
     .game-list {
       .game-list-item {
-        width: 1614px;
+        // width: 1614px;
         height: 220px;
         padding: 40px;
         border: 1px solid #535353;
