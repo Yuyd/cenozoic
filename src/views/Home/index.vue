@@ -32,7 +32,7 @@
             <div class="home-subscribe-left-docs" @click="subscribeTo">
               <a>
                 <span>
-                  {{ $t('home.homeDocs') }}
+                  {{ $t('home.homeDocs') }} 
                 </span>
               </a>
             </div>
