@@ -214,11 +214,11 @@ export default {
   color: #fff;
   overflow: hidden;
   .integral-conent {
-    width: 1300px;
+    width: 1080px;
     margin: 0 auto;
     h1 {
-      margin: 120px auto;
-      font-size: 50px;
+      margin: 80px auto;
+      font-size: 36px;
       font-weight: normal;
     }
     .myintegral {
@@ -249,12 +249,12 @@ export default {
           box-sizing: border-box;
           .integral-NFT-name {
             text-align: left;
-            font-size: 40px;
+            font-size: 28px;
           }
           .integral-NFT-logo {
-            width: 180px;
-            height: 220px;
-            margin: 50px auto;
+            width: 160px;
+            height: 180px;
+            margin: 30px auto;
             border: 2px dashed #666;
             margin-top: 80px;
             img {
@@ -263,9 +263,9 @@ export default {
             }
           }
           .integral-NFT-quantity {
-            width: 227px;
-            height: 60px;
-            line-height: 60px;
+            width: 220px;
+            height: 50px;
+            line-height: 50px;
             margin: 0 auto;
             border: 0px solid;
             border-image: linear-gradient(0deg, #befa6e, #88eb91) 10 10;
@@ -327,7 +327,7 @@ export default {
       }
       li:nth-child(3) {
         .integral-NFT-logo {
-          width: 280px;
+          width: 220px;
         }
       }
     }
@@ -337,14 +337,14 @@ export default {
       text-align: left;
     }
     .integral-ranking-list {
-      border: 1px solid #fff;
+      border: 1px solid #535353;
       border-radius: 5px 5px 0 0;
       padding: 20px 30px;
       li {
         display: flex;
         justify-content: space-between;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         div {
           display: flex;
         }
@@ -371,7 +371,7 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border: 1px solid #fff;
+      border: 1px solid #535353;
       border-top: 0;
       border-radius: 0 0 5px 5px;
       .integral-ranking-paging-left {
