@@ -19,7 +19,7 @@
             <div
               class="echart1"
               id="myEchart1"
-              style="width: 600px; height: 400px;"
+              style="width: 450px; height: 350px;"
             ></div>
           </div>
         </div>
@@ -572,7 +572,7 @@ export default {
   background-size: 100% 100%;
   color: #fff;
   .compounder-conent {
-    max-width: 1300px;
+    max-width: 1080px;
     margin: 0 auto;
     word-break: break-all;
     word-wrap: break-word;
@@ -611,13 +611,14 @@ export default {
         width: 48%;
         .compounder-trend-left-title {
           font-weight: 700;
-          font-size: 30px;
+          font-size: 24px;
           color: #8ee482;
           margin-bottom: 30px;
         }
         .compounder-trend-left-chart {
           border: 1px solid #232323;
           padding: 20px 40px;
+          height: 400px;
         }
       }
       .compounder-trend-right {
@@ -626,7 +627,7 @@ export default {
           margin-bottom: 30px;
           /deep/.title {
             span {
-              font-size: 30px;
+              font-size: 24px;
             }
           }
         }
@@ -653,7 +654,7 @@ export default {
                   border: 1px solid #232323;
                   border-radius: 5px;
                   .amount {
-                    font-size: 68px;
+                    font-size: 48px;
                     color: #acacb5;
                   }
                   /deep/.el-select {
@@ -705,7 +706,7 @@ export default {
                     /deep/.el-input {
                       border-radius: 5px;
                       .el-input__inner {
-                        width: 180px;
+                        width: 150px;
                         height: 45px;
                         line-height: 45px;
                         font-size: 20px;
@@ -718,6 +719,7 @@ export default {
                 .obtain {
                   width: 100%;
                   justify-content: space-between;
+                  margin-right: 0;
                 }
                 .el-button {
                   margin: 0 auto;
@@ -812,6 +814,7 @@ export default {
               li {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 margin-bottom: 40px;
                 .list-item {
                   display: flex;
@@ -858,7 +861,7 @@ export default {
         .compounder-bottom-left-title {
           margin-bottom: 30px;
           color: #8ee583;
-          font-size: 30px;
+          font-size: 24px;
         }
         .compounder-bottom-left-box {
           border: 1px solid #535353;
@@ -873,7 +876,7 @@ export default {
               display: flex;
               justify-content: space-between;
               margin-bottom: 20px;
-              font-size: 26px;
+              font-size: 18px;
               div {
                 display: flex;
                 div:nth-child(1) {
@@ -903,7 +906,7 @@ export default {
           margin-bottom: 30px;
           /deep/.title {
             span {
-              font-size: 30px;
+              font-size: 24px;
             }
           }
         }

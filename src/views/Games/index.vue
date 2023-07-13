@@ -8,7 +8,7 @@
         <li class="game-list-item">
           <div class="game-list-item-left">
             <div class="game-list-item-left-logo">
-              <img src="./../../assets/account/game1.png" alt="" />
+              <!-- <img src="./../../assets/account/game1.png" alt="" /> -->
             </div>
             <div class="game-list-item-left-detail">
               <div class="game-list-item-name">Conqistador</div>
@@ -31,7 +31,7 @@
             <div
               class="echart1"
               id="myEchart1"
-              style="width: 300px; height: 220px;"
+              style="width: 280px; height: 200px;"
             ></div>
           </div>
         </li>
@@ -419,7 +419,7 @@ export default {
   background: url('./../../assets/docs/01.jpg') no-repeat;
   background-size: 100% 100%;
   .games-conent {
-    max-width: 1300px;
+    max-width: 1080px;
     margin: 0 auto;
     .games-title {
       width: 220px;
@@ -446,7 +446,14 @@ export default {
         .game-list-item-left {
           display: flex;
           .game-list-item-left-logo {
+            width: 180px;
+            height: 220px;
+            background: #909090;
             margin-right: 40px;
+            // img {
+            //   width: 100%;
+            //   height: 100%;
+            // }
           }
           .game-list-item-left-detail {
             text-align: left;
