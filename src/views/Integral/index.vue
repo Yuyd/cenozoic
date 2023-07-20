@@ -40,6 +40,34 @@
           </div>
         </li>
       </div>
+      <div class="integral-NFT-list-mobile">
+        <li v-for="(item, index) in FNTList" :key="index">
+          <div class="integral-NFT-list-no" v-if="item.NFTType == '0'">
+            <div class="integral-NFT-list-left">
+              <img :src="item.NFTImg" alt="" />
+            </div>
+            <div class="integral-NFT-list-right">
+              <div class="integral-NFT-name">{{ item.NFTName }}</div>
+              <div class="prompt">以上NFT在ZOIC正式上线后可对兑换为ZOIC</div>
+              <div class="integral-NFT-quantity">
+                {{ item.NFTIntegralQuantity }}
+              </div>
+            </div>
+          </div>
+          <div class="integral-NFT-list-yes" v-if="item.NFTType == '1'">
+            <div class="integral-NFT-list-left">
+              <img :src="item.NFTImg" alt="" />
+            </div>
+            <div class="integral-NFT-list-right">
+              <div class="integral-NFT-name">{{ item.NFTName }}</div>
+              <div class="prompt">以上NFT在ZOIC正式上线后可对兑换为ZOIC</div>
+              <div class="integral-NFT-quantity" @click="exchangeDialogVisible = true">
+                {{ item.NFTIntegralQuantity }}
+              </div>
+            </div>
+          </div>
+        </li>
+      </div>
     </div>
     <div class="integral-conent">
       <div class="integral-ranking">
@@ -96,11 +124,14 @@
       </div>
     </div>
     <el-dialog :visible.sync="exchangeDialogVisible" :show-close="false">
-      <div class="exchange-dialog-btn" @click="exchangeDialogVisible= false">
-          已获得
-        </div>
+      <div class="exchange-dialog-btn" @click="exchangeDialogVisible = false">
+        已获得
+      </div>
       <div class="exchange-dialog">
-        <div class="exchange-dialog-close" @click="exchangeDialogVisible= false">
+        <div
+          class="exchange-dialog-close"
+          @click="exchangeDialogVisible = false"
+        >
           <i class="el-icon-circle-close"></i>
         </div>
       </div>
@@ -364,6 +395,9 @@ export default {
         color: #a7a9ae;
       }
     }
+    .integral-NFT-list-mobile {
+      display: none;
+    }
     .integral-ranking-paging {
       height: 60px;
       padding: 20px 30px;
@@ -421,26 +455,190 @@ export default {
     width: 400px;
     height: 480px;
     .exchange-dialog-btn {
-        width: 140px;
-        height: 50px;
-        line-height: 50px;
-        background: linear-gradient(90deg, #77d965, #d1ff9a);
-        color: #000;
-        font-weight: 600;
-        font-size: 16px;
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-        cursor: pointer;
-      }
+      width: 140px;
+      height: 50px;
+      line-height: 50px;
+      background: linear-gradient(90deg, #77d965, #d1ff9a);
+      color: #000;
+      font-weight: 600;
+      font-size: 16px;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      cursor: pointer;
+    }
     .exchange-dialog {
       color: #fff;
       // z-index: 99;
       .exchange-dialog-close {
         font-size: 28px;
         cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .integral {
+    padding-top: 1.2rem;
+    .integral-conent {
+      width: 90%;
+      margin: 0 auto;
+      h1 {
+        margin: 1rem auto;
+        font-size: 0.45rem;
+      }
+      .myintegral {
+        margin-bottom: 0.8rem;
+        font-size: 0.2rem;
+        span {
+          font-size: 0.35rem;
+          font-family: Alibaba;
+          font-weight: normal;
+        }
+      }
+      .integral-NFT-list {
+        display: none;
+      }
+      .integral-NFT-list-mobile {
+        display: block;
+        li {
+          margin-bottom: 0.3rem;
+          height: 2.8rem;
+          .integral-NFT-list-no {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            height: 100%;
+            border: 1px dashed #666;
+            padding: 0.2rem;
+          }
+          .integral-NFT-list-yes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            height: 100%;
+            border: 1px solid #666;
+            padding: 0.2rem;
+            border-radius: 0.08rem;
+            .integral-NFT-list-right {
+              .integral-NFT-quantity {
+                width: 1.8rem;
+                height: 0.6rem;
+                line-height: 0.6rem;
+                margin: 0 auto;
+                border: 0px solid;
+                border-image: linear-gradient(0deg, #befa6e, #88eb91) 10 10;
+                background: linear-gradient(90deg, #77d965, #d1ff9a);
+                text-align: center;
+                border-radius: 0.05rem;
+                font-size: 0.25rem;
+                font-family: Alibaba;
+                font-weight: 700;
+                color: #000000;
+                margin-left: 0;
+              }
+            }
+          }
+          .integral-NFT-list-left {
+            width: 2rem;
+            height: 2.3rem;
+            border: 0.01rem dashed #666;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .integral-NFT-list-right {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+            font-size: 0.2rem;
+            .integral-NFT-name {
+              font-size: 0.3rem;
+            }
+            .prompt {
+              margin: 0.2rem 0 0.4rem 0;
+            }
+            .integral-NFT-quantity {
+              width: 1.8rem;
+              height: 0.6rem;
+              line-height: 0.6rem;
+              margin: 0 auto;
+              border: 0px solid;
+              background: #858a86;
+              text-align: center;
+              border-radius: 0.05rem;
+              font-size: 0.25rem;
+              font-family: Alibaba;
+              font-weight: 700;
+              color: #000000;
+              margin-left: 0;
+            }
+          }
+        }
+        li:nth-child(3) {
+          .integral-NFT-list-left {
+            height: 1.6rem;
+          }
+        }
+      }
+      .integral-ranking-list {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.25rem;
+        li {
+          display: flex;
+          justify-content: space-between;
+          height: 0.7rem;
+          line-height: 0.7rem;
+          div {
+            display: flex;
+          }
+          div:first-child {
+            div:first-child {
+              width: 0.8rem;
+            }
+          }
+          div:last-child {
+            div {
+              width: 1.4rem;
+              justify-content: center;
+            }
+          }
+        }
+        .title {
+        }
+      }
+      .integral-ranking-paging {
+        height: .8rem;
+        padding: 0.2rem;
+        .integral-ranking-paging-left {
+          font-size: 0.2rem;
+          .integral-ranking-paging-dropdown {
+            margin: 0 0.2rem;
+            .el-dropdown {
+              width: 1.2rem;
+              height: 0.5rem;
+              line-height: 0.5rem;
+              border-radius: 3px;
+              border: 1px solid #666;
+              color: #666;
+            }
+          }
+        }
+        .integral-ranking-paging-right {
+          div {
+            width: 0.12rem;
+            height: 0.23rem;
+          }
+          div:last-child {
+            margin-left: 0.3rem;
+          }
+        }
       }
     }
   }

@@ -36,8 +36,46 @@
           </div>
         </li>
       </div>
+      <div class="game-list-moblie">
+        <div class="game-list-item">
+          <div class="game-list-item-detail">
+            <div class="game-list-item-name">Conqistador</div>
+            <div class="game-list-item-describe">玩家扮演一个</div>
+            <div class="game-list-item-type">
+              游戏类型:
+              <span>RTS类型游戏(类似文明/帝国时代)</span>
+            </div>
+            <div class="game-list-item-state">
+              游戏状态:
+              <span>免费游戏/已上线</span>
+            </div>
+          </div>
+          <div class="game-list-item-echart">
+            <div class="game-list-item-echart-left">
+              <div class="game-list-item-logo">
+                <!-- <img src="./../../assets/account/game1.png" alt="" /> -->
+              </div>
+            </div>
+            <div class="game-list-item-echart-right">
+              <div
+                class="echart1"
+                id="myEchart3"
+                style="width: 3.6rem; height: 3.6rem;"
+              ></div>
+            </div>
+          </div>
+          <div class="game-list-item-btn">
+            <div>开始游戏</div>
+            <div @click="moreDialogVisible = true"><div>更多内容</div></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <el-dialog :visible.sync="moreDialogVisible" :show-close="false">
+    <el-dialog
+      :visible.sync="moreDialogVisible"
+      width="90%"
+      :show-close="false"
+    >
       <div class="more-dialog">
         <div class="more-dialog-header">
           <div>
@@ -64,10 +102,12 @@
             >
               {{ item.moreType }}
             </div>
-            <div>
+            <div class="more-item-quantity">
               {{ item.moreQuantity }}
-              <span v-if="item.data == '1'"><i class="el-icon-top"></i></span>
-              <span v-else-if="item.data == '2'">CEON</span>
+              <span class="icon-top" v-if="item.moresData == '1'">
+                <i class="el-icon-top"></i>
+              </span>
+              <span v-else-if="item.moresData == '2'">CEON</span>
             </div>
           </li>
         </div>
@@ -76,7 +116,7 @@
             <div
               class="echart2"
               id="myEchart2"
-              style="width: 400px; height: 300px;"
+              style="width: 5.2rem; height: 5rem;"
             ></div>
           </li>
           <li v-else-if="moreActive == 1"></li>
@@ -209,6 +249,7 @@ export default {
       setTimeout(() => {
         clearInterval(timeId)
       }, 2000)
+      this.echart3()
     })
   },
   methods: {
@@ -289,6 +330,9 @@ export default {
         title: {
           text: '赛季兵力分布',
           left: 'left',
+          textStyle: {
+            fontSize: 16
+          }
         },
         tooltip: {
           trigger: 'item',
@@ -296,6 +340,7 @@ export default {
         legend: {
           top: '0%',
           left: 'right',
+          itemWidth: 15,
         },
         labelLine: {
           show: true, // 是否显示视觉引导线
@@ -391,6 +436,79 @@ export default {
         //     ],
         //   },
         // ],
+      })
+    },
+    echart3() {
+      this.myEchart3 = this.$echarts.init(document.getElementById('myEchart3'))
+      this.myEchart3.setOption({
+        tooltip: {
+          show: true,
+          trigger: 'item',
+          // position: ['30%', '80%'],
+        },
+        // title: {
+        //   text: 'Basic Radar Chart',
+        // },
+        // legend: {
+        //   data: ['Allocated Budget', 'Actual Spending'],
+        // },
+        radar: {
+          // shape: 'circle',
+          radius: '45%',
+          center: ['50%', '50%'],
+          axisLine: {
+            lineStyle: {
+              color: '#2c3630', // 射线
+            },
+          },
+          splitLine: {
+            lineStyle: {
+              color: ['#2c3630'], // 分割线
+              width: 2,
+            },
+          },
+          indicator: [
+            { name: '开放性', max: 6500 },
+            { name: '去中心化', max: 16000 },
+            { name: '可玩性', max: 30000 },
+            { name: '安全性', max: 38000 },
+            { name: '趣味性', max: 52000 },
+            { name: '对抗性', max: 25000 },
+          ],
+          axisName: {
+            color: '#fff',
+          },
+          splitArea: {
+            show: false,
+            areaStyle: {
+              color: 'rgba(0,0,0,0)', // 图表背景的颜色
+            },
+          },
+        },
+        series: [
+          {
+            name: '打分',
+            type: 'radar',
+
+            data: [
+              {
+                value: [4200, 3500, 20000, 35000, 50000, 18000],
+                // label: {
+                //   show: true,
+                //   formatter: function (params) {
+                //     return params.value
+                //   },
+                // },
+                lineStyle: {
+                  color: '#8fe584', // 折线颜色
+                },
+                itemStyle: {
+                  color: '#8fe584', // 圆点颜色
+                },
+              },
+            ],
+          },
+        ],
       })
     },
 
@@ -503,6 +621,9 @@ export default {
         }
       }
     }
+    .game-list-moblie {
+      display: none;
+    }
   }
   /deep/.el-dialog {
     background: url('./../../assets/docs/01.jpg');
@@ -547,6 +668,23 @@ export default {
             cursor: pointer;
             .more-item-type {
               margin: 20px 0;
+              color: #D2D2D2;
+            }
+            .more-item-quantity {
+              font-size: 18px;
+              span {
+                font-size: 12px;
+                color: #D2D2D2;
+              }
+              .icon-top {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                line-height: 15px;
+                border-radius: 50%;
+                color: #fff;
+                background: #acacb6;
+              }
             }
           }
           .activeBorder {
@@ -625,6 +763,124 @@ export default {
             background: #858a86;
           }
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .games {
+    padding-top: 1.2rem;
+    .games-conent {
+      width: 90%;
+      margin: 0 auto;
+      .games-title {
+        font-size: 0.6rem;
+        margin-top: 0.8rem;
+      }
+      .game-list {
+        display: none;
+      }
+      .game-list-moblie {
+        display: block !important;
+        text-align: left;
+        .game-list-item {
+          border: 1px solid #666;
+          padding: 0.4rem 0.2rem;
+          color: #fff;
+          .game-list-item-detail {
+            margin-bottom: 0.6rem;
+            .game-list-item-name {
+              font-size: 0.45rem;
+              margin-bottom: 0.2rem;
+            }
+            .game-list-item-describe {
+              font-size: 0.25rem;
+              color: #a8a9ae;
+              margin-bottom: 0.2rem;
+            }
+            .game-list-item-type {
+              font-size: 0.3rem;
+              margin-bottom: 0.2rem;
+              color: #a8a9ae;
+              span {
+                color: #fff;
+              }
+            }
+            .game-list-item-state {
+              font-size: 0.3rem;
+              color: #a8a9ae;
+              span {
+                color: #fff;
+              }
+            }
+          }
+          .game-list-item-echart {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+            .game-list-item-echart-left {
+              .game-list-item-logo {
+                height: 3rem;
+                width: 2.4rem;
+                background: #909090;
+              }
+            }
+            .game-list-item-echart-right {
+            }
+          }
+          .game-list-item-btn {
+            display: flex;
+            div {
+              width: 1.6rem;
+              height: 0.6rem;
+              line-height: 0.6rem;
+              font-size: 0.2rem;
+              font-weight: 700;
+              text-align: center;
+              margin-right: 0.2rem;
+              color: #000;
+              background: url('./../../assets/account/bg.png') no-repeat;
+              background-size: 100% 100%;
+              cursor: pointer;
+            }
+            div:last-child {
+              color: #a7abac;
+              border: 1.5px dashed #000;
+              // border-color: rgba(0, 0, 0, 0);
+              // border-image: linear-gradient(0deg, #76d965, #d1ff9a) 10 10;
+              background: linear-gradient(90deg, #76d965 0%, #d1ff9a 100%);
+              background-origin: border-box;
+              div {
+                background: #000;
+                width: 1.55rem;
+                height: 0.55rem;
+                line-height: 0.55rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    /deep/.more-dialog {
+      width: 100%;
+      .more-dialog-data-list {
+        display: block !important;
+        li {
+          width: 100% !important;
+          display: flex;
+          align-items: center;
+          border-top: 0px !important;
+          border-left: 2px solid #D2D2D2;
+          div {
+            margin-left: 0.2rem !important;
+          }
+        }
+        .activeBorder {
+          border-left: 2px solid #76d965;
+        }
+      }
+      .more-dialog-echars {
+
       }
     }
   }

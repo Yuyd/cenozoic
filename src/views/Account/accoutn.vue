@@ -44,8 +44,14 @@
             <img src="./../../assets/account/game1.png" alt="" />
           </div>
           <div class="account-game-left-season">
-            <div>当前赛季：<span>第一赛季</span></div>
-            <div>投入的CENO: <span>984.34</span></div>
+            <div>
+              当前赛季：
+              <span>第一赛季</span>
+            </div>
+            <div>
+              投入的CENO:
+              <span>984.34</span>
+            </div>
           </div>
         </div>
         <div class="account-game-right">
@@ -209,7 +215,6 @@ export default {
       }
     }
     .account-game-right {
-      line-height: 120px;
       width: 227px;
       height: 73px;
       line-height: 73px;
@@ -225,17 +230,95 @@ export default {
   }
   .game-list {
     line-height: 120px;
-      width: 227px;
-      height: 73px;
-      line-height: 73px;
-      font-size: 24px;
-      font-weight: 600;
-      color: #000;
-      background: url('./../../assets/account/bg.png') no-repeat;
-      background-size: 100% 100%;
-      border-radius: 5px;
-      text-align: center;
-      cursor: pointer;
+    width: 227px;
+    height: 73px;
+    line-height: 73px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    background: url('./../../assets/account/bg.png') no-repeat;
+    background-size: 100% 100%;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .account {
+    padding-top: 1.2rem;
+    .account-conent {
+      width: 90%;
+      margin: 0 auto;
+      .account-information {
+        .account-information-left {
+          display: block;
+          .account-my {
+            margin-right: 0;
+            margin-bottom: 0.6rem;
+            font-size: 0.6rem;
+            align-items: baseline;
+            div {
+              width: 0.5rem;
+              height: 0.3rem;
+            }
+            .isBalance {
+              font-size: 0.4rem;
+            }
+          }
+          .account-balance {
+            font-size: 0.2rem;
+            .ong {
+              display: flex;
+            }
+            .segmentation {
+              margin: 0 0.2rem;
+              font-size: 0.3rem;
+            }
+          }
+          span {
+            font-size: 0.3rem;
+          }
+        }
+        .account-information-right {
+          display: none;
+        }
+      }
+      .account-my-game {
+        width: 100%;
+        font-size: 0.6rem;
+        margin: 1.2rem 0 0.6rem 0;
+      }
+      .account-game {
+        display: block;
+        padding: 0.3rem;
+        overflow: hidden;
+        .account-game-left {
+          .account-game-left-img {
+            width: 3.5rem;
+            height: 2rem;
+          }
+          .account-game-left-season {
+            margin-left: 0.3rem;
+            font-size: 0.25rem;
+            div {
+              margin-top: 0.4rem;
+              font-size: 0.2rem;
+              span {
+                font-size: 0.25rem;
+              }
+            }
+          }
+        }
+        .account-game-right {
+          width: 2rem;
+          height: .6rem;
+          line-height: .6rem;
+          font-size: .2rem;
+          margin: 0 auto;
+          margin-top: 1.2rem;
+        }
+      }
+    }
   }
 }
 </style>

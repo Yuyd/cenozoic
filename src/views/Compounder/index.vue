@@ -19,8 +19,12 @@
             <div
               class="echart1"
               id="myEchart1"
-              style="width: 450px; height: 350px;"
             ></div>
+            <!-- <div
+              class="echart2"
+              id="myEchart2"
+              style="width: 7.1rem; height: 6rem;"
+            ></div> -->
           </div>
         </div>
         <div class="compounder-trend-right">
@@ -84,7 +88,7 @@
                     <span>0</span>
                   </div>
                 </li>
-                <li>
+                <li class="mobile-none">
                   <div>
                     <div class="pledge-item-label">
                       <div>燃烧：</div>
@@ -104,7 +108,7 @@
                     </div>
                   </div>
                 </li>
-                <li>
+                <li class="mobile-none">
                   <div class="obtain">
                     <div class="pledge-item-label">
                       <div>得到：</div>
@@ -122,10 +126,42 @@
                     </div>
                   </div>
                 </li>
+                <li class="mobile-yes">
+                  <div class="pledge-item-label">
+                    <div>抵押：</div>
+                  </div>
+                  <div class="pledge-item-select">
+                    <div class="amount">0</div>
+                    <el-select v-model="pledgeValue1" placeholder="USDT">
+                      <el-option
+                        v-for="item in pledgeOptions1"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </div>
+                </li>
+                <li class="mobile-yes">
+                  <div class="pledge-item-label">
+                    <div>抵押：</div>
+                  </div>
+                  <div class="pledge-item-select">
+                    <div class="amount">0</div>
+                    <el-select v-model="pledgeValue1" placeholder="USDT">
+                      <el-option
+                        v-for="item in pledgeOptions1"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </div>
+                </li>
                 <li>
                   <el-button>提交</el-button>
                 </li>
-                <li>
+                <li class="mobile-none">
                   <p>
                     <b>!</b>
                     赎回U需要燃烧一定比例的ZOIC（填入CEON自动计算），可以通过玩游戏获得ZOIC,也可以通过市场自行购入。
@@ -619,6 +655,10 @@ export default {
           border: 1px solid #232323;
           padding: 20px 40px;
           height: 400px;
+          .echart1 {
+            width: 450px;
+            height: 350px;
+          }
         }
       }
       .compounder-trend-right {
@@ -755,6 +795,9 @@ export default {
               }
               li:nth-child(2) {
                 justify-content: space-between;
+              }
+              .mobile-yes {
+                display: none;
               }
             }
             .income {
@@ -977,6 +1020,199 @@ export default {
           border-radius: 0 0 8px 8px;
           .paginate {
             width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compounder {
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    .compounder-conent {
+      width: 90%;
+      margin: 0 auto;
+      .compounder-top {
+        display: block;
+        margin: 1.5rem 0;
+        div:first-child {
+          font-size: 0.5rem;
+          font-weight: 600;
+        }
+        div:last-child {
+          div:first-child {
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            color: #c7fa7e;
+            font-size: 16px;
+            font-weight: 400;
+            border-top: 1px solid #c7fa7e;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+          }
+          div:last-child {
+            font-size: 24px;
+            color: #acacb5;
+          }
+        }
+      }
+      .compounder-trend {
+        display: block;
+        .compounder-trend-left {
+          width: 100%;
+          margin-bottom: 1.4rem;
+          .compounder-trend-left-chart {
+            height: 100%;
+            padding: 0.2rem;
+            border-radius: 0.1rem;
+            .echart1 {
+            width: 6.9rem;
+            height: 6rem;
+          }
+          }
+        }
+        .compounder-trend-right {
+          width: 100%;
+          .compounder-trend-right-chart {
+            .chart-border {
+              height: 6rem;
+              padding: 0.2rem 0.3rem;
+              .pledge {
+                /deep/.el-select {
+                  width: 2rem;
+                }
+              }
+              .redemption {
+                .mobile-none {
+                  display: none;
+                }
+                .mobile-yes {
+                  display: block;
+                  margin-bottom: 20px;
+                  .pledge-item-label {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                    color: #a7a9ae;
+                  }
+                  .pledge-item-select {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 10px 5px;
+                    border: 1px solid #232323;
+                    border-radius: 5px;
+                    .amount {
+                      font-size: 48px;
+                      color: #acacb5;
+                    }
+                    /deep/.el-select {
+                      width: 2rem;
+                      .el-input {
+                        input {
+                          background: #1e293b;
+                          border: 0px;
+                          color: #acacb5;
+                        }
+                        .el-select__caret {
+                          color: #acacb5;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              .details {
+                li {
+                  .list-item {
+                    div:nth-child(1) {
+                      font-size: 0.25rem;
+                    }
+                    div:nth-child(2) {
+                      font-size: 0.25rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .compounder-bottom {
+        display: block;
+        .compounder-bottom-left {
+          width: 100%;
+          margin-bottom: 1.4rem;
+          .compounder-bottom-left-box {
+            .compounder-bottom-list {
+              height: 100%;
+              li {
+                font-size: 0.3rem;
+              }
+              li:first-child {
+                font-size: 0.35rem;
+              }
+            }
+          }
+          .compounder-bottom-paging {
+            height: 0.8rem;
+            padding: 0.2rem;
+            /deep/.paginatine {
+              div {
+                margin: 0 .05rem;
+              }
+              font-size: 0.2rem;
+              .pain-left {
+                width: 0.3rem;
+              }
+            }
+          }
+        }
+        .compounder-bottom-right {
+          width: 100%;
+          .compounder-bottom-right-box {
+            padding: 0.3rem 0.2rem;
+            .compounder-bottom-active {
+              height: 100%;
+              li {
+                .compounder-bottom-active-left {
+                  .active-icon {
+                    width: 0.6rem;
+                    height: 0.6rem;
+                  }
+                  .active-list {
+                    div:nth-child(1) {
+                      font-size: 0.3rem;
+                    }
+                    div:nth-child(2) {
+                      font-size: 0.2rem;
+                    }
+                  }
+                }
+                .compounder-bottom-active-right {
+                  div:nth-child(1) {
+                    font-size: 0.3rem;
+                  }
+                  div:nth-child(2) {
+                    font-size: 0.2rem;
+                  }
+                }
+              }
+            }
+          }
+          .compounder-bottom-paging {
+            height: 0.8rem;
+            padding: 0.2rem;
+            /deep/.paginatine {
+              div {
+                margin: 0 .05rem;
+              }
+              font-size: 0.2rem;
+              .pain-left {
+                width: 0.3rem;
+              }
+            }
           }
         }
       }

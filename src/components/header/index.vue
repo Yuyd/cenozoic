@@ -62,6 +62,25 @@
               </span>
             </div>
           </li>
+          <li v-show="tabBlock" class="mobile-list mobile-left-list">
+            <div v-show="!isTabList" class="list-btn" @click="tabList">
+              <img src="./../../assets/comment/pole.png" alt="" />
+            </div>
+            <div v-show="isTabList" class="list-btn" @click="isTabList = false">
+              <!-- <img src="./../../assets/comment/point01.jpg" alt="" /> -->
+              <i class="el-icon-close"></i>
+            </div>
+            <div v-show="isTabList" class="tab-list-item">
+              <div v-for="(item, index) in tableList2" :key="index">
+                <span
+                  @click="goNext1(item, index)"
+                  :class="{ active: cur == index }"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+          </li>
           <li>
             <div>
               <el-dropdown @command="handleCommand">
@@ -95,7 +114,7 @@
               </el-dropdown>
             </div>
           </li>
-          <li class="connect-white">
+          <li v-show="tabShow" class="connect-white">
             <div class="link-white">
               <div v-if="!myAddress" @click="whiteClick">
                 {{ $t('header.connect') }}
@@ -121,7 +140,33 @@
             </div>
             <!-- <span>{{ myAddress }}</span> -->
           </li>
-          <li class="mobile-list">
+          <li v-show="tabBlock" class="connect-white mobile-white">
+            <div class="link-white">
+              <div v-if="!myAddress" class="btnBg" @click="whiteClick">
+                {{ $t('header.connect') }}
+              </div>
+              <div v-else class="header-address" @click="toAccount">
+                <span>
+                  {{ myAddress.slice(0, 7) }}
+                </span>
+                <span>
+                  {{ myAddress.slice(-4) }}
+                </span>
+              </div>
+            </div>
+            <div v-show="isShow" class="white-list">
+              <li @click="toWhiteMetaMask">
+                <div class="white-logo">
+                  <img src="./../../assets/comment/6.png" alt="" />
+                </div>
+                <div class="white-name">
+                  MetaMask
+                </div>
+              </li>
+            </div>
+            <!-- <span>{{ myAddress }}</span> -->
+          </li>
+          <li v-show="tabShow" class="mobile-list">
             <div v-show="!isTabList" class="list-btn" @click="tabList">
               <img src="./../../assets/comment/pole.png" alt="" />
             </div>
@@ -201,7 +246,7 @@ export default {
   },
   props: {
     tabShow: Boolean,
-    tabBlock: Boolean
+    tabBlock: Boolean,
   },
   data() {
     return {
@@ -239,8 +284,7 @@ export default {
     //   }
     // }
   },
-  created() {
-  },
+  created() {},
   mounted() {
     // this.tabShow = window.location.href.split('H')
 
@@ -307,7 +351,6 @@ export default {
     },
     goNext1(selector, index) {
       this.cur1 = index
-      console.log(index,'0---')
       // this.isTabList = false
       // this.$bus.$emit('anchorPoint', selector)
       switch (index) {
@@ -326,7 +369,7 @@ export default {
             name: 'games',
           })
           break
-          case 3:
+        case 3:
           this.$router.push({
             name: 'integral',
           })
@@ -964,6 +1007,7 @@ export default {
       .header-right {
         margin-right: 0.1rem;
         div {
+          justify-content: center;
           li {
             padding: 0;
             .el-dropdown {
@@ -1004,6 +1048,26 @@ export default {
                 height: 0.8rem;
                 line-height: 0.4rem;
               }
+            }
+          }
+          .mobile-left-list {
+            .tab-list-item {
+              left: -3.1rem;
+              width: 100vw;
+              padding: 0;
+              div {
+                justify-content: center;
+              }
+            }
+          }
+          .mobile-white {
+            color: #fff;
+            background: none;
+            .btnBg {
+              width: 100%;
+              color: #000;
+              // background: #abf47c;
+              background: linear-gradient(to right, #46d44a, #abf47c);
             }
           }
           .connect-white {
